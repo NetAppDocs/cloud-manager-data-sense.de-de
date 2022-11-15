@@ -1,0 +1,361 @@
+---
+sidebar: sidebar 
+permalink: reference-private-data-categories.html 
+keywords: personal files, personal data, sensitive personal files, sensitive personal data, categories, health data, ethnic origin, political opinions, gdpr, email address, credit card, ip address, iban, national ID, identifier, sex, criminal, compliance, privacy, 
+summary: Es gibt viele Arten von privaten Daten, die Cloud Data Sense in Ihren Volumes, Amazon S3 Buckets, Datenbanken, OneDrive Ordnern, SharePoint Konten, Und Google Drive Konten. 
+---
+= Kategorien von privaten Daten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Es gibt viele Arten von privaten Daten, die Cloud Data Sense in Ihren Volumes, Amazon S3 Buckets, Datenbanken, OneDrive Ordnern, SharePoint Konten, Und Google Drive Konten. Sehen Sie sich die folgenden Kategorien an.
+
+
+TIP: Wenn Sie Cloud Data Sense zur Identifizierung anderer privater Datentypen benötigen, z. B. zusätzliche nationale ID-Nummern oder Kennungen des Gesundheitswesens, senden Sie eine E-Mail an ng-contact-data-sense@netapp.com mit Ihrer Anfrage.
+
+
+
+== Arten personenbezogener Daten
+
+Die in Dateien gefundenen personenbezogenen Daten können allgemeine personenbezogene Daten oder nationale Kennungen sein. In der dritten Spalte wird bestimmt, ob Cloud Data Sense verwendet wird link:task-controlling-private-data.html#viewing-files-that-contain-personal-data["Prüfung der Nähe"^] Zum Validieren seiner Ergebnisse für die Kennung.
+
+Die Artikel in dieser Kategorie können in jeder Sprache erkannt werden.
+
+Beachten Sie, dass Sie der Liste der persönlichen Daten, die in Ihren Dateien gefunden werden, hinzufügen können, wenn Sie einen Datenbank-Server scannen. Mit der Funktion _Data Fusion_ können Sie die zusätzlichen Kennungen auswählen, die Cloud Data Sense bei seinen Scans sucht, indem Sie Spalten in einer Datenbanktabelle auswählen. Siehe link:task-managing-data-fusion.html["Hinzufügen von ID-Kennungen unter Verwendung von Data Fusion"^] Entsprechende Details.
+
+[cols="20,50,18"]
+|===
+| Typ | Kennung | Näherungsvalidierung? 
+
+
+.6+| Allgemein | E-Mail-Adresse | Nein 
+
+
+| Kreditkartennummer | Nein 
+
+
+| Betroffenen | Nein 
+
+
+| IBAN-Nummer (International Bank Account Number) | Nein 
+
+
+| IP-Adresse | Nein 
+
+
+| Passwort | Ja. 
+
+
+.50+| Nationale Kennungen | Australischer TFN (Steuerdateinummer) | Ja. 
+
+
+| Australische Führerschein | Ja. 
+
+
+| Australian Medicare Number | Ja. 
+
+
+| Australian Passport Number | Ja. 
+
+
+| Österreichische SSN | Ja. 
+
+
+| Belgischer Ausweis (Numero National) | Ja. 
+
+
+| Brasilianischer Ausweis (CPF) | Ja. 
+
+
+| British Passport | Ja. 
+
+
+| Bulgarische ID (UCN) | Ja. 
+
+
+| California Driver's License | Ja. 
+
+
+| Kroatische ID (OIB) | Ja. 
+
+
+| Zypern Steuernummer (TIC) | Ja. 
+
+
+| Tschechische/Slowakische Ausweisnummer | Ja. 
+
+
+| Dänische ID (HLW) | Ja. 
+
+
+| Niederländische ID (BSN) | Ja. 
+
+
+| Estnische ID | Ja. 
+
+
+| Finnische ID (HETU) | Ja. 
+
+
+| Französische Führerschein | Ja. 
+
+
+| Französische ID | Ja. 
+
+
+| Französisch INSEE | Ja. 
+
+
+| Französische Sozialversicherungsnummer | Ja. 
+
+
+| Französische Steuernummer (SPI) | Ja. 
+
+
+| Steuernummer (Steuerliche Identifikationsnummer) | Ja. 
+
+
+| Griechische ID | Ja. 
+
+
+| Ungarische Steuernummer | Ja. 
+
+
+| Indiana Driver's License | Ja. 
+
+
+| Irish ID (PPS) | Ja. 
+
+
+| Israelische ID | Ja. 
+
+
+| Italienische Steuernummer | Ja. 
+
+
+| Lettischer Ausweis | Ja. 
+
+
+| Litauische ID | Ja. 
+
+
+| Luxemburg-ID | Ja. 
+
+
+| Maltesische ID | Ja. 
+
+
+| NHS-Nummer (National Health Service) | Ja. 
+
+
+| New York Führerschein | Ja. 
+
+
+| Konto Einer Neuseeländischen Bank | Ja. 
+
+
+| Neuseeländische Führerschein | Ja. 
+
+
+| Neuseeland-IRD-Nummer (Steuernummer) | Ja. 
+
+
+| Neuseeland NHI (National Health Index) Nummer  | Ja. 
+
+
+| Neuseeländische Passnummer | Ja. 
+
+
+| Polish ID (PESEL) | Ja. 
+
+
+| Portugiesische Steuernummer (NIF) | Ja. 
+
+
+| Rumänische ID (CNP) | Ja. 
+
+
+| Slowenische ID (EMSO) | Ja. 
+
+
+| Südafrikanischer Ausweis | Ja. 
+
+
+| Spanische Steuernummer | Ja. 
+
+
+| Schwedische ID | Ja. 
+
+
+| Texas Driver's License | Ja. 
+
+
+| GROSSBRITANNIEN ID (NINO) | Ja. 
+
+
+| USA Sozialversicherungsnummer (SSN) | Ja. 
+|===
+
+
+== Arten sensibler personenbezogener Daten
+
+Die sensiblen personenbezogenen Daten, die Cloud Data Sense in Dateien finden kann, umfassen die folgende Liste: Die Artikel in dieser Kategorie können derzeit nur auf Englisch erkannt werden.
+
+Referenz Für Kriminelle Verfahren:: Daten zu strafrechtlichen Überzeugungen und Straftaten einer natürlichen Person.
+Ethnische Referenz:: Daten über die rassische oder ethnische Herkunft einer natürlichen Person.
+Systemzustand:: Daten über die Gesundheit einer natürlichen Person.
+ICD-9-CM-Ärztliche Codes:: Codes, die in der Medizin- und Gesundheitsbranche verwendet werden.
+ICD-10-CM-Ärztliche Codes:: Codes, die in der Medizin- und Gesundheitsbranche verwendet werden.
+Philosophische Überzeugungen Referenz:: Daten über die philosophischen Überzeugungen einer natürlichen Person.
+Politische Meinungen Referenz:: Daten über die politischen Meinungen einer natürlichen Person.
+Religiöse Überzeugungen Referenz:: Daten über die religiösen Überzeugungen einer natürlichen Person.
+Sexualleben oder Orientierung Referenz:: Daten über das Sexualleben einer natürlichen Person oder die sexuelle Orientierung.
+
+
+
+
+== Arten von Kategorien
+
+Cloud Data Sense kategorisiert Ihre Daten wie folgt. Die meisten dieser Kategorien können in Englisch, Deutsch und Spanisch anerkannt werden.
+
+[cols="25,25,15,15,15"]
+|===
+| Kategorie | Typ | Englisch | Deutsch | Spanisch 
+
+
+.4+| Finanzen | Bilanz | ✓ | ✓ | ✓ 
+
+
+| Bestellungen | ✓ | ✓ | ✓ 
+
+
+| Rechnungen | ✓ | ✓ | ✓ 
+
+
+| Vierteljährliche Berichte | ✓ | ✓ | ✓ 
+
+
+.6+| HR | Background-Checks | ✓ |  | ✓ 
+
+
+| Vergütungspläne | ✓ | ✓ | ✓ 
+
+
+| Mitarbeiterverträge | ✓ |  | ✓ 
+
+
+| Mitarbeiterbewertung | ✓ |  | ✓ 
+
+
+| Systemzustand | ✓ |  | ✓ 
+
+
+| Wird Fortgesetzt | ✓ | ✓ | ✓ 
+
+
+.2+| Legal | NDAs | ✓ | ✓ | ✓ 
+
+
+| Verträge zwischen Anbietern und Kunden | ✓ | ✓ | ✓ 
+
+
+.2+| Marketing | Kampagnen | ✓ | ✓ | ✓ 
+
+
+| Konferenzen | ✓ | ✓ | ✓ 
+
+
+| Betrieb | Audit-Berichte | ✓ | ✓ | ✓ 
+
+
+| Vertrieb | Aufträge | ✓ | ✓ |  
+
+
+.4+| Services | RFI | ✓ |  | ✓ 
+
+
+| AUSSCHREIBUNG | ✓ |  | ✓ 
+
+
+| SOW | ✓ | ✓ | ✓ 
+
+
+| Schulung | ✓ | ✓ | ✓ 
+
+
+| Unterstützung | Reklamationen und Tickets | ✓ | ✓ | ✓ 
+|===
+Die folgenden Metadaten werden ebenfalls kategorisiert und in den gleichen unterstützten Sprachen identifiziert:
+
+* Applikationsdaten
+* Archivdateien
+* Audio
+* Daten Von Business-Applikationen
+* CAD-Dateien
+* Codieren
+* Beschädigt
+* Datenbank- und Indexdateien
+* Daten Spüren Breadcrumbs
+* Design-Dateien
+* E-Mail-Anwendungsdaten
+* Verschlüsselt
+* Ausführbare Dateien
+* Daten Aus Finanzapplikationen
+* Daten Der Integritätsanwendungen
+* Bilder
+* Protokolle
+* Verschiedene Dokumente
+* Diverse Präsentationen
+* Verschiedene Tabellenkalkulationen
+* Verschiedenes „Unbekannt“
+* Strukturierte Daten
+* Videos
+* Zero-Byte-Dateien
+
+
+
+
+== Dateitypen
+
+Cloud Data Sense scannt alle Dateien nach Informationen zu Kategorie und Metadaten und zeigt alle Dateitypen im Abschnitt Dateitypen des Dashboards an.
+
+Wenn Data Sense jedoch personenbezogene Daten (PII) erkennt oder eine DSAR-Suche durchführt, werden nur die folgenden Dateiformate unterstützt:
+
+`+.CSV, .DCM, .DICOM, .DOC, .DOCX, .JSON, .PDF, .PPTX, .RTF, .TXT, .XLS, .XLSX, Docs, Sheets, and Slides+`
+
+
+
+== Genauigkeit der gefundenen Informationen
+
+NetApp kann keine Garantie für 100 % der Genauigkeit persönlicher Daten und sensibler personenbezogener Daten, die Cloud Data Sense identifiziert. Überprüfen Sie die Informationen immer, indem Sie die Daten überprüfen.
+
+Auf der Grundlage unserer Tests zeigt die folgende Tabelle die Genauigkeit der Informationen, die Data Sense findet. Wir brechen es durch _Precision_ und _Recall_ ab:
+
+Präzision:: Die Wahrscheinlichkeit, dass das, was Data Sense findet, korrekt identifiziert wurde. Beispielsweise bedeutet eine Datengenauigkeit von 90% für personenbezogene Daten, dass 9 von 10 Dateien, die als personenbezogene Daten identifiziert werden, tatsächlich personenbezogene Daten enthalten. 1 von 10 Dateien wäre falsch positiv.
+Rückruf:: Die Wahrscheinlichkeit, dass Daten sinnvoll zu finden, was sie sollten. Beispielsweise bedeutet eine Rückrufquote von 70 % für personenbezogene Daten, dass Data Sense 7 von 10 Dateien identifizieren kann, die tatsächlich personenbezogene Daten in Ihrem Unternehmen enthalten. Data Sense würde 30% der Daten vermissen und es wird nicht im Dashboard erscheinen.
+
+
+Wir verbessern die Genauigkeit unserer Ergebnisse ständig. Diese Verbesserungen werden in zukünftigen Data Sense Versionen automatisch verfügbar sein.
+
+[cols="25,20,20"]
+|===
+| Typ | Präzision | Rückruf 
+
+
+| Personenbezogene Daten - Allgemeines | 90 % - 95 % | 60 % - 80 % 
+
+
+| Persönliche Daten – Länderkennungen | 30 % - 60 % | 40 % - 60 % 
+
+
+| Sensible persönliche Daten | 80 % - 95 % | 20 % - 30 % 
+
+
+| Kategorien | 90 % - 97 % | 60 % - 80 % 
+|===

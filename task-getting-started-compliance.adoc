@@ -1,0 +1,219 @@
+---
+sidebar: sidebar 
+permalink: task-getting-started-compliance.html 
+keywords: cloud compliance, get started, enable cloud compliance, cifs credentials, smb credentials, cloud compliance access, privacy, compliance, dp volumes, data protection volumes, CVO, Cloud Volumes ONTAP, data sense 
+summary: Führen Sie einige Schritte aus, um Ihren Cloud Volumes ONTAP und Ihre ONTAP Volumes vor Ort mithilfe von Cloud Data Sense zu scannen. 
+---
+= Erste Schritte mit Cloud Data Sense für Cloud Volumes ONTAP und On-Premises-ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Führen Sie einige Schritte aus, um Ihren Cloud Volumes ONTAP und Ihre ONTAP Volumes vor Ort mithilfe von Cloud Data Sense zu scannen.
+
+
+
+== Schnellstart
+
+Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
+
+[role="quick-margin-para"]
+Bevor Sie Volumes scannen können, müssen Sie die Systeme als Arbeitsumgebung in BlueXP hinzufügen:
+
+* Bei Cloud Volumes ONTAP-Systemen sollten diese Arbeitsumgebungen bereits in BlueXP zur Verfügung stehen
+* Für On-Premises-ONTAP-Systeme bietet die https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["BlueXP muss die ONTAP Cluster ermitteln"^]
+
+
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
+
+[role="quick-margin-para"]
+Klicken Sie auf *Data Sense*, wählen Sie die Registerkarte *Konfiguration* und aktivieren Sie Compliance-Scans für Volumes in bestimmten Arbeitsumgebungen.
+
+[role="quick-margin-para"]
+Jetzt, da Cloud Data Sense aktiviert ist, stellen Sie sicher, dass er auf alle Volumes zugreifen kann.
+
+* Die Cloud Data Sense Instanz benötigt eine Netzwerkverbindung zu jedem Cloud Volumes ONTAP-Subnetz oder On-Prem ONTAP-System.
+* Sicherheitsgruppen für Cloud Volumes ONTAP müssen eingehende Verbindungen aus der Datensense-Instanz zulassen.
+* Stellen Sie sicher, dass diese Ports für die Data Sense-Instanz offen sind:
++
+** Für NFS – die Ports 111 und 2049.
+** Für CIFS – die Ports 139 und 445.
+
+
+* NFS-Volume-Exportrichtlinien müssen den Zugriff aus der Data Sense Instanz zulassen.
+* Data Sense benötigt Active Directory-Anmeldeinformationen zum Scannen von CIFS-Volumes.
++
+Klicken Sie auf *Compliance* > *Konfiguration* > *CIFS-Anmeldeinformationen bearbeiten* und geben Sie die Anmeldeinformationen an.
+
+
+
+[role="quick-margin-para"]
+Wählen oder deaktivieren Sie die Volumes, die Sie scannen möchten, und Cloud Data Sense startet oder beendet den Scanvorgang.
+
+
+
+== Ermitteln der Datenquellen, die gescannt werden sollen
+
+Wenn sich die zu scannenden Datenquellen nicht bereits in Ihrer BlueXP-Umgebung befinden, können Sie diese zu diesem Zeitpunkt zur Leinwand hinzufügen.
+
+Ihre Cloud Volumes ONTAP-Systeme sollten bereits auf dem Canvas in BlueXP verfügbar sein. Bei ONTAP Systemen vor Ort ist ein muss erforderlich https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["BlueXP ermittelt diese Cluster"^].
+
+
+
+== Bereitstellen der Cloud Data Sense Instanz
+
+Implementieren Sie Cloud-Daten sinnvoll, wenn noch keine Instanz implementiert ist.
+
+Wenn Sie Cloud Volumes ONTAP und lokale ONTAP Systeme scannen, die über das Internet zugänglich sind, können Sie diese ausführen link:task-deploy-cloud-compliance.html["Cloud-Daten sinnvoll in der Cloud implementieren"^] Oder link:task-deploy-compliance-onprem.html["In einer Anlage mit Internetzugang"^].
+
+Wenn Sie lokale ONTAP-Systeme scannen, die in einer dunklen Site installiert wurden und über keinen Internetzugang verfügen, müssen Sie sie überprüfen link:task-deploy-compliance-dark-site.html["Cloud Data Sense implementieren – auf demselben lokalen Standort ohne Internetzugang"^]. Dazu ist auch die Implementierung des BlueXP Connectors am selben Standort erforderlich.
+
+Upgrades auf die Software Data Sense werden automatisiert, solange die Instanz über eine Internetverbindung verfügt.
+
+
+
+== Cloud-Daten sinnvoll in Ihren Arbeitsumgebungen einsetzen
+
+Sie können Cloud Data Sense auf Cloud Volumes ONTAP Systemen in jedem unterstützten Cloud-Provider und On-Premises ONTAP Clustern aktivieren.
+
+. Klicken Sie im Navigationsmenü von BlueXP links auf *Governance > Klassifizierung* und dann auf die Registerkarte *Konfiguration*.
++
+image:screenshot_cloud_compliance_we_scan_config.png["Ein Screenshot der Registerkarte Configuration, unmittelbar nach der Bereitstellung der Cloud Data Sense-Instanz."]
+
+. Wählen Sie aus, wie die Volumes in den einzelnen Arbeitsumgebungen gescannt werden sollen. link:concept-cloud-compliance.html#whats-the-difference-between-mapping-and-classification-scans["Hier erfahren Sie mehr über Mapping und Klassifizierungsmessungen"]:
++
+** Um alle Volumes zuzuordnen, klicken Sie auf *Alle Volumes zuordnen*.
+** Um alle Bände zu ordnen und zu klassifizieren, klicken Sie auf *Karte & alle Bände klassifizieren*.
+** Um den Scan für jedes Volume anzupassen, klicken Sie auf *oder wählen Sie für jedes Volume* den Scantyp aus, und wählen Sie dann die Volumes aus, die Sie zuordnen und/oder klassifizieren möchten.
++
+Siehe  and disabling compliance scans on volumes,Aktivieren und Deaktivieren von Compliance-Scans auf Volumes Entsprechende Details.
+
+
+
+. Klicken Sie im Bestätigungsdialogfeld auf *Genehmigen*, damit Data Sense Ihre Volumes scannen kann.
+
+
+Cloud Data Sense beginnt mit dem Scannen der Volumes, die Sie in der Arbeitsumgebung ausgewählt haben. Die Ergebnisse werden im Compliance-Dashboard verfügbar sein, sobald Cloud Data Sense die ersten Scans beendet hat. Die Dauer, die von der Datenmenge abhängt, kann ein paar Minuten oder Stunden betragen.
+
+
+
+== Es wird sichergestellt, dass Cloud Data Sense Zugriff auf Volumes hat
+
+Stellen Sie sicher, dass Cloud Data Sense auf Volumes zugreifen kann, indem Sie Ihre Netzwerk-, Sicherheitsgruppen- und Exportrichtlinien prüfen. Sie müssen Data Sense mit CIFS Credentials bereitstellen, um auf CIFS Volumes zugreifen zu können.
+
+.Schritte
+. Vergewissern Sie sich, dass es eine Netzwerkverbindung zwischen der Cloud Data Sense Instanz und jedem Netzwerk gibt, das Volumes für Cloud Volumes ONTAP oder lokale ONTAP Cluster enthält.
+. Stellen Sie sicher, dass die Sicherheitsgruppe für Cloud Volumes ONTAP eingehenden Datenverkehr aus der Datensense-Instanz zulässt.
++
+Sie können entweder die Sicherheitsgruppe für den Datenverkehr von der IP-Adresse der Instanz Data Sense öffnen oder die Sicherheitsgruppe für den gesamten Datenverkehr im virtuellen Netzwerk öffnen.
+
+. Stellen Sie sicher, dass die folgenden Ports für die Data Sense-Instanz offen sind:
++
+** Für NFS – die Ports 111 und 2049.
+** Für CIFS – die Ports 139 und 445.
+
+
+. Stellen Sie sicher, dass die NFS-Volume-Exportrichtlinien die IP-Adresse der Data Sense Instanz enthalten, damit sie auf die Daten auf jedem Volume zugreifen können.
+. Wenn Sie CIFS verwenden, geben Sie Data Sense mit Active Directory Anmeldeinformationen ein, damit CIFS Volumes gescannt werden können.
++
+.. Klicken Sie im Navigationsmenü von BlueXP links auf *Governance > Klassifizierung* und dann auf die Registerkarte *Konfiguration*.
++
+image:screenshot_cifs_credentials.gif["Ein Screenshot der Registerkarte „Compliance“ mit der Schaltfläche „Scanstatus“, die oben rechts im Inhaltsfenster verfügbar ist."]
+
+.. Klicken Sie für jede Arbeitsumgebung auf *CIFS-Anmeldeinformationen bearbeiten* und geben Sie den Benutzernamen und das Kennwort ein, die Data Sense für den Zugriff auf CIFS-Volumes auf dem System benötigt.
++
+Die Anmeldedaten können schreibgeschützt sein. Durch die Admin-Berechtigungen wird jedoch sichergestellt, dass Data Sense alle Daten lesen kann, die erhöhte Berechtigungen benötigen. Die Anmeldedaten werden in der Cloud Data Sense Instanz gespeichert.
+
++
+Wenn Sie sicherstellen möchten, dass Ihre Dateien „letzte Zugriffszeiten“ durch Data Sense Klassifizierungsscans unverändert bleiben, empfehlen wir dem Benutzer die Berechtigung Schreibattribute zu besitzen. Wenn möglich, empfehlen wir, den Active Directory-konfigurierten Benutzer in eine übergeordnete Gruppe in der Organisation mit Berechtigungen für alle Dateien zu integrieren.
+
++
+Nach Eingabe der Anmeldedaten sollte eine Meldung angezeigt werden, dass alle CIFS-Volumes erfolgreich authentifiziert wurden.
+
++
+image:screenshot_cifs_status.gif["Ein Screenshot, der die Konfigurationsseite und ein Cloud Volumes ONTAP System anzeigt, für das CIFS-Anmeldedaten erfolgreich bereitgestellt wurden."]
+
+
+
+. Klicken Sie auf der Seite _Configuration_ auf *Details anzeigen*, um den Status für jedes CIFS- und NFS-Volume zu überprüfen und eventuelle Fehler zu beheben.
++
+Das folgende Bild zeigt beispielsweise vier Volumes, von denen Cloud Data Sense aufgrund von Netzwerkverbindungsproblemen zwischen der Data Sense Instanz und dem Volume nicht scannen kann.
+
++
+image:screenshot_compliance_volume_details.gif["Ein Screenshot der Seite „Details anzeigen“ in der Scankonfiguration mit vier Volumes, von denen einer aufgrund der Netzwerkverbindung zwischen Data Sense und Volume nicht gescannt wird."]
+
+
+
+
+
+== Aktivieren und Deaktivieren von Compliance-Scans auf Volumes
+
+Sie können jederzeit auf der Konfigurationsseite Scans oder Scans von nur-Zuordnungen oder Klassifizierungen in einer Arbeitsumgebung starten oder stoppen. Sie können auch von mappingonly Scans zu Mapping- und Klassifizierungsscans und umgekehrt wechseln. Wir empfehlen, alle Volumen zu scannen.
+
+image:screenshot_volume_compliance_selection.png["Ein Screenshot der Konfigurationsseite, auf der Sie das Scannen einzelner Volumes aktivieren oder deaktivieren können."]
+
+[cols="45,45"]
+|===
+| An: | Tun Sie dies: 
+
+
+| Aktivieren von mappinggeschützten Scans auf einem Volume | Klicken Sie im Volumenbereich auf *Karte* 
+
+
+| Aktivieren Sie das vollständige Scannen auf einem Volume | Klicken Sie im Volumenbereich auf *Karte & Klassieren* 
+
+
+| Deaktivieren Sie das Scannen auf einem Volume | Klicken Sie im Volumenbereich auf *aus* 
+
+
+|  |  
+
+
+| Aktivieren Sie ausschließlich mappingbare Scans auf allen Volumes | Klicken Sie im Steuerkursbereich auf *Karte* 
+
+
+| Aktivieren Sie das vollständige Scannen auf allen Volumes | Klicken Sie im Bereich Überschrift auf *Karte & Klassieren* 
+
+
+| Deaktivieren Sie das Scannen auf allen Volumes | Klicken Sie im Bereich Überschrift auf *aus* 
+|===
+
+NOTE: Neue Volumen, die der Arbeitsumgebung hinzugefügt wurden, werden automatisch nur gescannt, wenn Sie die Einstellung *Karte* oder *Karte & Klassieren* im Steuerkursbereich festgelegt haben. Wenn Sie im Bereich Überschrift auf *Benutzerdefiniert* oder *aus* eingestellt sind, müssen Sie für jedes neue Volumen, das Sie in der Arbeitsumgebung hinzufügen, das Mapping und/oder das vollständige Scannen aktivieren.
+
+
+
+== Scannen von Datensicherungs-Volumes
+
+Standardmäßig werden Datensicherungs-Volumes nicht gescannt, weil sie nicht extern zugänglich sind und Cloud Data Sense nicht auf sie zugreifen kann. Es handelt sich dabei um Ziel-Volumes für SnapMirror Vorgänge von einem ONTAP System vor Ort oder von einem Cloud Volumes ONTAP System aus.
+
+Zunächst erkennt die Volume-Liste diese Volumes als _Type_ *DP* mit dem _Status_ *Not Scanning* und der _required Action_ *Enable Access to DP Volumes*.
+
+image:screenshot_cloud_compliance_dp_volumes.png["Ein Screenshot mit der Schaltfläche Zugriff auf DP-Volumes aktivieren, die Sie zum Scannen von Datensicherungs-Volumes auswählen können."]
+
+Wenn Sie diese Datensicherungs-Volumes scannen möchten:
+
+. Klicken Sie oben auf der Seite auf *Zugriff auf DP-Volumes aktivieren*.
+. Überprüfen Sie die Bestätigungsmeldung und klicken Sie erneut auf *Zugriff auf DP-Volumes*.
++
+** Volumes, die anfangs als NFS Volumes im ONTAP Quellsystem erstellt wurden, sind aktiviert.
+** Für Volumes, die ursprünglich als CIFS Volumes im Quell-ONTAP System erstellt wurden, müssen Sie die CIFS-Anmeldeinformationen eingeben, um diese DP-Volumes zu scannen. Wenn Sie bereits Active Directory-Anmeldeinformationen eingegeben haben, damit Cloud Data Sense CIFS-Volumes scannen kann, können Sie diese Anmeldedaten verwenden oder einen anderen Satz von Admin-Anmeldeinformationen angeben.
++
+image:screenshot_compliance_dp_cifs_volumes.png["Ein Screenshot der beiden Optionen zur Aktivierung von CIFS Datensicherungs-Volumes"]
+
+
+
+. Aktivieren Sie jedes zu scannenden DP-Volume  and disabling compliance scans on volumes,Auf die gleiche Weise haben Sie andere Volumes aktiviert.
+
+
+Sobald Cloud Data Sense aktiviert ist, erstellt Cloud Data Sense eine NFS-Freigabe von jedem DP-Volume, das zum Scannen aktiviert wurde. Die Exportrichtlinien für die Freigabe erlauben nur den Zugriff aus der Instanz Data Sense.
+
+*Hinweis:* Wenn Sie beim ersten Aktivieren des Zugriffs auf DP-Volumes keine CIFS-Datenschutzvolumes hatten und später noch etwas hinzufügen, erscheint oben auf der Konfigurationsseite die Schaltfläche *Zugriff auf CIFS DP aktivieren*. Klicken Sie auf diese Schaltfläche, und fügen Sie CIFS-Anmeldeinformationen hinzu, um den Zugriff auf diese CIFS-DP-Volumes zu ermöglichen.
+
+
+NOTE: Active Directory – Zugangsdaten sind nur in der Storage-VM des ersten CIFS-DP Volumes registriert. Somit werden alle DP-Volumes auf dieser SVM gescannt. Auf allen Volumes, die sich auf anderen SVMs befinden, sind keine Active Directory Anmeldedaten registriert, daher werden diese DP-Volumes nicht gescannt.

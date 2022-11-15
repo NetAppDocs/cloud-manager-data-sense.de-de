@@ -1,0 +1,251 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-s3.html 
+keywords: cloud compliance, amazon s3, s3 buckets, amazon s3 buckets, scan s3 buckets, scan amazon s3 buckets, enable compliance s3, enable compliance on s3, s3 working environment, data sense 
+summary: Cloud Data Sense kann Ihre Amazon S3 Buckets scannen, um die persönlichen und sensiblen Daten zu identifizieren, die sich im S3 Objekt-Storage befinden. Cloud Data Sense kann jeden Bucket im Konto scannen, unabhängig davon, ob er für eine NetApp Lösung erstellt wurde. 
+---
+= Erste Schritte mit Cloud Data Sense für Amazon S3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Data Sense kann Ihre Amazon S3 Buckets scannen, um die persönlichen und sensiblen Daten zu identifizieren, die sich im S3 Objekt-Storage befinden. Cloud Data Sense kann jeden Bucket im Konto scannen, unabhängig davon, ob er für eine NetApp Lösung erstellt wurde.
+
+
+
+== Schnellstart
+
+Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
+
+[role="quick-margin-para"]
+Stellen Sie sicher, dass Ihre Cloud-Umgebung die Anforderungen für Cloud Data Sense erfüllen kann, einschließlich der Vorbereitung einer IAM-Rolle und der Einrichtung der Konnektivität von Data Sense bis S3.  S3 prerequisites,Eine vollständige Liste finden Sie hier.
+
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
+
+[role="quick-margin-para"]
+Wählen Sie die Amazon S3-Arbeitsumgebung aus, klicken Sie auf *Aktivieren* und wählen Sie eine IAM-Rolle aus, die die erforderlichen Berechtigungen enthält.
+
+[role="quick-margin-para"]
+Wählen Sie die Buckets aus, die Sie scannen möchten, und Cloud Data Sense beginnt mit dem Scannen.
+
+
+
+== Überprüfen der S3-Voraussetzungen
+
+Die folgenden Anforderungen gelten insbesondere für das Scannen von S3-Buckets.
+
+[[policy-requirements]]
+Einrichten einer IAM-Rolle für die Cloud Data Sense Instanz:: Cloud Data Sense benötigt Berechtigungen, um sich mit den S3 Buckets Ihres Kontos zu verbinden und zu scannen. Richten Sie eine IAM-Rolle ein, die die unten aufgeführten Berechtigungen enthält. BlueXP fordert Sie auf, eine IAM-Rolle auszuwählen, wenn Sie „Data Sense“ in der Amazon S3-Arbeitsumgebung aktivieren.
++
+--
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Effect": "Allow",
+          "Action": [
+              "s3:Get*",
+              "s3:List*",
+              "s3:PutObject"
+          ],
+          "Resource": "*"
+      },
+      {
+          "Effect": "Allow",
+          "Action": [
+              "iam:GetPolicyVersion",
+              "iam:GetPolicy",
+              "iam:ListAttachedRolePolicies"
+          ],
+          "Resource": [
+              "arn:aws:iam::*:policy/*",
+              "arn:aws:iam::*:role/*"
+          ]
+      }
+  ]
+}
+----
+--
+Konnektivität von Cloud Data Sense zu Amazon S3:: Cloud Data Sense benötigt eine Verbindung zu Amazon S3. Die beste Möglichkeit, eine solche Verbindung bereitzustellen, ist über einen VPC Endpunkt zum S3-Service. Anweisungen hierzu finden Sie unter https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["AWS Dokumentation: Erstellen eines Gateway-Endpunkts"^].
++
+--
+Wenn Sie den VPC-Endpunkt erstellen, müssen Sie die Region, die VPC und die Routing-Tabelle auswählen, die der Cloud Data Sense Instanz entspricht. Sie müssen auch die Sicherheitsgruppe ändern, um eine ausgehende HTTPS-Regel hinzuzufügen, die Datenverkehr zum S3-Endpunkt ermöglicht. Andernfalls kann Data Sense keine Verbindung zum S3-Service herstellen.
+
+Informationen zu Problemen finden Sie unter https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/["AWS Support Knowledge Center: Warum kann ich mich nicht über einen Gateway VPC Endpunkt mit einem S3-Bucket verbinden?"^]
+
+Eine Alternative besteht darin, die Verbindung über ein NAT Gateway bereitzustellen.
+
+
+NOTE: Sie können keinen Proxy verwenden, um über das Internet nach S3 zu gelangen.
+
+--
+
+
+
+
+== Bereitstellen der Cloud Data Sense Instanz
+
+link:task-deploy-cloud-compliance.html["Implementieren Sie Cloud Data Sense in BlueXP"^] Falls noch keine Instanz implementiert wurde.
+
+Sie müssen die Instanz mithilfe eines in AWS bereitgestellten Connectors implementieren, damit BlueXP die S3-Buckets in diesem AWS-Konto automatisch erkennt und diese in einer Amazon S3-Arbeitsumgebung anzeigt.
+
+*Hinweis:* beim Scannen von S3 Buckets wird derzeit nicht die Bereitstellung von Cloud Data Sense an einem lokalen Speicherort unterstützt.
+
+Upgrades auf die Software Data Sense werden automatisiert, solange die Instanz über eine Internetverbindung verfügt.
+
+
+
+== Aktivieren von Data Sense in Ihrer S3-Arbeitsumgebung
+
+Aktivieren Sie Cloud Data Sense auf Amazon S3, nachdem Sie die Voraussetzungen überprüft haben.
+
+.Schritte
+. Klicken Sie im Navigationsmenü von BlueXP links auf *Speicherung > Leinwand*.
+. Wählen Sie die Amazon S3-Arbeitsumgebung aus.
++
+image:screenshot_s3_we.gif["Ein Screenshot eines Amazon S3 Arbeitsumgebungssymbols"]
+
+. Klicken Sie im Bereich Datensinn auf der rechten Seite auf *Aktivieren*.
++
+image:screenshot_s3_enable_compliance.gif["Ein Screenshot der Aktivierung des Cloud Data Sense Service über das Fenster „Services“"]
+
+. Wenn Sie dazu aufgefordert werden, weisen Sie der Cloud Data Sense Instanz eine IAM-Rolle zu  S3 prerequisites,Die erforderlichen Berechtigungen.
++
+image:screenshot_s3_compliance_iam_role.gif["Screenshot zur Eingabe der AWS IAM-Rolle für Cloud Data Sense"]
+
+. Klicken Sie Auf *Aktivieren*.
+
+
+
+TIP: Sie können auch Compliance-Scans für eine Arbeitsumgebung über die Konfigurationsseite aktivieren, indem Sie auf die klicken image:screenshot_gallery_options.gif[""] Und wählen Sie *Datensense aktivieren*.
+
+BlueXP weist der Instanz die IAM-Rolle zu.
+
+
+
+== Aktivieren und Deaktivieren von Compliance-Scans auf S3-Buckets
+
+Nachdem BlueXP Cloud Data Sense in Amazon S3 aktiviert hat, müssen im nächsten Schritt die Buckets konfiguriert werden, die gescannt werden sollen.
+
+Wenn BlueXP im AWS Konto ausgeführt wird, das über die S3-Buckets verfügt, die Sie scannen möchten, erkennt es diese Buckets und zeigt sie in einer Amazon S3-Arbeitsumgebung an.
+
+Cloud Data Sense kann es auch  buckets from additional AWS accounts,Scannen von S3-Buckets, die in unterschiedlichen AWS Konten vorhanden sind.
+
+.Schritte
+. Wählen Sie die Amazon S3-Arbeitsumgebung aus.
+. Klicken Sie im rechten Fensterbereich auf *Eimer konfigurieren*.
++
+image:screenshot_s3_configure_buckets.gif["Ein Screenshot mit dem Klicken auf Buckets konfigurieren, um die S3-Buckets auszuwählen, die Sie scannen möchten"]
+
+. Aktivieren Sie Scans, die nur mappen oder Scans zuordnen und klassifizieren, auf Ihren Buckets.
++
+image:screenshot_s3_select_buckets.png["Ein Screenshot zur Auswahl der S3-Buckets, die gescannt werden sollen"]
+
++
+[cols="45,45"]
+|===
+| An: | Tun Sie dies: 
+
+
+| Ermöglichen Sie Mapping-Only-Scans auf einem Bucket | Klicken Sie Auf *Karte* 
+
+
+| Aktivieren vollständiger Scans auf einem Bucket | Klicken Sie Auf *Karte & Klassieren* 
+
+
+| Deaktivieren des Scans auf einem Bucket | Klicken Sie Auf *Aus* 
+|===
+
+
+Cloud Data Sense beginnt mit dem Scannen der aktivierten S3 Buckets. Wenn Fehler auftreten, werden sie neben der erforderlichen Aktion zur Behebung des Fehlers in der Spalte Status angezeigt.
+
+
+
+== Scannen von Buckets für weitere AWS Konten
+
+Sie können S3-Buckets scannen, die sich unter einem anderen AWS-Konto befinden, indem Sie über dieses Konto eine Rolle zuweisen, um auf die vorhandene Cloud Data Sense Instanz zuzugreifen.
+
+.Schritte
+. Gehen Sie zum AWS Ziel-Konto, in dem Sie S3 Buckets scannen und eine IAM-Rolle erstellen möchten, indem Sie *ein weiteres AWS-Konto* auswählen.
++
+image:screenshot_iam_create_role.gif[""]
+
++
+Gehen Sie wie folgt vor:
+
++
+** Geben Sie die ID des Kontos ein, auf dem sich die Cloud Data Sense Instanz befindet.
+** Ändern Sie die maximale CLI/API-Sitzungsdauer* von 1 Stunde auf 12 Stunden und speichern Sie diese Änderung.
+** Hängen Sie die Cloud Data Sense IAM-Richtlinie an. Stellen Sie sicher, dass es über die erforderlichen Berechtigungen verfügt.
++
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Effect": "Allow",
+          "Action": [
+              "s3:Get*",
+              "s3:List*",
+              "s3:PutObject"
+          ],
+          "Resource": "*"
+      },
+  ]
+}
+----
+
+
+. Gehen Sie zum AWS-Quellkonto, in dem sich die Datensense-Instanz befindet, und wählen Sie die IAM-Rolle aus, die mit der Instanz verbunden ist.
++
+.. Ändern Sie die maximale CLI/API-Sitzungsdauer* von 1 Stunde auf 12 Stunden und speichern Sie diese Änderung.
+.. Klicken Sie auf *Richtlinien anhängen* und dann auf *Richtlinien erstellen*.
+.. Erstellen Sie eine Richtlinie, die die Aktion „STS:AssumeRole“ enthält, und geben Sie den ARN der Rolle an, die Sie im Zielkonto erstellt haben.
++
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam::<ADDITIONAL-ACCOUNT-ID>:role/<ADDITIONAL_ROLE_NAME>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetPolicyVersion",
+                "iam:GetPolicy",
+                "iam:ListAttachedRolePolicies"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:policy/*",
+                "arn:aws:iam::*:role/*"
+            ]
+        }
+    ]
+}
+----
++
+Das Cloud Data Sense Instanzprofil hat nun Zugriff auf das zusätzliche AWS Konto.
+
+
+
+. Gehen Sie auf die Seite *Amazon S3 Configuration* und das neue AWS-Konto wird angezeigt. Beachten Sie, dass es einige Minuten dauern kann, bis Cloud Data Sense die Arbeitsumgebung des neuen Kontos synchronisiert und diese Informationen anzeigt.
++
+image:screenshot_activate_and_select_buckets.png["Ein Screenshot, in dem die Aktivierung von Data Sense angezeigt wird."]
+
+. Klicken Sie auf *Daten aktivieren Sense & Buckets auswählen* und wählen Sie die Eimer aus, die Sie scannen möchten.
+
+
+Cloud Data Sense beginnt mit dem Scannen der neuen aktivierten S3 Buckets.

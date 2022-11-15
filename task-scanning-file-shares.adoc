@@ -1,0 +1,151 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-file-shares.html 
+keywords: cloud compliance, enable cloud compliance, privacy, compliance, file shares, nfs, cifs, smb, Data Sense 
+summary: Führen Sie einige Schritte durch, um die direkten Scans von NFS- oder CIFS-Dateifreigaben anderer Anbieter mit Cloud Data Sense zu starten. Diese Dateifreigaben können lokal oder in der Cloud gespeichert werden. 
+---
+= Scannen von Dateifreigaben
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Führen Sie einige Schritte durch, um die direkten Scans von NFS- oder CIFS-Dateifreigaben anderer Anbieter mit Cloud Data Sense zu starten. Diese Dateifreigaben können lokal oder in der Cloud gespeichert werden.
+
+
+
+== Schnellstart
+
+Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
+
+[role="quick-margin-para"]
+Stellen Sie für CIFS-Freigaben (SMB) sicher, dass Sie über Anmeldeinformationen für den Zugriff auf Freigaben verfügen.
+
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
+
+[role="quick-margin-para"]
+Die Gruppe ist ein Container für die Dateifreigaben, die Sie scannen möchten, und er wird als Name der Arbeitsumgebung für diese Dateifreigaben verwendet.
+
+[role="quick-margin-para"]
+Fügen Sie die Liste der zu scannenden Dateifreigaben hinzu und wählen Sie den Scantyp aus. Sie können bis zu 100 Dateifreigaben gleichzeitig hinzufügen.
+
+
+
+== Prüfen der Anforderungen für die Dateifreigabe
+
+Die folgenden Voraussetzungen prüfen, um sicherzustellen, dass Sie über eine unterstützte Konfiguration verfügen, bevor Sie Cloud Data Sense aktivieren.
+
+* Die Shares können überall gehostet werden, auch in der Cloud oder vor Ort. Es handelt sich dabei um File Shares, die auf Storage-Systemen anderer Anbieter residieren.
+* Es muss eine Netzwerkverbindung zwischen der Instanz Data Sense und den Freigaben bestehen.
+* Stellen Sie sicher, dass diese Ports für die Data Sense-Instanz offen sind:
++
+** Für NFS – die Ports 111 und 2049.
+** Für CIFS – die Ports 139 und 445.
+
+
+* Sie benötigen die Liste der Freigaben, die Sie im Format hinzufügen möchten `<host_name>:/<share_path>`. Sie können die Freigaben einzeln eingeben oder eine Liste der Dateien, die Sie scannen möchten, mit einer Zeile angeben.
+* Stellen Sie für CIFS-Freigaben (SMB) sicher, dass Sie über Active Directory-Anmeldeinformationen verfügen, die Lesezugriff auf die Freigaben bieten. Administratorberechtigungen sind bevorzugte Zugangsdaten für den Fall, dass Cloud Data Sense Daten scannen muss, die erhöhte Berechtigungen erfordern.
++
+Wenn Sie sicherstellen möchten, dass Ihre Dateien „letzte Zugriffszeiten“ durch Data Sense Klassifizierungsscans unverändert bleiben, empfehlen wir dem Benutzer die Berechtigung Schreibattribute zu besitzen. Wenn möglich, empfehlen wir, den Active Directory-konfigurierten Benutzer in eine übergeordnete Gruppe in der Organisation mit Berechtigungen für alle Dateien zu integrieren.
+
+
+
+
+
+== Bereitstellen der Cloud Data Sense Instanz
+
+Implementieren Sie Cloud-Daten sinnvoll, wenn noch keine Instanz implementiert ist.
+
+Wenn Sie nicht-NetApp NFS- oder CIFS-File Shares scannen, die über das Internet zugänglich sind, können Sie sie ausführen link:task-deploy-cloud-compliance.html["Cloud-Daten sinnvoll in der Cloud implementieren"^] Oder link:task-deploy-compliance-onprem.html["Implementieren Sie Data Sense in einem lokalen Standort mit Internetzugang"^].
+
+Wenn Sie nicht-NetApp NFS- oder CIFS-File Shares scannen, die in einer dunklen Site installiert wurden und über keinen Internetzugang verfügen, müssen Sie sie verwenden link:task-deploy-compliance-dark-site.html["Cloud Data Sense implementieren – auf demselben lokalen Standort ohne Internetzugang"^]. Dazu ist auch die Implementierung des BlueXP Connectors am selben Standort erforderlich.
+
+Upgrades auf die Software Data Sense werden automatisiert, solange die Instanz über eine Internetverbindung verfügt.
+
+
+
+== Erstellen der Gruppe für die Dateifreigaben
+
+Sie müssen eine „Gruppe“ von Dateifreigaben für Dateien hinzufügen, bevor Sie Ihre Dateifreigaben hinzufügen können. Die Gruppe ist ein Container für die zu scannenden Dateifreigaben, und der Gruppenname wird als Name der Arbeitsumgebung für diese Dateifreigaben verwendet.
+
+Sie können NFS- und CIFS-Freigaben in einer Gruppe kombinieren. Allerdings müssen alle CIFS-Dateifreigaben in einer Gruppe dieselben Active Directory-Anmeldedaten verwenden. Wenn Sie CIFS-Freigaben hinzufügen möchten, die unterschiedliche Anmeldedaten verwenden, müssen Sie für jeden eindeutigen Satz von Anmeldeinformationen eine separate Gruppe erstellen.
+
+.Schritte
+. Klicken Sie auf der Seite Arbeitsumgebungen Konfiguration auf *Datenquelle hinzufügen* > *Datei-Shares-Gruppe hinzufügen*.
++
+image:screenshot_compliance_add_fileshares_button.png["Ein Screenshot der Seite Scankonfiguration, auf der Sie auf die Schaltfläche Gruppe Dateifreigaben hinzufügen klicken können."]
+
+. Geben Sie im Dialogfeld „Gruppe Dateien hinzufügen“ den Namen für die Gruppe der Freigaben ein, und klicken Sie auf *Weiter*.
+
+
+Die neue File Shares-Gruppe wird der Liste der Arbeitsumgebungen hinzugefügt.
+
+
+
+== Hinzufügen von Dateifreigaben zu einer Gruppe
+
+Sie fügen der File Shares-Gruppe Dateifreigaben hinzu, damit die Dateien in diesen Freigaben nach Cloud Data Sense gescannt werden. Sie fügen die Freigaben im Format hinzu `<host_name>:/<share_path>`.
+
+Sie können einzelne Dateifreigaben hinzufügen, oder Sie können eine Liste der Dateien, die Sie scannen möchten, mit einer Zeile eingeben. Sie können bis zu 100 Shares gleichzeitig hinzufügen.
+
+Wenn Sie in einer einzelnen Gruppe sowohl NFS- als auch CIFS-Freigaben hinzufügen, müssen Sie diesen Prozess zweimal durchlaufen: Sobald Sie NFS-Freigaben hinzufügen, und dann erneut CIFS-Freigaben hinzufügen.
+
+.Schritte
+. Klicken Sie auf der Seite _Working Environments_ auf die Schaltfläche *Konfiguration* für die File Shares Group.
++
+image:screenshot_compliance_fileshares_add_shares.png["Ein Screenshot der Seite Scankonfiguration, auf der Sie die Schaltfläche Konfiguration auswählen können."]
+
+. Wenn dies das erste Mal ist, um Dateifreigaben für diese File Shares-Gruppe hinzuzufügen, klicken Sie auf *erste Shares hinzufügen*.
++
+image:screenshot_compliance_fileshares_add_initial_shares.png["Ein Screenshot mit der Schaltfläche erste Freigaben hinzufügen, um erste Shares zur Gruppe hinzuzufügen."]
+
++
+Wenn Sie einer vorhandenen Gruppe File Shares hinzufügen, klicken Sie auf *Add Shares*.
+
++
+image:screenshot_compliance_fileshares_add_more_shares.png["Ein Screenshot mit der Schaltfläche „Shares hinzufügen“, um der Gruppe weitere Freigaben hinzuzufügen."]
+
+. Wählen Sie das Protokoll für die File Shares aus, die Sie hinzufügen, fügen Sie die File Shares hinzu, die Sie scannen möchten - eine Dateifreigabe pro Zeile - und klicken Sie auf *Weiter*.
++
+Beim Hinzufügen von CIFS (SMB)-Freigaben müssen Sie die Active Directory-Anmeldeinformationen eingeben, die Lesezugriff auf die Freigaben bieten. Anmeldedaten für Admin werden bevorzugt.
+
++
+image:screenshot_compliance_fileshares_add_file_shares.png["Ein Screenshot der Seite „Dateifreigaben hinzufügen“, auf der Sie die zu scannenden Freigaben hinzufügen können."]
+
++
+Ein Bestätigungsdialogfeld zeigt die Anzahl der hinzugefügten Freigaben an.
+
++
+Wenn im Dialogfeld Freigaben aufgeführt werden, die nicht hinzugefügt werden konnten, erfassen Sie diese Informationen, damit Sie das Problem beheben können. In einigen Fällen können Sie die Freigabe mit einem korrigierten Hostnamen oder Freigabennamen erneut hinzufügen.
+
+. Aktivieren Sie für jede Dateifreigabe nur mappingbare Scans oder Mappings und Klassifizierungen.
++
+[cols="45,45"]
+|===
+| An: | Tun Sie dies: 
+
+
+| Aktivieren Sie Mapping-Only-Scans auf File Shares | Klicken Sie Auf *Karte* 
+
+
+| Vollständige Scans auf Dateifreigaben ermöglichen | Klicken Sie Auf *Karte & Klassieren* 
+
+
+| Deaktivieren Sie das Scannen von Dateifreigaben | Klicken Sie Auf *Aus* 
+|===
+
+
+Cloud Data Sense beginnt mit dem Scannen der Dateien in den hinzugefügten Dateifreigaben und die Ergebnisse werden im Dashboard und an anderen Speicherorten angezeigt.
+
+
+
+== Entfernen einer Dateifreigabe aus Compliance-Scans
+
+Wenn Sie bestimmte Dateifreigaben nicht mehr scannen müssen, können Sie einzelne Dateifreigaben jederzeit aus dem Scannen ihrer Dateien entfernen. Klicken Sie einfach auf der Konfigurationsseite auf *Share entfernen*.
+
+image:screenshot_compliance_fileshares_remove_share.png["Ein Screenshot zeigt, wie eine einzelne Dateifreigabe aus dem Scannen ihrer Dateien entfernt wird."]

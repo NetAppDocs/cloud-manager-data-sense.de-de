@@ -1,0 +1,187 @@
+---
+settings:
+  name: Cloud Data Sense
+  platform: cloud
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  rss_page: whats-new.html
+  langs: de-de,us-en,ja-jp,zh-cn,zh-tw,ko-kr,fr-fr
+sidebar:
+  entries:
+  - title: Cloud Data Sense Dokumentation
+    url: "/index.html"
+  - title: Versionshinweise
+    url: "/whats-new.html"
+  - title: Los geht's
+    entries:
+    - title: Cloud Data Sense nutzen
+      url: "/concept-cloud-compliance.html"
+    - title: Sinnvolle Implementierung Von Cloud-Daten
+      entries:
+      - title: Implementieren Sie Daten in der Cloud
+        url: "/task-deploy-cloud-compliance.html"
+      - title: Lokale Implementierung mit Internetzugang
+        url: "/task-deploy-compliance-onprem.html"
+      - title: Implementierung vor Ort ohne Internetzugang
+        url: "/task-deploy-compliance-dark-site.html"
+    - title: Aktivieren Sie das Scannen Ihrer Datenquellen
+      entries:
+      - title: Cloud Volumes ONTAP und On-Premises-ONTAP
+        url: "/task-getting-started-compliance.html"
+      - title: Azure NetApp Dateien
+        url: "/task-scanning-anf.html"
+      - title: Amazon FSX für ONTAP
+        url: "/task-scanning-fsx.html"
+      - title: Amazon S3 Buckets
+        url: "/task-scanning-s3.html"
+      - title: Datenbankschemas
+        url: "/task-scanning-databases.html"
+      - title: OneDrive Accounts
+        url: "/task-scanning-onedrive.html"
+      - title: SharePoint Konten
+        url: "/task-scanning-sharepoint.html"
+      - title: Google Drive-Konten
+        url: "/task-scanning-google-drive.html"
+      - title: Dateifreigaben
+        url: "/task-scanning-file-shares.html"
+      - title: Objekt-Storage
+        url: "/task-scanning-object-storage.html"
+    - title: Integrieren Sie Active Directory
+      url: "/task-add-active-directory-datasense.html"
+    - title: Lizenzierung einrichten
+      url: "/task-licensing-datasense.html"
+    - title: Häufig gestellte Fragen
+      url: "/faq-cloud-compliance.html"
+  - title: Cloud Data Sense Nutzen
+    entries:
+    - title: Anzeigen von Governance-Details zu Ihren Daten
+      url: "/task-controlling-governance-data.html"
+    - title: Anzeige von Compliance-Details zu Ihren Daten
+      url: "/task-controlling-private-data.html"
+    - title: Private Daten organisieren
+      url: "/task-org-private-data.html"
+    - title: Management privater Daten
+      url: "/task-managing-highlights.html"
+    - title: Scaneinstellungen ändern
+      url: task-managing-repo-scanning.html
+    - title: Berichte generieren
+      url: "/task-generating-compliance-reports.html"
+    - title: Reagieren Sie auf einen DSAR
+      url: "/task-responding-to-dsar.html"
+    - title: Kategorien von privaten Daten
+      url: "/reference-private-data-categories.html"
+  - title: Cloud Data Sense Managen
+    entries:
+    - title: Fügen Sie benutzerdefinierte Kennungen für persönliche Daten hinzu
+      url: "/task-managing-data-fusion.html"
+    - title: Den Status von Data Sense Aktionen anzeigen
+      url: "/task-view-compliance-actions.html"
+    - title: Prüfen der Historie von Data Sense-Aktionen
+      url: "/task-audit-data-sense-actions.html"
+    - title: Verringern Sie die Scangeschgeschwindigkeit des Data Sense
+      url: "/task-reduce-scan-speed.html"
+    - title: Entfernen Sie Datenquellen aus Data Sense
+      url: "/task-managing-compliance.html"
+    - title: Deinstallieren Sie Data Sense
+      url: "/task-uninstall-data-sense.html"
+  - title: Wissen und Support
+    entries:
+    - title: Für den Support anmelden
+      url: "/task-support-registration.html"
+    - title: Holen Sie sich Hilfe
+      url: "/task-get-help.html"
+  - title: Rechtliche Hinweise
+    url: "/legal-notices.html"
+homepage:
+  tiles:
+  - title: Los geht's
+    links:
+    - title: Cloud Data Sense nutzen
+      url: concept-cloud-compliance.html
+    - title: Was ist neu
+      url: whats-new.html
+    - title: Implementieren Sie Daten sinnvoll in der Cloud
+      url: task-deploy-cloud-compliance.html
+    - title: Implementieren Sie Data Sense vor Ort mit Internet
+      url: task-deploy-compliance-onprem.html
+    - title: Implementieren Sie Data Sense vor Ort ohne Internet
+      url: task-deploy-compliance-dark-site.html
+    - title: Integrieren Sie Active Directory
+      url: task-add-active-directory-datasense.html
+    - title: Lizenzierung einrichten
+      url: task-licensing-datasense.html
+  - title: Scannen Sie Ihre Arbeitsumgebungen
+    links:
+    - title: Cloud Volumes ONTAP Volumes
+      url: task-getting-started-compliance.html
+    - title: On-Premises ONTAP Volumes
+      url: task-getting-started-compliance.html
+    - title: Azure NetApp Files Volumes
+      url: task-scanning-anf.html
+    - title: Amazon FSX für ONTAP Volumes
+      url: task-scanning-fsx.html
+    - title: Amazon S3 Buckets
+      url: task-scanning-s3.html
+  - title: Andere Datenquellen scannen
+    links:
+    - title: Allgemeine S3 Buckets
+      url: task-scanning-object-storage.html
+    - title: File Shares von anderen Anbietern
+      url: task-scanning-file-shares.html
+    - title: Datenbankschemas
+      url: task-scanning-databases.html
+    - title: OneDrive Accounts
+      url: task-scanning-onedrive.html
+    - title: SharePoint Konten
+      url: task-scanning-sharepoint.html
+    - title: Google Drive-Konten
+      url: task-scanning-google-drive.html
+  - title: Zeigen Sie Details zu Ihren Daten an
+    links:
+    - title: Zeigen Sie Dateien an, die private Informationen enthalten
+      url: task-controlling-private-data.html
+    - title: Anzeigen von Dateien, die im Speicher dupliziert werden
+      url: task-controlling-private-data.html#checking-for-duplicate-files-in-your-storage-systems
+    - title: Filtern Sie Ihre Daten, um bestimmte Dateien anzuzeigen
+      url: task-controlling-private-data.html#filtering-data-in-the-data-investigation-page
+    - title: Erstellen Sie Richtlinien, um Ihre wichtigsten Suchen anzuzeigen
+      url: task-org-private-data.html#controlling-your-data-using-policies
+    - title: Erstellen von Compliance-Berichten
+      url: task-generating-compliance-reports.html
+  - title: Private Daten organisieren
+    links:
+    - title: Wenden Sie Tags und Eigentümer auf Dateien an, die Aufmerksamkeit erfordern
+      url: task-org-private-data.html#applying-tags-to-manage-your-scanned-files
+    - title: Kategorisieren Sie Ihre Daten mit AIP-Etiketten
+      url: task-org-private-data.html#categorizing-your-data-using-aip-labels
+    - title: Fügen Sie Ihre eigenen persönlichen Daten-IDs hinzu
+      url: task-managing-data-fusion.html
+  - title: Management privater Daten
+    links:
+    - title: Quelldateien kopieren
+      url: task-managing-highlights.html#copying-source-files
+    - title: Quelldateien verschieben
+      url: task-managing-highlights.html#moving-source-files-to-an-nfs-share
+    - title: Quelldateien löschen
+      url: task-managing-highlights.html#deleting-source-files
+    - title: Erstellen Sie E-Mail-Warnungen, wenn nicht konforme Daten gefunden werden
+      url: task-org-private-data.html#sending-email-alerts-when-non-compliant-data-is-found
+    - title: Reaktion auf eine Anforderung für den Zugriff eines Betroffenen
+      url: task-responding-to-dsar.html
+  - title: Blogs Community
+    links:
+    - title: NetApp Community
+      url: https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS
+    - title: Anwendungsfälle für BlueXP
+      url: https://cloud.netapp.com/netapp-cloud-data-sense
+    - title: BlueXP-Blog
+      url: https://cloud.netapp.com/blog
+    - title: Cloud-Webinare
+      url: https://cloud.netapp.com/events
+product-family:
+  name: BlueXP
+  repo: cloud-manager-family
+  sidebar_label: Alle BlueXP-Dokumentationen

@@ -1,0 +1,16 @@
+---
+layout: astra 
+sidebar: sidebar 
+permalink: index.html 
+lead: Cloud Data Sense is a data governance service that scans your data sources to map and classify data, and to identify private information. 
+summary: Cloud Data Sense ist ein Data-Governance-Service, der Ihre Datenquellen scannt, um Daten zuzuordnen und zu klassifizieren, und private Informationen zu identifizieren. 
+---
+= Cloud Data Sense Dokumentation
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

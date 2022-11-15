@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: task-managing-compliance.html 
+keywords: remove, stop, stop scans, stop scanning, cloud compliance, stop cloud compliance, deactivate, deactivating cloud compliance, data sense 
+summary: Wenn Sie möchten, können Sie Cloud Data Sense daran hindern, eine oder mehrere Arbeitsumgebungen, Datenbanken, Dateifreigabegruppen, OneDrive-Konten, Google Drive Konten, zu scannen. Oder SharePoint Konten. 
+---
+= Entfernen von Datenquellen aus Cloud Data Sense
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Wenn Sie möchten, können Sie Cloud Data Sense daran hindern, eine oder mehrere Arbeitsumgebungen, Datenbanken, Dateifreigabegruppen, OneDrive-Konten, Google Drive Konten, zu scannen. Oder SharePoint Konten.
+
+
+
+== Deaktivieren von Compliance-Scans für eine Arbeitsumgebung
+
+Wenn Sie Scans deaktivieren, scannt Cloud Data Sense die Daten nicht mehr in der Arbeitsumgebung und entfernt sie die indizierten Compliance-Erkenntnisse aus der Data Sense Instanz (die Daten aus der Arbeitsumgebung selbst werden nicht gelöscht).
+
+. Klicken Sie auf der Seite _Configuration_ auf image:screenshot_gallery_options.gif["Schaltfläche „Mehr“"] Klicken Sie in der Zeile für die Arbeitsumgebung auf *Data Sense deaktivieren*.
+
+
+image:screenshot_deactivate_compliance_scan.png["Ein Screenshot des Aktionssymbols, in dem Sie Datensense deaktivieren wählen können. Diese Option ist verfügbar, nachdem Sie eine Arbeitsumgebung auf der Seite Arbeitsfläche ausgewählt haben."]
+
+
+TIP: Sie können bei der Auswahl der Arbeitsumgebung auch die Compliance-Scans für eine Arbeitsumgebung im Fenster „Services“ deaktivieren.
+
+
+
+== Entfernen einer Datenbank aus Cloud Data Sense
+
+Wenn Sie eine bestimmte Datenbank nicht mehr scannen möchten, können Sie sie über die Cloud Data Sense Schnittstelle löschen und alle Scans anhalten.
+
+. Klicken Sie auf der Seite _Configuration_ auf image:screenshot_gallery_options.gif["Schaltfläche „Mehr“"] Klicken Sie in der Zeile der Datenbank auf *DB Server entfernen*.
+
+
+image:screenshot_compliance_remove_db.png["Ein Screenshot der Schaltfläche DB Server entfernen auf der Seite Scankonfiguration."]
+
+
+
+== Entfernen eines OneDrive-, SharePoint- oder Google-Laufwerkkontos aus Cloud Data Sense
+
+Wenn Sie keine Benutzerdateien von einem bestimmten OneDrive-Konto, von einem bestimmten SharePoint-Konto oder von einem Google Drive-Konto scannen möchten, können Sie das Konto über die Cloud Data Sense Schnittstelle löschen und alle Scans beenden.
+
+.Schritte
+. Klicken Sie auf der Seite _Configuration_ auf image:screenshot_gallery_options.gif["Schaltfläche „Mehr“"] Klicken Sie in der Zeile für das OneDrive-, SharePoint- oder Google-Drive-Konto auf *OneDrive-Konto entfernen*, *SharePoint-Konto entfernen* oder *Google-Laufwerkskonto entfernen*.
++
+image:screenshot_compliance_remove_onedrive.png["Ein Screenshot der Schaltfläche „OneDrive entfernen“ auf der Seite „Scankonfiguration“."]
+
+. Klicken Sie im Bestätigungsdialogfeld auf *Konto löschen*.
+
+
+
+
+== Entfernen einer Gruppe von Dateifreigaben aus Cloud Data Sense
+
+Wenn Sie keine Benutzerdateien aus einer Datei-Shares-Gruppe mehr scannen möchten, können Sie die File Shares-Gruppe über die Cloud Data Sense Schnittstelle löschen und alle Scans anhalten.
+
+.Schritte
+. Klicken Sie auf der Seite _Configuration_ auf image:screenshot_gallery_options.gif["Schaltfläche „Mehr“"] Klicken Sie in der Zeile für die Datei-Shares-Gruppe und dann auf *Datei-Shares-Gruppe entfernen*.
++
+image:screenshot_compliance_remove_fileshare_group.png["Ein Screenshot der Schaltfläche „Gruppe der Dateifreigabe entfernen“ auf der Seite „Scankonfiguration“."]
+
+. Klicken Sie im Bestätigungsdialogfeld auf *Gruppe von Freigaben löschen*.
+

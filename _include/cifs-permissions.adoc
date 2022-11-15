@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
++ Wenn Sie sicherstellen möchten, dass Ihre Dateien „zuletzt zugegriffen Zeiten“ von Data Sense Klassifizierungsscans unverändert sind, empfehlen wir, dass der Benutzer über die Berechtigung Schreibattribute verfügt. Wenn möglich, empfehlen wir, den Active Directory-konfigurierten Benutzer in eine übergeordnete Gruppe in der Organisation mit Berechtigungen für alle Dateien zu integrieren.

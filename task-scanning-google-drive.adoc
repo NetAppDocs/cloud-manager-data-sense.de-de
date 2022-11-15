@@ -1,0 +1,120 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-google-drive.html 
+keywords: cloud compliance, enable cloud compliance, privacy, compliance, google drive, data sense 
+summary: Führen Sie einige Schritte aus, um das Scannen von Benutzerdateien in Ihren Google Drive-Konten mit Cloud Data Sense zu starten. 
+---
+= Google Drive-Konten werden durchsucht
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Führen Sie einige Schritte aus, um das Scannen von Benutzerdateien in Ihren Google Drive-Konten mit Cloud Data Sense zu starten.
+
+
+
+== Schnellstart
+
+Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
+
+[role="quick-margin-para"]
+Stellen Sie sicher, dass Sie über die Administratoranmeldeinformationen verfügen, um sich beim Google Drive-Konto anzumelden.
+
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
+
+[role="quick-margin-para"]
+Wenn Sie Admin-Benutzeranmeldeinformationen verwenden, melden Sie sich beim Google Drive-Konto an, auf das Sie zugreifen möchten, damit es als neue Datenquelle hinzugefügt wird.
+
+[role="quick-margin-para"]
+Wählen Sie den Scantyp aus, den Sie für die Benutzerdateien durchführen möchten; Zuordnen oder Zuordnen und Klassifizieren.
+
+
+
+== Überprüfen der Google-Laufwerksanforderungen
+
+Überprüfen Sie die folgenden Voraussetzungen, um sicherzustellen, dass Sie Cloud Data Sense auf einem Google Drive-Konto aktivieren können.
+
+* Sie müssen über die Admin-Anmeldeinformationen für das Google Drive-Konto verfügen, das Lesezugriff auf die Dateien des Benutzers bietet
+
+
+
+
+=== Aktuelle Einschränkungen
+
+Die folgenden Data Sense-Funktionen werden derzeit nicht von Google Drive-Dateien unterstützt:
+
+* Beim Anzeigen von Dateien auf der Seite „Datenuntersuchung“ sind die Aktionen in der Schaltflächenleiste nicht aktiv. Sie können keine Dateien kopieren, verschieben, löschen usw..
+* Berechtigungen können nicht innerhalb von Dateien in Google Drive identifiziert werden, daher werden auf der Untersuchungsseite keine Berechtigungsinformationen angezeigt.
+
+
+
+
+== Cloud Data Sense Implementieren
+
+Implementieren Sie Cloud-Daten sinnvoll, wenn noch keine Instanz implementiert ist.
+
+Der Sinn für Daten kann sein link:task-deploy-cloud-compliance.html["In der Cloud implementiert"^] Oder link:task-deploy-compliance-onprem.html["In einer Anlage mit Internetzugang"^].
+
+Upgrades auf die Software Data Sense werden automatisiert, solange die Instanz über eine Internetverbindung verfügt.
+
+
+
+== Hinzufügen des Google Drive-Kontos
+
+Fügen Sie das Google Drive-Konto hinzu, in dem sich die Benutzerdateien befinden. Wenn Sie Dateien von mehreren Benutzern scannen möchten, müssen Sie diesen Schritt für jeden Benutzer ausführen.
+
+.Schritte
+. Klicken Sie auf der Seite Arbeitsumgebungen Konfiguration auf *Datenquelle hinzufügen* > *Google Drive Account hinzufügen*.
++
+image:screenshot_compliance_add_google_drive_button.png["Ein Screenshot der Seite Scankonfiguration, auf der Sie auf die Schaltfläche Google Drive hinzufügen klicken können."]
+
+. Klicken Sie im Dialogfeld „Google Drive Account hinzufügen“ auf *beim Google Drive* anmelden.
+. Wählen Sie auf der angezeigten Google-Seite das Google Drive-Konto aus und geben Sie den erforderlichen Admin-Benutzer und das Passwort ein. Klicken Sie dann auf *Akzeptieren*, damit Cloud Data Sense Daten aus diesem Konto lesen kann.
+
+
+Das Google Drive-Konto wird der Liste der Arbeitsumgebungen hinzugefügt.
+
+
+
+== Auswählen des Scantyps für Benutzerdaten
+
+Wählen Sie die Art des Scans aus, die Cloud Data Sense für die Daten des Benutzers ausführen soll.
+
+.Schritte
+. Klicken Sie auf der Seite _Configuration_ auf die Schaltfläche *Konfiguration* für das Google Drive-Konto.
++
+image:screenshot_compliance_google_drive_add_sites.png["Ein Screenshot der Konfigurationsseite, auf der Sie die Schaltfläche Konfiguration auswählen können."]
+
+. Aktivieren Sie mapping-only Scans oder Mapping- und Klassifizierungsscans auf den Dateien im Google Drive-Konto.
++
+image:screenshot_compliance_google_drive_select_scan.png["Ein Screenshot, in dem gezeigt wird, wie Sie die Art des Scanning Data Sense auswählen, wird auf den Google Drive-Daten ausgeführt."]
+
++
+[cols="45,45"]
+|===
+| An: | Tun Sie dies: 
+
+
+| Aktivieren Sie Mapping-Only-Scans auf Dateien | Klicken Sie Auf *Karte* 
+
+
+| Aktivieren Sie vollständige Scans auf Dateien | Klicken Sie Auf *Karte & Klassieren* 
+
+
+| Deaktivieren Sie das Scannen von Dateien | Klicken Sie Auf *Aus* 
+|===
+
+
+Cloud Data Sense beginnt mit dem Scannen der Dateien im Google Drive-Konto, das Sie hinzugefügt haben, und die Ergebnisse werden im Dashboard und an anderen Orten angezeigt.
+
+
+
+== Entfernen eines Google Drive-Kontos aus Compliance-Scans
+
+Da nur die Google Drive-Dateien eines einzigen Benutzers Teil eines einzigen Google Drive-Kontos sind, wenn Sie die Suche von Dateien von einem Benutzer Google Drive-Konto beenden möchten, dann sollten Sie link:task-managing-compliance.html#removing-a-onedrive-sharepoint-or-google-drive-account-from-cloud-data-sense["Löschen Sie das Google Drive-Konto aus Data Sense"].

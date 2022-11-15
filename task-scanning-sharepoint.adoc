@@ -1,0 +1,165 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-sharepoint.html 
+keywords: cloud compliance, enable cloud compliance, privacy, compliance, sharepoint, sharepoint online, sharepoint on-premises, data sense 
+summary: Führen Sie einige Schritte durch, um mit Cloud Data Sense Dateien in Ihren SharePoint Online- und SharePoint On-Premise-Accounts zu scannen. 
+---
+= Scannen von SharePoint-Konten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Führen Sie einige Schritte durch, um mit Cloud Data Sense Dateien in Ihren SharePoint Online- und SharePoint On-Premise-Accounts zu scannen.
+
+
+
+== Schnellstart
+
+Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
+
+[role="quick-margin-para"]
+Stellen Sie sicher, dass Sie über die Administratoranmeldeinformationen verfügen, um sich beim SharePoint-Konto anzumelden, und dass Sie über die URLs für die SharePoint-Sites verfügen, die Sie scannen möchten.
+
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
+
+[role="quick-margin-para"]
+Melden Sie sich mit den Anmeldedaten des Admin-Benutzers beim SharePoint-Konto an, auf das Sie zugreifen möchten, damit es als neue Datenquelle/Arbeitsumgebung hinzugefügt wird.
+
+[role="quick-margin-para"]
+Fügen Sie die Liste der SharePoint-Website-URLs hinzu, die Sie im SharePoint-Konto scannen möchten, und wählen Sie den Scantyp aus. Sie können bis zu 100 URLs gleichzeitig hinzufügen.
+
+
+
+== Überprüfung der SharePoint Anforderungen
+
+Prüfen Sie die folgenden Voraussetzungen, um sicherzustellen, dass Sie Cloud Data Sense in einem SharePoint Konto aktivieren können.
+
+* Sie müssen über die Admin-Anmeldeinformationen für das SharePoint-Konto verfügen, das Lesezugriff auf alle SharePoint-Sites bietet.
+* Für SharePoint vor Ort benötigen Sie auch die URL des SharePoint Servers.
+* Für alle zu scannenden Daten benötigen Sie eine Liste der URLs der SharePoint-Website.
+
+
+
+
+== Bereitstellen der Cloud Data Sense Instanz
+
+Implementieren Sie Cloud-Daten sinnvoll, wenn noch keine Instanz implementiert ist.
+
+* Für SharePoint Online kann Data Sense verwendet werden link:task-deploy-cloud-compliance.html["In der Cloud implementiert"^] Oder link:task-deploy-compliance-onprem.html["An einem lokalen Standort mit Internetzugang installiert"^].
++
+Auch der Datensinn kann sein link:task-deploy-compliance-dark-site.html["Die Implementierung erfolgt an einem lokalen Standort ohne Internetzugang"^]. Sie müssen jedoch einige ausgewählte Endpunkte im Internet öffnen, um Ihre SharePoint Online-Dateien zu scannen. link:task-deploy-compliance-dark-site.html#sharepoint-and-onedrive-special-requirements["Hier finden Sie die Liste der erforderlichen Endpunkte"].
+
+* Für SharePoint On-Premises-Systeme kann Data Sense installiert werden link:task-deploy-compliance-onprem.html["In einer Anlage mit Internetzugang"^] Oder link:task-deploy-compliance-dark-site.html["In einem Hotel, das keinen Internetzugang hat"^].
+
+
+Wenn Data Sense auf einer Website ohne Internetzugang installiert wird, muss der BlueXP Connector auch ohne Internetzugang auf derselben Website installiert sein. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Weitere Informationen ."^].
+
+Upgrades auf die Software Data Sense werden automatisiert, solange die Instanz über eine Internetverbindung verfügt.
+
+
+
+== Hinzufügen eines SharePoint Online-Kontos
+
+Fügen Sie das SharePoint Online-Konto hinzu, in dem sich die Benutzerdateien befinden.
+
+.Schritte
+. Klicken Sie auf der Seite Arbeitsumgebungen Konfiguration auf *Datenquelle hinzufügen* > *SharePoint Online-Konto hinzufügen*.
++
+image:screenshot_compliance_add_sharepoint_button.png["Ein Screenshot der Konfigurationsseite, auf der Sie auf die Schaltfläche SharePoint Online hinzufügen klicken können."]
+
+. Klicken Sie im Dialogfeld SharePoint Online-Konto hinzufügen auf *in SharePoint anmelden*.
+. Wählen Sie auf der angezeigten Microsoft-Seite das SharePoint-Konto aus und geben Sie den erforderlichen Admin-Benutzer und das erforderliche Passwort ein. Klicken Sie dann auf *Akzeptieren*, damit Cloud Data Sense Daten aus diesem Konto lesen kann.
+
+
+Das SharePoint Online-Konto wird der Liste der Arbeitsumgebungen hinzugefügt.
+
+
+
+== Hinzufügen eines SharePoint-Kontos vor Ort
+
+Fügen Sie das SharePoint-On-Premise-Konto hinzu, in dem sich die Benutzerdateien befinden.
+
+.Schritte
+. Klicken Sie auf der Seite Arbeitsumgebungen Konfiguration auf *Datenquelle hinzufügen* > *SharePoint On-Premise-Konto hinzufügen*.
++
+image:screenshot_compliance_add_sharepoint_onprem_button.png["Ein Screenshot der Konfigurationsseite, auf der Sie auf die Schaltfläche SharePoint On-Premise hinzufügen klicken können."]
+
+. Geben Sie im Dialogfeld beim SharePoint-On-Premise-Server anmelden die folgenden Informationen ein:
++
+** Admin-Benutzer im Format „Domäne/Benutzer“ oder „Benutzer@Domäne“ und „Admin-Passwort“
+** URL des SharePoint Servers
++
+image:screenshot_compliance_sharepoint_onprem.png["Ein Screenshot mit den Anmeldeinformationen für ein SharePoint On-Premise-Konto."]
+
+
+
+. Klicken Sie Auf *Verbinden*.
+
+
+Das On-Premise-Konto SharePoint wird zur Liste der Arbeitsumgebungen hinzugefügt.
+
+
+
+== Hinzufügen von SharePoint Sites zu Compliance-Scans
+
+Sie können einzelne SharePoint-Sites oder alle SharePoint-Sites im Konto hinzufügen, damit die zugehörigen Dateien nach Cloud Data Sense gescannt werden. Die Schritte sind die gleichen, wenn SharePoint Online oder SharePoint On-Premise-Websites hinzugefügt werden.
+
+.Schritte
+. Klicken Sie auf der Seite _Configuration_ auf die Schaltfläche *Configuration* für das SharePoint-Konto.
++
+image:screenshot_compliance_sharepoint_add_sites.png["Ein Screenshot der Seite Scankonfiguration, auf der Sie die Schaltfläche Konfiguration auswählen können."]
+
+. Wenn dies das erste Mal ist, Websites für dieses SharePoint-Konto hinzuzufügen, klicken Sie auf *Ihre erste SharePoint-Website hinzufügen*.
++
+image:screenshot_compliance_sharepoint_add_initial_sites.png["Ein Screenshot mit der Schaltfläche erste SharePoint-Sites hinzufügen, um anfängliche zu scannende Sites hinzuzufügen."]
+
++
+Wenn Sie weitere Benutzer von einem SharePoint-Konto hinzufügen, klicken Sie auf *SharePoint-Sites hinzufügen*.
+
++
+image:screenshot_compliance_sharepoint_add_more_sites.png["Ein Screenshot mit der Schaltfläche SharePoint Sites hinzufügen, um einem Konto weitere Sites hinzuzufügen."]
+
+. Fügen Sie die URLs für die Seiten hinzu, deren Dateien Sie scannen möchten - eine URL pro Zeile (bis zu 100 maximal pro Sitzung) - und klicken Sie auf *Sites hinzufügen*.
++
+image:screenshot_compliance_sharepoint_add_site.png["Ein Screenshot der Seite SharePoint-Sites hinzufügen, auf der Sie Sites hinzufügen können, die gescannt werden sollen."]
+
++
+In einem Bestätigungsdialogfeld wird die Anzahl der hinzugefügten Standorte angezeigt.
+
++
+Wenn im Dialogfeld keine Sites aufgeführt sind, die nicht hinzugefügt werden konnten, erfassen Sie diese Informationen, damit Sie das Problem beheben können. In einigen Fällen können Sie die Site mit einer korrigierten URL erneut hinzufügen.
+
+. Ermöglichen Sie auf den Dateien auf den SharePoint-Sites Mapping- und Klassifizierungscans.
++
+[cols="45,45"]
+|===
+| An: | Tun Sie dies: 
+
+
+| Aktivieren Sie Mapping-Only-Scans auf Dateien | Klicken Sie Auf *Karte* 
+
+
+| Aktivieren Sie vollständige Scans auf Dateien | Klicken Sie Auf *Karte & Klassieren* 
+
+
+| Deaktivieren Sie das Scannen von Dateien | Klicken Sie Auf *Aus* 
+|===
+
+
+Cloud Data Sense beginnt mit dem Scannen der Dateien in den hinzugefügten SharePoint-Sites und die Ergebnisse werden im Dashboard und an anderen Speicherorten angezeigt.
+
+
+
+== Entfernen einer SharePoint-Website aus Compliance-Scans
+
+Wenn Sie eine SharePoint-Site in der Zukunft entfernen oder sich entscheiden, keine Dateien auf einer SharePoint-Site zu scannen, können Sie einzelne SharePoint-Sites davon entfernen, dass ihre Dateien jederzeit gescannt werden. Klicken Sie einfach auf *SharePoint-Website entfernen* von der Konfigurationsseite.
+
+image:screenshot_compliance_sharepoint_remove_site.png["Ein Screenshot zeigt, wie Sie eine einzelne SharePoint-Site aus dem Scannen ihrer Dateien entfernen."]
+
+Beachten Sie, dass Sie können link:task-managing-compliance.html#removing-a-onedrive-sharepoint-or-google-drive-account-from-cloud-data-sense["Löschen Sie das gesamte SharePoint-Konto aus Data Sense"] Wenn Sie keine Benutzerdaten mehr vom SharePoint-Konto scannen möchten.

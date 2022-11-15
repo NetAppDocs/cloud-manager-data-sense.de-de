@@ -1,0 +1,134 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-onedrive.html 
+keywords: cloud compliance, enable cloud compliance, privacy, compliance, onedrive, Data Sense 
+summary: Führen Sie einige Schritte aus, um mit Cloud Data Sense Dateien in OneDrive Ordnern Ihres Benutzers zu scannen. 
+---
+= OneDrive-Konten werden gescannt
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Führen Sie einige Schritte aus, um mit Cloud Data Sense Dateien in OneDrive Ordnern Ihres Benutzers zu scannen.
+
+
+
+== Schnellstart
+
+Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
+
+[role="quick-margin-para"]
+Stellen Sie sicher, dass Sie über die Administratoranmeldeinformationen verfügen, um sich beim OneDrive-Konto anzumelden.
+
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
+
+[role="quick-margin-para"]
+Melden Sie sich bei Verwendung der Admin-Benutzeranmeldeinformationen beim OneDrive-Konto an, auf das Sie zugreifen möchten, damit es als neue Arbeitsumgebung hinzugefügt wird.
+
+[role="quick-margin-para"]
+Fügen Sie die Liste der Benutzer aus dem OneDrive-Konto hinzu, das Sie scannen möchten, und wählen Sie den Scantyp aus. Sie können bis zu 100 Benutzer gleichzeitig hinzufügen.
+
+
+
+== OneDrive Anforderungen können Sie überprüfen
+
+Die folgenden Voraussetzungen prüfen, um sicherzustellen, dass Sie über eine unterstützte Konfiguration verfügen, bevor Sie Cloud Data Sense aktivieren.
+
+* Sie müssen über die Admin-Anmeldeinformationen für das OneDrive for Business-Konto verfügen, das Lesezugriff auf die Dateien des Benutzers bietet.
+* Für alle Benutzer, deren OneDrive-Ordner Sie scannen möchten, benötigen Sie eine Liste mit den E-Mail-Adressen, die in einer Zeile getrennt sind.
+
+
+
+
+== Bereitstellen der Cloud Data Sense Instanz
+
+Implementieren Sie Cloud-Daten sinnvoll, wenn noch keine Instanz implementiert ist.
+
+Der Sinn für Daten kann sein link:task-deploy-cloud-compliance.html["In der Cloud implementiert"^] Oder link:task-deploy-compliance-onprem.html["In einer Anlage mit Internetzugang"^].
+
+Upgrades auf die Software Data Sense werden automatisiert, solange die Instanz über eine Internetverbindung verfügt.
+
+Auch der Datensinn kann sein link:task-deploy-compliance-dark-site.html["Die Implementierung erfolgt an einem lokalen Standort ohne Internetzugang"^]. Allerdings müssen Sie einen Internetzugang für einige ausgewählte Endpunkte zur Verfügung stellen, um Ihre lokalen OneDrive-Dateien zu scannen. link:task-deploy-compliance-dark-site.html#sharepoint-and-onedrive-special-requirements["Hier finden Sie die Liste der erforderlichen Endpunkte"].
+
+
+
+== Hinzufügen des OneDrive Kontos
+
+Fügen Sie das OneDrive-Konto hinzu, in dem sich die Benutzerdateien befinden.
+
+.Schritte
+. Klicken Sie auf der Seite Arbeitsumgebungen Konfiguration auf *Datenquelle hinzufügen* > *OneDrive Konto hinzufügen*.
++
+image:screenshot_compliance_add_onedrive_button.png["Ein Screenshot der Seite Scankonfiguration, auf der Sie auf die Schaltfläche OneDrive hinzufügen klicken können."]
+
+. Klicken Sie im Dialogfeld „OneDrive-Konto hinzufügen“ auf *Anmelden bei OneDrive*.
+. Wählen Sie auf der angezeigten Microsoft-Seite das OneDrive-Konto aus und geben Sie den erforderlichen Admin-Benutzer und das entsprechende Passwort ein. Klicken Sie dann auf *Akzeptieren*, damit Cloud Data Sense Daten aus diesem Konto lesen kann.
+
+
+Das OneDrive-Konto wird der Liste der Arbeitsumgebungen hinzugefügt.
+
+
+
+== Hinzufügen von OneDrive Benutzern zu Compliance-Scans
+
+Sie können einzelne OneDrive-Benutzer oder alle OneDrive-Benutzer hinzufügen, damit ihre Dateien nach Cloud Data Sense gescannt werden.
+
+.Schritte
+. Klicken Sie auf der Seite _Configuration_ auf die Schaltfläche *Configuration* für das OneDrive-Konto.
++
+image:screenshot_compliance_onedrive_add_users.png["Ein Screenshot der Seite Scankonfiguration, auf der Sie die Schaltfläche Konfiguration auswählen können."]
+
+. Wenn dies das erste Mal ist, Benutzer für dieses OneDrive-Konto hinzuzufügen, klicken Sie auf *Fügen Sie Ihre ersten OneDrive-Benutzer*.
++
+image:screenshot_compliance_onedrive_add_initial_users.png["Ein Screenshot, in dem die Schaltfläche „erste OneDrive-Benutzer hinzufügen“ angezeigt wird, um erste Benutzer zu einem Konto hinzuzufügen."]
+
++
+Wenn Sie weitere Benutzer aus einem OneDrive-Konto hinzufügen möchten, klicken Sie auf *OneDrive Users hinzufügen*.
+
++
+image:screenshot_compliance_onedrive_add_more_users.png["Ein Screenshot mit der Schaltfläche OneDrive Users hinzufügen, um einem Konto weitere Benutzer hinzuzufügen."]
+
+. Fügen Sie die E-Mail-Adressen für die Benutzer hinzu, deren Dateien Sie scannen möchten - eine E-Mail-Adresse pro Zeile (bis zu 100 maximal pro Sitzung) - und klicken Sie auf *Benutzer hinzufügen*.
++
+image:screenshot_compliance_onedrive_add_email_addresses.png["Ein Screenshot der Seite „OneDrive-Benutzer hinzufügen“, auf der Sie Benutzer hinzufügen können, die gescannt werden sollen."]
+
++
+In einem Bestätigungsdialogfeld wird die Anzahl der Benutzer angezeigt, die hinzugefügt wurden.
+
++
+Wenn im Dialogfeld Benutzer aufgeführt werden, die nicht hinzugefügt werden konnten, erfassen Sie diese Informationen, damit Sie das Problem beheben können. In einigen Fällen können Sie den Benutzer mit einer korrigierten E-Mail-Adresse erneut hinzufügen.
+
+. Ermöglichen Sie Scans, die nur zugeordnet werden können, oder Mapping- und Klassifizierungsprüfungen auf Benutzerdateien.
++
+[cols="45,45"]
+|===
+| An: | Tun Sie dies: 
+
+
+| Aktivieren Sie mappingonly Scans von Benutzerdateien | Klicken Sie Auf *Karte* 
+
+
+| Aktivieren Sie vollständige Scans von Benutzerdateien | Klicken Sie Auf *Karte & Klassieren* 
+
+
+| Deaktivieren Sie das Scannen von Benutzerdateien | Klicken Sie Auf *Aus* 
+|===
+
+
+Cloud Data Sense beginnt mit dem Scannen der Dateien für die Benutzer, die Sie hinzugefügt haben, und die Ergebnisse werden im Dashboard und an anderen Orten angezeigt.
+
+
+
+== Entfernen eines OneDrive-Benutzers aus Compliance-Scans
+
+Wenn Benutzer das Unternehmen verlassen oder sich ihre E-Mail-Adresse ändert, können Sie einzelne OneDrive Benutzer davon entfernen, dass ihre Dateien jederzeit gescannt werden können. Klicken Sie einfach auf *OneDrive User entfernen* von der Konfigurationsseite.
+
+image:screenshot_compliance_onedrive_remove_user.png["Ein Screenshot zeigt, wie ein einzelner Benutzer die gescannten Dateien entfernen kann."]
+
+Beachten Sie, dass Sie können link:task-managing-compliance.html#removing-a-onedrive-sharepoint-or-google-drive-account-from-cloud-data-sense["Löschen Sie das gesamte OneDrive-Konto aus Data Sense"] Wenn Sie keine Benutzerdaten mehr aus dem OneDrive-Konto scannen möchten.

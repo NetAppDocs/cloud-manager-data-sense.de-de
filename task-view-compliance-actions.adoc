@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: task-view-compliance-actions.html 
+keywords: compliance, actions, view progress 
+summary: Wenn Sie eine Aktion aus dem Bereich „Untersuchungsergebnisse“ über viele Dateien ausführen, z. B. das Löschen von 100 Dateien, kann der Prozess einige Zeit in Anspruch nehmen. Sie können den Status dieser asynchronen Aktionen im Fensterbereich „Aktionsstatus“ überwachen, sodass Sie wissen, wann sie auf alle Dateien angewendet wurden. 
+---
+= Anzeigen des Status Ihrer Compliance-Aktionen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Wenn Sie eine Aktion aus dem Bereich „Untersuchungsergebnisse“ über viele Dateien ausführen, z. B. das Löschen von 100 Dateien, kann der Prozess einige Zeit in Anspruch nehmen. Sie können den Status dieser asynchronen Aktionen im Fenster „_Action Status_ “ überwachen, sodass Sie wissen, wann sie auf alle Dateien angewendet wurde.
+
+Auf diese Weise können Sie die Aktionen sehen, die erfolgreich abgeschlossen wurden, die derzeit in Bearbeitung sind und die, die nicht erfolgreich waren, damit Sie Probleme diagnostizieren und beheben können.
+
+Der Status kann lauten:
+
+* Fertig
+* In Bearbeitung
+* Warteschlange
+* Storniert
+* Fehlgeschlagen
+
+
+Beachten Sie, dass Sie alle Aktionen mit dem Status „in Bearbeitung“ oder „in Bearbeitung“ abbrechen können.
+
+.Schritte
+. Rechts unten in der Data Sense Benutzeroberfläche sehen Sie die Schaltfläche *Actions Status* image:button_actions_status.png[""].
+. Klicken Sie auf diese Schaltfläche, und die letzten 20 Aktionen werden aufgelistet.
++
+image:screenshot_compliance_action_status.png["Ein Screenshot, der die letzten 20 Aktionen und ihren Status auf der Konfigurationsseite anzeigt."]
+
+
+
+Sie können auf den Namen einer Aktion klicken, um die entsprechenden Details anzuzeigen.

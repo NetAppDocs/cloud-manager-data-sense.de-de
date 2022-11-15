@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: task-reduce-scan-speed.html 
+keywords: slow scans, reduce speed 
+summary: Datenscans haben keine nennenswerten Auswirkungen auf Ihre Storage-Systeme und Ihre Daten. Wenn Sie jedoch auch nur geringe Auswirkungen haben, können Sie Data Sense so konfigurieren, dass Sie „langsame“ Scans durchführen. 
+---
+= Verringerung der Scangeschgeschwindigkeit des Datensense
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Datenscans haben keine nennenswerten Auswirkungen auf Ihre Storage-Systeme und Ihre Daten. Wenn Sie jedoch auch nur geringe Auswirkungen haben, können Sie Data Sense so konfigurieren, dass Sie „langsame“ Scans durchführen.
+
+Wenn diese Option aktiviert ist, wird langsames Scannen auf allen Datenquellen verwendet. Sie können den langsamen Scan nicht für eine einzige Arbeitsumgebung oder Datenquelle konfigurieren.
+
+
+TIP: Die Scan-Geschwindigkeit kann beim Scannen von Datenbanken nicht verringert werden.
+
+.Schritte
+. Bewegen Sie den Schieberegler von unten auf der Seite _Configuration_ nach rechts, um den langsamen Scan zu aktivieren.
++
+image:screenshot_slow_scan_enable.png["Ein Screenshot, der zeigt, wie Sie langsame Compliance-Scans ermöglichen."]
+
++
+Oben auf der Konfigurationsseite wird angezeigt, dass die langsame Messung aktiviert ist.
+
++
+image:screenshot_slow_scan_disable.png["Ein Screenshot, der zeigt, wie Sie langsame Compliance-Scans ermöglichen."]
+
+. Sie können das langsame Scannen deaktivieren, indem Sie in dieser Meldung auf *Deaktivieren* klicken.
+

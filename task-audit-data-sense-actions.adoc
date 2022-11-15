@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: task-audit-data-sense-actions.html 
+keywords: compliance, actions, view progress 
+summary: Data Sense protokolliert Managementaktivitäten, die auf Dateien aus allen Arbeitsumgebungen und Datenquellen, die Data Sense scannt. Sie können den Inhalt der Datensense-Audit-Protokolldateien anzeigen oder herunterladen, um zu sehen, welche Dateiänderungen aufgetreten sind und wann. 
+---
+= Überprüfung der Historie von „Data Sense“-Aktionen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Data Sense protokolliert Managementaktivitäten, die auf Dateien aus allen Arbeitsumgebungen und Datenquellen, die Data Sense scannt. Sie können den Inhalt der Datensense-Audit-Protokolldateien anzeigen oder herunterladen, um zu sehen, welche Dateiänderungen aufgetreten sind und wann.
+
+Beispielsweise können Sie sehen, welche Anfrage erstellt wurde, wann die Anfrage gestellt wurde, und Details wie den Quellspeicherort für das Löschen einer Datei oder den Quell- und Zielstandort, falls eine Datei verschoben wurde.
+
+
+
+== Inhalt der Protokolldatei protokollieren
+
+Jede Zeile im Auditprotokoll enthält Informationen in diesem Format:
+
+`<full date> | <status> | ds_audit_logger | <module> | 0 | 0 | File <full file path> deleted from device <device path> - <result>`
+
+* Datum und Uhrzeit: Vollständiger Zeitstempel für das Ereignis
+* Status - INFO, WARNUNG
+* Aktionstyp (Löschen, Kopieren, Verschieben, Erstellen einer Richtlinie, Aktualisieren der Richtlinie, Dateien erneut scannen, JSON-Bericht herunterladen usw.)
+* Dateiname (wenn die Aktion für eine Datei relevant ist)
+* Details zur Aktion - was getan wurde: Hängt von der Aktion ab
++
+** Name der Richtlinie
+** Für Move - Quelle und Ziel
+** Für Copy - Quelle und Ziel
+** Für Tag - Tag-Name
+** Zum Zuweisen an - Benutzername
+** Für E-Mail Alert - E-Mail-Adresse / Konto
+
+
+
+
+Beispielsweise zeigen die folgenden Zeilen aus der Protokolldatei einen erfolgreichen Kopiervorgang und einen fehlerhaften Kopiervorgang an.
+
+....
+2022-06-06 15:23:08,910 | INFO | ds_audit_logger | es_scanned_file | 237 | 49 | Copy file /CIFS_share/data/dop1/random_positives.tsv from device 10.31.133.183 (type: SMB_SHARE) to device 10.31.130.133:/export_reports (NFS_SHARE) - SUCCESS
+2022-06-06 15:23:08,968 | WARNING | ds_audit_logger | es_scanned_file | 239 | 153 | Copy file /CIFS_share/data/compliance-netapp.tar.gz from device 10.31.133.183 (type: SMB_SHARE) to device 10.31.130.133:/export_reports (NFS_SHARE) - FAILURE
+....
+
+
+== Zugriff auf die Protokolldatei
+
+Die Audit-Log-Dateien befinden sich auf dem Daten-SENSE-Rechner in: `/opt/netapp/audit_logs/`
+
+Jede Protokolldatei kann maximal 10 MB groß sein. Wenn dieser Grenzwert erreicht wird, wird eine neue Protokolldatei gestartet. Die Log-Dateien werden mit „DataSense_Audit.log“, „DataSense_Audit.log.1“, „DataSense_Audit.log.2“ und so weiter benannt. Maximal 100 Protokolldateien werden auf dem System gespeichert - alte Protokolldateien werden nach Erreichen des Maximalwerts automatisch gelöscht.
+
+Wenn Data Sense auf Ihrem Gelände installiert ist, können Sie direkt zur Protokolldatei navigieren.
+
+Wenn Data Sense in der Cloud implementiert wird, muss SSH in der Data Sense Instanz verwendet werden. Sie können SSH auf dem System verwenden, indem Sie den Benutzer und das Kennwort eingeben oder den SSH-Schlüssel verwenden, den Sie während der Installation des BlueXP Connectors angegeben haben. Der SSH-Befehl lautet:
+
+ ssh -i <path_to_the_ssh_key> <machine_user>@<datasense_ip>
+* <path_to_the_ssh_key> = Speicherort der ssh-Authentifizierungsschlüssel
+* <machine_user>:
++
+** Für AWS: Verwenden Sie <ec2-user>
+** Für Azure: Verwenden Sie den für die BlueXP-Instanz erstellten Benutzer
+** Für GCP: Verwenden Sie den für die BlueXP-Instanz erstellten Benutzer
+
+
+* <dataense_ip> = IP-Adresse der virtuellen Maschineninstanz
+
+
+Beachten Sie, dass Sie die Inbound-Regeln der Sicherheitsgruppe ändern müssen, um auf das System in der Cloud zuzugreifen. Weitere Informationen finden Sie unter:
+
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-aws.html["Sicherheitsgruppenregeln in AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html["Für Sicherheitsgruppen gibt es in Azure Regeln"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-gcp.html["Firewall-Regeln in Google Cloud"^]
+

@@ -1,0 +1,119 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-object-storage.html 
+keywords: cloud compliance, enable cloud compliance, privacy, compliance, object storage, Data Sense 
+summary: 'Führen Sie einige Schritte durch, um Daten direkt im Objekt-Storage mit Cloud Data Sense zu scannen. Data Sense kann Daten von jedem Objekt-Storage-Service scannen, der das Simple Storage Service (S3)-Protokoll verwendet. Dazu zählen NetApp StorageGRID, IBM Cloud Object Store, Azure Blob (mit Minio), Linode, B2 Cloud Storage und Amazon S3.' 
+---
+= Objekt-Storage wird mit S3-Protokoll gescannt
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Führen Sie einige Schritte durch, um Daten direkt im Objekt-Storage mit Cloud Data Sense zu scannen. Data Sense kann Daten von jedem Objekt-Storage-Service scannen, der das Simple Storage Service (S3)-Protokoll verwendet. Dazu zählen NetApp StorageGRID, IBM Cloud Object Store, Azure Blob (mit Minio), Linode, B2 Cloud Storage und Amazon S3.
+
+
+
+== Schnellstart
+
+Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
+
+[role="quick-margin-para"]
+Es muss die Endpunkt-URL vorhanden sein, um eine Verbindung mit dem Objekt-Storage-Service herzustellen.
+
+[role="quick-margin-para"]
+Sie benötigen den Zugriffsschlüssel und den geheimen Schlüssel vom Objekt-Storage-Provider, damit Cloud Data Sense auf die Buckets zugreifen kann.
+
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
+
+[role="quick-margin-para"]
+Fügen Sie den Objekt-Storage-Service Cloud Data Sense hinzu.
+
+[role="quick-margin-para"]
+Wählen Sie die Buckets aus, die Sie scannen möchten, und Cloud Data Sense beginnt mit dem Scannen.
+
+
+
+== Überprüfung der Objekt-Storage-Anforderungen
+
+Die folgenden Voraussetzungen prüfen, um sicherzustellen, dass Sie über eine unterstützte Konfiguration verfügen, bevor Sie Cloud Data Sense aktivieren.
+
+* Es muss die Endpunkt-URL vorhanden sein, um eine Verbindung mit dem Objekt-Storage-Service herzustellen.
+* Sie benötigen den Zugriffsschlüssel und den geheimen Schlüssel vom Objekt-Storage-Provider, damit Data Sense auf die Buckets zugreifen kann.
+* Für die Unterstützung für Azure Blob müssen Sie den verwenden link:https://min.io/["Minio Service"^].
+
+
+
+
+== Bereitstellen der Cloud Data Sense Instanz
+
+Implementieren Sie Cloud-Daten sinnvoll, wenn noch keine Instanz implementiert ist.
+
+Wenn Sie Daten aus dem S3-Objektspeicher scannen, auf den über das Internet zugegriffen werden kann, ist die entsprechende Möglichkeit möglich link:task-deploy-cloud-compliance.html["Cloud-Daten sinnvoll in der Cloud implementieren"^] Oder link:task-deploy-compliance-onprem.html["Implementieren Sie Data Sense in einem lokalen Standort mit Internetzugang"^].
+
+Wenn Sie Daten vom S3 Objekt-Storage scannen, der auf einem dunklen Standort ohne Internetzugang installiert wurde, müssen Sie sie überprüfen link:task-deploy-compliance-dark-site.html["Cloud Data Sense implementieren – auf demselben lokalen Standort ohne Internetzugang"^]. Dazu ist auch die Implementierung des BlueXP Connectors am selben Standort erforderlich.
+
+Upgrades auf die Software Data Sense werden automatisiert, solange die Instanz über eine Internetverbindung verfügt.
+
+
+
+== Hinzufügen des Objekt-Storage-Service zu Cloud Data Sense
+
+Fügen Sie den Objekt-Storage-Service hinzu.
+
+.Schritte
+. Klicken Sie auf der Seite Arbeitsumgebungen Konfiguration auf *Datenquelle hinzufügen* > *Objekt-Storage-Service hinzufügen*.
++
+image:screenshot_compliance_add_object_storage_button.png["Ein Screenshot der Seite Scankonfiguration, auf der Sie auf die Schaltfläche Gruppe Dateifreigaben hinzufügen klicken können."]
+
+. Geben Sie im Dialogfeld Add Object Storage Service die Details für den Objekt-Speicherdienst ein und klicken Sie auf *Continue*.
++
+.. Geben Sie den Namen ein, den Sie für die Arbeitsumgebung verwenden möchten. Dieser Name sollte den Namen des Objektspeicherdienstes widerspiegeln, mit dem Sie eine Verbindung herstellen.
+.. Geben Sie die Endpunkt-URL ein, um auf den Objekt-Storage-Service zuzugreifen.
+.. Geben Sie den Zugriffsschlüssel und den geheimen Schlüssel ein, damit Cloud Data Sense auf die Buckets im Objekt-Storage zugreifen kann.
++
+image:screenshot_compliance_add_object_storage.png["Ein Screenshot des Dialogfelds, in dem Sie die Werte für den Zugriff auf den Objekt-Storage-Service eingeben."]
+
+
+
+
+
+Der neue Objekt-Speicherdienst wird der Liste der Arbeitsumgebungen hinzugefügt.
+
+
+
+== Aktivieren und Deaktivieren von Compliance-Scans an Objekt-Storage-Buckets
+
+Nachdem Sie Cloud Data Sense in Ihrem Objekt-Storage-Service aktiviert haben, konfigurieren Sie als nächstes die Buckets, die gescannt werden sollen. Data Sense erkennt diese Buckets und zeigt sie in der von Ihnen erstellten Arbeitsumgebung an.
+
+.Schritte
+. Klicken Sie auf der Konfigurationsseite in der Arbeitsumgebung Object Storage Service auf *Konfiguration*.
++
+image:screenshot_compliance_object_storage_config.png["Ein Screenshot, in dem Sie auf Konfiguration für die Arbeitsumgebung klicken, damit Sie die Buckets auswählen können, die Sie scannen möchten."]
+
+. Aktivieren Sie Scans, die nur mappen oder Scans zuordnen und klassifizieren, auf Ihren Buckets.
++
+image:screenshot_compliance_object_storage_select_buckets.png["Ein Screenshot, in dem Sie die zu scannenden Objekt-Speicher-Buckets auswählen."]
+
++
+[cols="45,45"]
+|===
+| An: | Tun Sie dies: 
+
+
+| Ermöglichen Sie Mapping-Only-Scans auf einem Bucket | Klicken Sie Auf *Karte* 
+
+
+| Aktivieren vollständiger Scans auf einem Bucket | Klicken Sie Auf *Karte & Klassieren* 
+
+
+| Deaktivieren des Scans auf einem Bucket | Klicken Sie Auf *Aus* 
+|===
+
+
+Cloud Data Sense beginnt mit dem Scannen der aktivierten Buckets. Wenn Fehler auftreten, werden sie neben der erforderlichen Aktion zur Behebung des Fehlers in der Spalte Status angezeigt.

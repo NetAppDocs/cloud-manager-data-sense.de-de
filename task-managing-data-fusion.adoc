@@ -1,0 +1,256 @@
+---
+sidebar: sidebar 
+permalink: task-managing-data-fusion.html 
+keywords: data identifiers, personal data, sensitive personal data, compliance, data fusion, data sense 
+summary: „Data Sense“ bietet Ihnen viele Möglichkeiten, eine benutzerdefinierte Liste „personenbezogener Daten“ hinzuzufügen, die Data Sense bei zukünftigen Scans erkennen kann, und Sie erhalten das vollständige Bild darüber, wo sich möglicherweise vertrauliche Daten in allen Dateien Ihres Unternehmens befinden. 
+---
+= Hinzufügen persönlicher Daten Kennungen zu Ihren Daten Sense-Scans
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+„Data Sense“ bietet Ihnen viele Möglichkeiten, eine benutzerdefinierte Liste „personenbezogener Daten“ hinzuzufügen, die Data Sense bei zukünftigen Scans erkennen kann. So erhalten Sie ein vollständiges Bild darüber, wo sich möglicherweise vertrauliche Daten in Dateien _all_ Ihrer Unternehmen befinden.
+
+* Sie können eindeutige Kennungen basierend auf bestimmten Spalten in Datenbanken hinzufügen, die Sie scannen.
+* Sie können benutzerdefinierte Schlüsselwörter aus einer Textdatei hinzufügen - diese Wörter werden in Ihren Daten identifiziert.
+* Sie können ein persönliches Muster mit einem regulären Ausdruck (regex) hinzufügen -- der Regex wird den bestehenden vordefinierten Mustern hinzugefügt.
+
+
+
+NOTE: Die in diesem Abschnitt beschriebenen Funktionen sind nur verfügbar, wenn Sie eine vollständige Klassifizierungsprüfung Ihrer Datenquellen durchgeführt haben. Datenquellen, bei denen nur ein Mapping-Scan vorliegt, zeigen keine Details auf Dateiebene an.
+
+
+
+== Fügen Sie benutzerdefinierte ID-Daten aus Ihren Datenbanken hinzu
+
+Eine Funktion, die wir _Data Fusion_ nennen, ermöglicht Ihnen, die Daten Ihres Unternehmens zu überprüfen, um zu ermitteln, ob eindeutige IDs aus Ihren Datenbanken in einer Ihrer anderen Datenquellen gefunden werden. Sie können die zusätzlichen Kennungen auswählen, nach denen Data Sense in seinen Scans sucht, indem Sie eine bestimmte Spalte oder Spalten in einer Datenbanktabelle auswählen. Das folgende Diagramm zeigt beispielsweise, wie Daten-Fusion zur Überprüfung von Volumes, Buckets und Datenbanken eingesetzt wird, um vor allen Kunden-IDs aus der Oracle Datenbank zu kommen.
+
+image:diagram_compliance_data_fusion.png["Ein Diagramm, das zeigt, wie Inhalte aus Ihren Datenbanken als Quelle verwendet werden können, um Dateien zu identifizieren, die dieselben Daten enthalten."]
+
+Wie Sie sehen, wurden in zwei Volumes und in einem S3-Bucket zwei eindeutige Kunden-IDs gefunden. Alle Übereinstimmungen in Datenbanktabellen werden ebenfalls identifiziert.
+
+Beachten Sie, dass Sie Ihre eigenen Datenbanken scannen, in welcher Sprache Ihre Daten gespeichert sind, zur Identifizierung von Daten in zukünftigen Daten-Sense-Scans verwendet werden.
+
+Dieser muss unbedingt vorhanden sein link:task-scanning-databases.html#adding-the-database-server["Hat mindestens einen Datenbankserver hinzugefügt"^] Zu Data Sense, bevor Sie Daten-Fusion-Quellen hinzufügen können.
+
+. Klicken Sie auf der Konfigurationsseite in der Datenbank, in der sich die Quelldaten befinden, auf *Daten-Fusion verwalten*.
++
+image:screenshot_compliance_manage_data_fusion.png["Ein Screenshot, in dem Sie die Schaltfläche „Data Fusion verwalten“ auswählen, um eine Quellspalte hinzuzufügen."]
+
+. Klicken Sie auf der nächsten Seite auf *Data Fusion Source hinzufügen*.
+. Klicken Sie auf der Seite „ Fusion-Quelle hinzufügen “ auf die Seite „
++
+.. Wählen Sie das Datenbankschema aus dem Dropdown-Menü aus.
+.. Geben Sie den Tabellennamen in dieses Schema ein.
+.. Geben Sie die Spalte oder Spalten ein, die die eindeutigen Kennungen enthalten, die Sie verwenden möchten.
++
+Wenn Sie mehrere Spalten hinzufügen, geben Sie jeden Spaltennamen oder Namen der Tabellenansicht in einer separaten Zeile ein.
+
++
+image:screenshot_compliance_add_data_fusion.png["Ein Screenshot zur Identifizierung des Schemas, der Tabelle und der Spalte für die Data Fusion-Quelle."]
+
+
+
+. Klicken Sie Auf *Data Fusion-Quelle Hinzufügen*.
++
+Auf der Seite Data Fusion Inventory werden die Spalten für die Datenbankquelle angezeigt, die Sie für das Scannen von Daten Sense konfiguriert haben.
+
++
+image:screenshot_compliance_data_fusion_list.png["Ein Screenshot aller Datenquellenreferenzen, die Sie mit Data Fusion konfiguriert haben"]
+
+
+
+Nach dem nächsten Scan werden diese neuen Informationen im Compliance Dashboard im Abschnitt „Persönliche Ergebnisse“ und auf der Untersuchungsseite im Filter „Persönliche Daten“ angezeigt. Jede von Ihnen hinzugefügte Quellspalte wird beispielsweise im Format „Tabelle.Spalte“ in der Filterliste angezeigt `Customers.CustomerID`.
+
+image:screenshot_add_data_fusion_result.png["Ein Screenshot, der ein Beispiel für Data Fusion zeigt, führt in das Fenster Untersuchungsergebnisse."]
+
+
+
+=== Löschen Sie eine Data Fusion-Quelle
+
+Wenn Sie sich irgendwann entscheiden, Ihre Dateien nicht mit einer bestimmten Data Fusion Quelle zu scannen, können Sie die Quellzeile auf der Seite Data Fusion Inventory auswählen und auf *Daten löschen Fusion Source* klicken.
+
+image:screenshot_compliance_delete_data_fusion.png["Ein Screenshot zeigt, wie eine Daten-Fusion Quelle entfernt wird."]
+
+
+
+== Fügen Sie benutzerdefinierte Schlüsselwörter aus einer Textdatei hinzu
+
+Sie können dem Data Sense benutzerdefinierte Schlüsselwörter hinzufügen, damit es bestimmte Informationen in Ihren Daten identifiziert. Sie fügen die Schlüsselwörter aus einer von Ihnen definierten Textdatei hinzu. Die Schlüsselwörter werden den bereits vorhandenen vordefinierten Schlüsselwörtern hinzugefügt, die Data Sense verwendet, und die Ergebnisse werden im Abschnitt „Persönliche Muster“ angezeigt.
+
+Sie können z. B. sehen, wo interne Produktnamen in allen Dateien erwähnt werden, um sicherzustellen, dass diese Namen nicht an Orten zugänglich sind, die nicht sicher sind.
+
+Nach dem Aktualisieren der benutzerdefinierten Schlüsselwörter startet Data Sense das Scannen aller Datenquellen neu – die neuen Ergebnisse werden nach Abschluss des Scans in Data Sense angezeigt.
+
+Sie müssen die Textdateien, die die benutzerdefinierten Schlüsselwörter in der folgenden Position im Datensense-System enthalten, hinzufügen oder erstellen:
+
+ /opt/netapp/Datasense/tools/datascience/custom_keywords/keywords_sets
+Sie können eine einzelne Datei mit mehreren Schlüsselwörtern erstellen oder viele Dateien hinzufügen, die jeweils bestimmte Schlüsselwörter enthalten. Das Format für die Datei ist ein Wort in jeder Zeile, zum Beispiel interne Produktnamen, die Arten von Eulen sind, werden unten aufgelistet:
+
+_Internal_Product_Names.txt_
+
+....
+barred
+barn
+horned
+snowy
+screech
+....
+Die Suche nach den gewünschten Daten-Sense nach diesen Elementen ist nicht zwischen Groß- und Kleinschreibung zu wählen.
+
+Beachten Sie die folgenden Anforderungen:
+
+* Der Dateiname darf keine Ziffern enthalten.
+* Jede Datei kann maximal 100,000 Wörter enthalten. Wenn es mehr Wörter gibt, werden nur die ersten 100,000 hinzugefügt.
+* Jedes Wort muss mindestens 3 Zeichen lang sein. Kürzere Wörter werden ignoriert.
+* Doppelte Wörter werden nur einmal hinzugefügt.
+
+
+
+
+=== Zugriff auf die Befehlszeile
+
+Sie müssen auf das Data Sense System zugreifen, um den Befehl zum Hinzufügen benutzerdefinierter Schlüsselwörter zu starten.
+
+Wenn Data Sense an Ihrem Standort installiert ist, können Sie direkt auf die Befehlszeile zugreifen.
+
+Wenn Data Sense in der Cloud implementiert wird, muss SSH in der Data Sense Instanz verwendet werden. Sie können SSH auf dem System verwenden, indem Sie den Benutzer und das Kennwort eingeben oder den SSH-Schlüssel verwenden, den Sie während der Installation des BlueXP Connectors angegeben haben. Der SSH-Befehl lautet:
+
+ ssh -i <path_to_the_ssh_key> <machine_user>@<datasense_ip>
+* <path_to_the_ssh_key> = Speicherort der ssh-Authentifizierungsschlüssel
+* <machine_user>:
++
+** Für AWS: Verwenden Sie <ec2-user>
+** Für Azure: Verwenden Sie den für die BlueXP-Instanz erstellten Benutzer
+** Für GCP: Verwenden Sie den für die BlueXP-Instanz erstellten Benutzer
+
+
+* <dataense_ip> = IP-Adresse der virtuellen Maschineninstanz
+
+
+Beachten Sie, dass Sie die Inbound-Regeln der Sicherheitsgruppe ändern müssen, um auf das System in der Cloud zuzugreifen. Weitere Informationen finden Sie unter:
+
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-aws.html["Sicherheitsgruppenregeln in AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html["Für Sicherheitsgruppen gibt es in Azure Regeln"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-gcp.html["Firewall-Regeln in Google Cloud"^]
+
+
+
+
+=== Befehlssyntax zum Hinzufügen benutzerdefinierter Schlüsselwörter
+
+Die Befehlssyntax zum Hinzufügen benutzerdefinierter Schlüsselwörter aus einer Datei lautet:
+
+ sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s activate -f <file_name>.txt
+* <file_Name> = Dies ist der Name der Datei, die die Schlüsselwörter enthält.
+
+
+Sie führen den Befehl über den Pfad */opt/netapp/Datacense/* aus.
+
+Wenn Sie viele Dateien erstellt haben, die benutzerdefinierte Schlüsselwörter enthalten, können Sie die Schlüsselwörter aus allen Dateien gleichzeitig mit diesem Befehl hinzufügen:
+
+ sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s activate
+
+
+=== Beispiel
+
+Geben Sie den folgenden Befehl ein, um zu sehen, wo Ihre internen Produktnamen in allen Dateien erwähnt werden.
+
+[source, cli]
+----
+[user ~]$ cd /opt/netapp/Datasense/
+[user Datasense]$ sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s activate -f internal_product_names.txt
+----
+ log v1.0 | 2022-08-24 08:16:25,332 | INFO | ds_logger | upload_custom_keywords | 126 | 1 | None | upload_custom_keywords_126 | All legal keywords were successfully inserted
+Nach dem nächsten Scan werden diese neuen Informationen im Compliance Dashboard im Abschnitt „Persönliche Ergebnisse“ und auf der Untersuchungsseite im Filter „Persönliche Daten“ angezeigt.
+
+image:screenshot_add_keywords_result.png["Ein Screenshot, der ein Beispiel für ein benutzerdefiniertes Schlüsselwort zeigt, führt zum Untersuchungsbereich."]
+
+Wie Sie sehen, wird der Name der Textdatei als Name im Bereich Persönliche Ergebnisse verwendet. Auf diese Weise können Sie Schlüsselwörter aus verschiedenen Textdateien aktivieren und die Ergebnisse für jeden Schlüsselworttyp anzeigen.
+
+
+
+=== Benutzerdefinierte Schlüsselwörter deaktivieren
+
+Wenn Sie zu einem späteren Zeitpunkt entscheiden, dass Sie Data Sense nicht benötigen, um bestimmte benutzerdefinierte Schlüsselwörter zu identifizieren, die Sie zuvor hinzugefügt haben, verwenden Sie die Option *deactivate* im Befehl, um die in der Textdatei definierten Schlüsselwörter zu entfernen.
+
+ sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s deactivate -f <file_name>.txt
+Zum Beispiel, um die in der Datei *internal_Product_Names.txt definierten Schlüsselwörter zu entfernen:
+
+[source, cli]
+----
+[user ~]$ cd /opt/netapp/Datasense/
+[user Datasense]$ sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s deactivate -f internal_product_names.txt
+----
+ log v1.0 | 2022-08-24 08:16:25,332 | INFO | ds_logger | upload_custom_keywords | 87 | 1 | None | upload_custom_keywords_87 | Deactivated keyword pattern from internal_product_names.txt successfully
+
+
+== Fügen Sie mithilfe eines Regex benutzerdefinierte Kennungen für persönliche Daten hinzu
+
+Mit einem benutzerdefinierten regulären Ausdruck (regex) können Sie ein persönliches Muster hinzufügen, um bestimmte Informationen in Ihren Daten zu identifizieren. Das Regex wird den bereits vorhandenen vordefinierten Mustern hinzugefügt, die Data Sense bereits verwendet, und die Ergebnisse werden im Abschnitt „Persönliche Muster“ sichtbar sein.
+
+Sie können beispielsweise sehen, wo Ihre internen Produkt-IDs in allen Dateien erwähnt werden. Wenn die Produkt-ID z. B. eine klare Struktur hat, ist es eine 12-stellige Nummer, die mit 201 beginnt, können Sie die benutzerdefinierte regex-Funktion verwenden, um sie in Ihren Dateien zu suchen.
+
+Nach dem Hinzufügen des Regex startet Data Sense das Scannen aller Datenquellen neu - die neuen Ergebnisse erscheinen in Data Sense, nachdem der Scan abgeschlossen ist.
+
+
+
+=== Befehlssyntax zum Hinzufügen des Regex
+
+Sie müssen auf das Data Sense System zugreifen, um die Datei hinzuzufügen, die die benutzerdefinierten Schlüsselwortmuster enthält, und um den Befehl zu initiieren, um die benutzerdefinierten Schlüsselwörter hinzuzufügen.  the command line,Erfahren Sie, wie Sie auf die Befehlszeile zugreifen Unabhängig davon, ob sich Daten für Ihre lokale Umgebung eignen oder in der Cloud implementiert haben.
+
+Die Befehlssyntax zum Hinzufügen eines benutzerdefinierten Regex ist:
+
+ sudo bash tools/datascience/custom_regex/custom_regex.sh -s activate -n "<pattern_name>" -r "<regular_expression>"
+* <pattern_Name> = Dies ist der Name, der in der Datensense-Benutzeroberfläche angezeigt wird. Stellen Sie sicher, dass der Name identifiziert, was der Regex entworfen wurde, um zu finden. Der Name muss mindestens einen Buchstaben enthalten und darf bis zu 70 Zeichen lang sein.
+* <Regular_Expression> = Dies kann jeder legale reguläre Ausdruck sein.
+
+
+Sie führen den Befehl über den Pfad */opt/netapp/Datacense/* aus.
+
+Beachten Sie, dass wir jeden neuen Regex testen, um zu überprüfen, ob er zu breit ist und es würde zu viele Spiele zurückkehren. Wenn das der Fall ist, wird die folgende Protokollmeldung angezeigt:
+
+ log v1.0 | 2022-08-17 07:24:19,585 | ERROR | ds_logger | custom_regex | 119 | 1 | None | custom_regex_119 | The regex has high risk to identify false positives. Please narrow the regular expression and try again. To add it anyway, use the force flag (-f) at the end
+Sie können die Option *-f* am Ende der Befehlszeile verwenden, wenn Sie den Regex nachdrücklich zu Data Sense hinzufügen möchten - auch wenn wir der Meinung sind, dass er zu breit ist.
+
+
+
+=== Beispiel
+
+Die Produkt-ID ist eine 12-stellige Nummer, die mit 201 beginnt; der reguläre Ausdruck ist also *\b201\d{9}\b*. Und Sie möchten den Text in der Data Sense-Benutzeroberfläche nutzen, um dieses Muster als *interne Produkt-ID* zu identifizieren.
+
+Geben Sie die folgenden Befehle ein, um zu sehen, wo Ihre internen Produkt-IDs in Ihren Dateien erwähnt werden.
+
+[source, cli]
+----
+[user ~]$ cd /opt/netapp/Datasense/
+[user Datasense]$ sudo bash tools/datascience/custom_regex/custom_regex.sh -s activate -n "Internal Product ID" -r "\b201\d{9}\b"
+----
+....
+[+] Adding Custom Regex to Data Sense
+log v1.0 | 2022-08-23 13:19:01,476 | INFO | ds_logger | custom_regex | 154 | 1 | None | custom_regex_154 | A pattern named 'Internal Product ID' was added successfully to Data Sense
+....
+Nach dem nächsten Scan werden diese neuen Informationen im Compliance Dashboard im Abschnitt „Persönliche Ergebnisse“ und auf der Untersuchungsseite im Filter „Persönliche Daten“ angezeigt.
+
+image:screenshot_add_regex_result.png["Ein Screenshot, der ein Beispiel für ein benutzerdefiniertes Regex zeigt, führt im Bereich Untersuchungsergebnisse."]
+
+
+
+=== Deaktivieren eines benutzerdefinierten Regex
+
+Wenn Sie zu einem späteren Zeitpunkt entscheiden, dass Sie Data Sense nicht benötigen, um die benutzerdefinierten Muster zu identifizieren, die Sie als Regex eingegeben haben, verwenden Sie die Option *deactivate* im Befehl, um jeden Regex zu entfernen.
+
+ sudo bash tools/datascience/custom_regex/custom_regex.sh -s deactivate -n "<pattern name>"
+So entfernen Sie beispielsweise die *interne Produkt-ID* Regex:
+
+[source, cli]
+----
+[user ~]$ cd /opt/netapp/Datasense/
+[user Datasense]$ sudo bash tools/datascience/custom_regex/custom_regex.sh -s deactivate -n "Internal Product ID"
+----
+ log v1.0 | 2022-08-17 09:13:15,431 | INFO | ds_logger | custom_regex | 31 | 1 | None | custom_regex_31 | A pattern named 'Internal Product ID' was deactivated successfully

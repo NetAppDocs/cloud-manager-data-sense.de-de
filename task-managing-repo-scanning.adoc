@@ -1,0 +1,114 @@
+---
+sidebar: sidebar 
+permalink: task-managing-repo-scanning.html 
+keywords: compliance, stop scan, start scan, map scan, classify scan, data sense, pause scan, resume scan 
+summary: Sie können die Daten managen, die in jeder Arbeitsumgebung und in jeder Datenquelle gescannt werden. Sie können die Änderungen auf „Repository“-Basis vornehmen, d. h., Sie können Änderungen für jedes Volume, jeden Bucket, jede Freigabe, jedes Schema, jeden Benutzer Usw. abhängig von der Art der Datenquelle, die Sie scannen. 
+---
+= Ändern der Scaneinstellungen für Ihre Repositories
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können die Daten managen, die in jeder Arbeitsumgebung und in jeder Datenquelle gescannt werden. Sie können die Änderungen auf „Repository“-Basis vornehmen, d. h., Sie können Änderungen für jedes Volume, jeden Bucket, jede Freigabe, jedes Schema, jeden Benutzer Usw. abhängig von der Art der Datenquelle, die Sie scannen.
+
+Sie können sich u. a. ändern, ob ein Repository gescannt wird oder nicht, und ob Data Sense ein ausführt link:concept-cloud-compliance.html#whats-the-difference-between-mapping-and-classification-scans["Mapping-Scan oder Mapping  Klassifizierungsscan"]. Sie können den Scanvorgang auch unterbrechen und fortsetzen, wenn Sie z. B. die Messung eines Volumens für einen bestimmten Zeitraum beenden müssen.
+
+
+
+== Anzeigen des Scan-Status für Ihre Repositories
+
+Sie können die einzelnen Repositories anzeigen, die Data Sense für jede Arbeitsumgebung und Datenquelle scannt (Volumes, Buckets usw.). Außerdem können Sie sehen, wie viele "zugeordnet" wurden und wie viele "klassifiziert" wurden. Die Klassifizierung dauert länger, wenn für alle Daten die vollständige KI-Identifizierung durchgeführt wird.
+
+.Schritte
+. Klicken Sie auf der Registerkarte Konfiguration auf die Schaltfläche *Konfiguration* für die Arbeitsumgebung.
++
+image:screenshot_compliance_config_button.png["Ein Screenshot zeigt, wie Sie auf die Schaltfläche Konfiguration für eine Arbeitsumgebung klicken."]
+
+. Auf der Seite Scankonfiguration können Sie die Scaneinstellungen für alle Repositories anzeigen.
++
+image:screenshot_compliance_repo_scan_settings.png["Ein Screenshot, in dem angezeigt wird, ob Ihre Buckets gescannt werden, und der aktuelle Scanstatus."]
+
+
+
+Sie können den Cursor über das Diagramm in der Spalte _Scan Status_ bewegen, um die Anzahl der Dateien anzuzeigen, die in jedem Repository zugeordnet oder klassifiziert werden sollen (in diesem Beispiel Bucket).
+
+
+
+== Ändern des Scantyps für ein Repository
+
+Sie können jederzeit auf der Konfigurationsseite Scans oder Scans von nur-Zuordnungen oder Klassifizierungen in einer Arbeitsumgebung starten oder stoppen. Sie können auch von mappingonly Scans zu Mapping- und Klassifizierungsscans und umgekehrt wechseln.
+
+
+TIP: Datenbanken können nicht auf mapping-only Scans gesetzt werden. Das Scannen von Datenbanken kann deaktiviert oder aktiviert sein; wobei ein dem Kartenwert und Klassifizieren entspricht.
+
+.Schritte
+. Klicken Sie auf der Registerkarte Konfiguration auf die Schaltfläche *Konfiguration* für die Arbeitsumgebung.
++
+image:screenshot_compliance_config_button.png["Ein Screenshot zeigt, wie Sie auf die Schaltfläche Konfiguration für eine Arbeitsumgebung klicken."]
+
+. Auf der Seite Scankonfiguration können Sie eines der Repositories (Buckets in diesem Beispiel) so ändern, dass Sie *Map*- oder *Map & Klassify*-Scans durchführen, oder wählen Sie *aus*, um den Scan für einen bestimmten Bucket zu beenden.
++
+image:screenshot_compliance_repo_scanning.png["Ein Screenshot, in dem gezeigt wird, wie der Scantyp für einen Bucket ausgewählt wird."]
+
+
+
+Bestimmte Arbeitsumgebungen ermöglichen es Ihnen, den Scantyp global für alle Repositories über eine Tastenleiste oben auf der Seite zu ändern. Dies gilt für Cloud Volumes ONTAP, On-Premises ONTAP, Azure NetApp Files und Amazon FSX für ONTAP Systeme.
+
+Das folgende Beispiel zeigt diese Tastenleiste für ein Azure NetApp Files System.
+
+image:screenshot_compliance_repo_scan_all.png["Ein Screenshot, der zeigt, wie die gleiche Scaneinstellung für alle Volumes in einer Arbeitsumgebung konfiguriert wird."]
+
+
+
+== Anhalten und Wiederaufnehmen des Scanvorgangs für ein Repository
+
+Sie können das Scannen in einem Repository „anhalten“, wenn Sie vorübergehend das Scannen bestimmter Inhalte beenden möchten. Dies entspricht nicht dem Ausschalten des Scans. Wenn der Scan deaktiviert ist, werden alle Indexierung und Informationen zu diesem Volume aus dem System entfernt. Wenn Sie das Scannen anhalten, führt Data Sense keine zukünftigen Scans für Änderungen oder Ergänzungen des Repositorys durch, aber alle aktuellen Ergebnisse werden weiterhin im System angezeigt.
+
+Sie können den Scanvorgang jederzeit fortsetzen.
+
+.Schritte
+. Klicken Sie auf der Registerkarte Konfiguration auf die Schaltfläche *Konfiguration* für die Arbeitsumgebung.
++
+image:screenshot_compliance_config_button.png["Ein Screenshot zeigt, wie Sie auf die Schaltfläche Konfiguration für eine Arbeitsumgebung klicken."]
+
+. Klicken Sie auf der Seite Scankonfiguration auf die Schaltfläche Pause, um den Scanvorgang für ein Volume anzuhalten, oder drücken Sie die Wiederaufnahmetaste, um den Scanvorgang für ein zuvor angehaltenes Volume fortzusetzen.
++
+image:screenshot_compliance_repo_pause_resume.png["Ein Screenshot, der zeigt, wie das Scannen auf einem Volume angehalten und fortgesetzt werden kann."]
+
++
+Beachten Sie, dass einige Datenquellen die Funktion „Pause und Wiederaufnehmen“ in einem Menü bereitstellen, wie unten für SharePoint-Sites gezeigt.
+
++
+image:screenshot_compliance_repo_pause_resume2.png["Ein Screenshot, der zeigt, wie das Scannen auf einer SharePoint-Website angehalten und fortgesetzt wird."]
+
+
+
+
+
+== Erneutes Scannen von Daten eines vorhandenen Repositorys
+
+Data Sense scannt Ihre Daten kontinuierlich, um inkrementelle Änderungen in den hinzugefügten Repositorys zu erkennen. Das System benötigt jedoch Zeit, um alle Umgebungen zu scannen, und es gibt keine Möglichkeit, die Reihenfolge der gescannten Repositories zu steuern. Wenn Sie ein bestimmtes Repository sofort erneut scannen müssen, damit Änderungen im System angezeigt werden, können Sie das Repository auswählen und erneut scannen. So können Sie das Scannen bestimmter Daten vor anderen Daten priorisieren. Nach dem erneuten Scannen kehrt das ausgewählte Repository zurück, um unter dem normalen Datensense-Zeitplan gescannt zu werden.
+
+Data Sense unterstützt das Scannen von Verzeichnissen auf allen Datenquelltypen außer Amazon S3 und Datenbanken. Derzeit unterstützen wir das erneute Scannen von einzelnen Verzeichnissen (Ordnern oder Shares) oder mehreren Verzeichnissen. Zu der künftigen Unterstützung werden zusätzliche Repository-Typen (Dateien, Datenbanken usw.) neu durchsucht.
+
+* Beim erneuten Scannen eines Verzeichnisses werden alle Dateien im Verzeichnis erneut gescannt, die Unterordner im Verzeichnis werden jedoch nicht erneut gescannt.
+* Beim erneuten Scannen einer Freigabe werden nur die Metadaten der Freigabe erneut gescannt.
+* Es können maximal 1.000 Elemente gleichzeitig erneut in den Scanner aufgenommen werden.
+
+
+.Schritte
+. Wählen Sie im Bereich Ergebnisse der Datenuntersuchung die Ordner oder Freigaben aus, die Sie erneut scannen möchten, und klicken Sie auf *Rescan*.
++
+image:screenshot_compliance_rescan_directory.png["Ein Screenshot, der zeigt, wie ein Verzeichnis ausgewählt und neu gescannt wird."]
+
+. Klicken Sie im Dialogfeld _Rescan Directory_ auf *Rescan*.
+
+
+Sie können auch ein einzelnes Verzeichnis erneut scannen, wenn Sie sich die Metadatendetails ansehen. Klicken Sie einfach auf *Rescan*.
+
+image:screenshot_compliance_rescan_single_file.png["Ein Screenshot, der zeigt, wie ein einzelner Ordner oder eine Freigabe erneut gescannt wird."]

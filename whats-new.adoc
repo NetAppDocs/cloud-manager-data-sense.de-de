@@ -1,0 +1,530 @@
+---
+sidebar: sidebar 
+permalink: whats-new.html 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, data sense' 
+summary: Was ist neu im Bereich Cloud Data Sense. 
+---
+= Was ist neu bei Cloud Data Sense
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Was ist neu im Bereich Cloud Data Sense.
+
+
+
+== 13. November 2022 (Version 1.17)
+
+
+
+=== Unterstützung für das Scannen von On-Premises-Konten von SharePoint
+
+Data Sense kann jetzt sowohl SharePoint Online-Konten als auch SharePoint On-Premises-Konten (SharePoint Server) scannen. Wenn Sie SharePoint auf Ihren eigenen Servern oder auf Websites ohne Internetzugang installieren müssen, können Sie jetzt Data Sense die Benutzerdateien in diesen Konten scannen lassen. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-sharepoint.html#adding-a-sharepoint-on-premise-account["Weitere Informationen ."^].
+
+
+
+=== Möglichkeit zum erneuten Scannen mehrerer Verzeichnisse (Ordner oder Freigaben)
+
+Jetzt können Sie mehrere Verzeichnisse (Ordner oder Freigaben) sofort erneut scannen, sodass Änderungen im System berücksichtigt werden. So können Sie das erneute Scannen bestimmter Daten vor anderen Daten priorisieren. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#rescanning-data-for-an-existing-repository["Lesen Sie, wie Sie ein Verzeichnis erneut scannen"^].
+
+
+
+=== Möglichkeit zum Hinzufügen weiterer „Scanner“-Knoten vor Ort, um bestimmte Datenquellen zu scannen
+
+Wenn Sie Data Sense an einem lokalen Standort installiert haben und feststellen, dass Sie mehr Scanning Processing Power zum Scannen bestimmter Datenquellen benötigen, können Sie weitere „Scanner“-Knoten hinzufügen und diese zum Scannen dieser Datenquellen zuordnen. Sie können die Scanner-Knoten unmittelbar nach der Installation des Manager-Knotens hinzufügen oder später einen Scanner-Knoten hinzufügen.
+
+Bei Bedarf können die Scanner-Knoten auf Hostsystemen installiert werden, die sich physisch näher an den zu scannenden Datenquellen befinden. Je näher der Scanner-Knoten an den Daten liegt, desto besser, da er die Netzwerklatenz so weit wie möglich beim Scannen der Daten reduziert. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-compliance-onprem.html#add-scanner-nodes-to-an-existing-deployment["Lesen Sie, wie Scannerknoten installiert werden, um zusätzliche Datenquellen zu scannen"^].
+
+
+
+=== Vor dem Start der Installation führen die vor-Ort-Installationsprogramme nun eine Vorprüfung durch
+
+Bei der Installation von Data Sense auf einem Linux-System überprüft der Installer, ob das System alle erforderlichen Anforderungen (CPU, RAM, Kapazität, Netzwerk usw.) erfüllt, bevor die eigentliche Installation gestartet wird. Dies hilft beim Auffangen von Problemen *vor* verbringen Sie Zeit mit der Installation.
+
+
+
+== 6. September 2022 (Version 1.16)
+
+
+
+=== Fähigkeit, ein Repository sofort erneut zu scannen, um Änderungen in Dateien widerzuspiegeln
+
+Wenn Sie ein bestimmtes Repository sofort erneut scannen müssen, damit Änderungen im System angezeigt werden, können Sie das Repository auswählen und erneut scannen. So können Sie das erneute Scannen bestimmter Daten vor anderen Daten priorisieren. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#rescanning-data-for-an-existing-repository["Lesen Sie, wie Sie ein Verzeichnis erneut scannen"^].
+
+
+
+=== Neuer Filter für den Status der Datensense-Suche auf der Seite Datenuntersuchung
+
+Mit dem Filter „Analysestatus“ können Sie die Dateien auflisten, die sich in einer bestimmten Phase des Datensense-Scans befinden. Sie können eine Option auswählen, um die Liste der Dateien anzuzeigen, die *ausstehender erster Scan*, *Abgeschlossen* gescannt werden, *ausstehender Rescan* oder die *nicht erfolgreich* gescannt werden müssen.
+
+https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page["Sehen Sie sich die Liste aller Filter an, mit denen Sie Ihre Daten untersuchen können"^].
+
+
+
+=== Die Betroffenen werden nun als Teil von "personenbezogenen Daten" in Scans gefunden
+
+Data Sense erkennt nun Betroffenen als Teil der im Compliance Dashboard angezeigten persönlichen Ergebnisse. Darüber hinaus können Sie bei einer Suche auf der Untersuchungsseite unter „personenbezogene Daten“ „Betroffene“ auswählen, um nur Dateien anzuzeigen, die betroffene Personen enthalten.
+
+
+
+=== Datensense-Breadcrumb-Dateien werden jetzt als Teil von "Kategorien" in Scans gefunden betrachtet
+
+Data Sense erkennt jetzt Breadcrumb-Dateien als Teil der Kategorien, die im Compliance Dashboard angezeigt werden. Dies sind Dateien, die Data Sense beim Verschieben von Dateien vom Quellspeicherort in eine NFS-Freigabe erstellt. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-highlights.html#moving-source-files-to-an-nfs-share["Erfahren Sie mehr darüber, wie Breadcrumb-Dateien erstellt werden"^].
+
+Wenn Sie eine Suche auf der Untersuchungsseite durchführen, können Sie unter „Kategorie“ „Datensense Breadcrumbs“ „Data Sense Breadcrumb“ auswählen, um nur Daten Sense Breadcrumb-Dateien anzuzeigen.
+
+
+
+== 7. August 2022 (Version 1.15)
+
+
+
+=== Fünf neue Arten von personenbezogenen Daten aus Neuseeland werden durch Data Sense identifiziert
+
+Data Sense kann Dateien identifizieren und kategorisieren, die die folgenden Datentypen enthalten:
+
+* Kontonummer Der Neuseeländischen Bank
+* Neuseeland Führerschein Nummer
+* Neuseeland-IRD-Nummer (Steuernummer)
+* Neuseeland NHI (National Health Index) Nummer 
+* Neuseeländische Passnummer
+
+
+link:reference-private-data-categories.html#types-of-personal-data["Sehen Sie alle Arten von personenbezogenen Daten an, die Data Sense in Ihren Daten identifizieren kann"].
+
+
+
+=== Möglichkeit, eine Breadcrumb-Datei hinzuzufügen, um anzugeben, warum eine Datei verschoben wurde
+
+Wenn Sie die Funktion „Data Sense“ verwenden, um Quelldateien in eine NFS-Freigabe zu verschieben, können Sie nun eine Breadcrumb-Datei an dem Speicherort der verschobenen Datei belassen. Eine Breadcrumb-Datei hilft Ihren Benutzern zu verstehen, warum eine Datei vom ursprünglichen Speicherort verschoben wurde. Für jede verschobene Datei erstellt das System eine Breadcrumb-Datei im Quellspeicherort mit dem Namen `<filename>-breadcrumb-<date>.txt` Um den Speicherort anzuzeigen, an dem die Datei verschoben wurde, und den Benutzer, der die Datei verschoben hat. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-highlights.html#moving-source-files-to-an-nfs-share["Weitere Informationen ."^].
+
+
+
+=== Personenbezogene Daten und sensible personenbezogene Daten in Ihren Verzeichnissen werden in Untersuchungsergebnissen angezeigt
+
+Auf der Seite „Datenuntersuchung“ werden nun Ergebnisse für persönliche Daten und sensible personenbezogene Daten in Ihren Verzeichnissen (Ordner und Freigaben) angezeigt. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#viewing-files-that-contain-personal-data["Hier sehen Sie ein Beispiel"^].
+
+
+
+=== Zeigen Sie den Status an, wie viele Volumes, Buckets usw. erfolgreich klassifiziert wurden
+
+Wenn Sie sich die einzelnen Repositorys ansehen, die Data Sense verwenden (Volumes, Buckets usw.), sehen Sie jetzt, wie viele Daten gescannt wurden und wie viele als „klassifiziert“ wurden. Die Klassifizierung dauert länger, wenn für alle Daten die vollständige KI-Identifizierung durchgeführt wird. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#viewing-the-scan-status-for-your-repositories["Lesen Sie, wie Sie diese Informationen anzeigen"^].
+
+
+
+=== Jetzt können Sie benutzerdefinierte Muster hinzufügen, die Data Sense in Ihren Daten identifiziert
+
+Es gibt zwei Möglichkeiten, wie Sie benutzerdefinierte "persönliche Daten" hinzufügen können, die Data Sense in zukünftigen Scans identifizieren wird. So haben Sie einen vollständigen Überblick darüber, wo sich potenziell sensible Daten in den Dateien Ihres Unternehmens befinden.
+
+* Sie können benutzerdefinierte Schlüsselwörter aus einer Textdatei hinzufügen.
+* Sie können ein persönliches Muster mit einem regulären Ausdruck (regex) hinzufügen.
+
+
+Diese Schlüsselwörter und Muster werden den bereits vorhandenen vordefinierten Mustern hinzugefügt, die Data Sense verwendet. Die Ergebnisse werden im Abschnitt Persönliche Muster angezeigt. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-data-fusion.html["Weitere Informationen ."^].
+
+
+
+== 6. Juli 2022 (Version 1.14)
+
+
+
+=== Jetzt können Sie die Benutzer und Gruppen anzeigen, die Zugriff auf Ihre Verzeichnisse haben
+
+In der Vergangenheit können Sie die Arten von offenen Berechtigungen anzeigen, die für einzelne Dateien gewährt wurden. Jetzt können Sie eine Liste aller Benutzer oder Gruppen anzeigen, die Zugriff auf Verzeichnisse (Ordner und Dateifreigaben) haben, und die Arten von Berechtigungen, die sie haben. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#viewing-permissions-for-files-and-directories["Lesen Sie, wie Sie die Benutzer und Gruppen anzeigen, die Zugriff auf Ihre Ordner und Dateifreigaben haben"].
+
+
+
+=== Sie können das Scannen eines Repository anhalten, um vorübergehend das Scannen bestimmter Inhalte zu beenden
+
+Das Anhalten des Scans bedeutet, dass Data Sense keine zukünftigen Scans auf Ergänzungen oder Änderungen an einem Volumen oder Eimer durchführen wird, aber dass alle aktuellen Ergebnisse noch im System verfügbar sein. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#pausing-and-resuming-scanning-for-a-repository["Erfahren Sie, wie Sie den Scanvorgang anhalten und fortsetzen"].
+
+
+
+=== DIE US-Führerschein-Daten aus drei weiteren Staaten können durch Data Sense identifiziert werden
+
+Data Sense kann Dateien identifizieren und kategorisieren, die die Lizenzdaten von Treibern aus Indiana, New York und Texas enthalten. link:reference-private-data-categories.html#types-of-personal-data["Sehen Sie alle Arten von personenbezogenen Daten an, die Data Sense in Ihren Daten identifizieren kann"].
+
+
+
+=== Richtlinien geben nun Verzeichnisse zurück, die den Suchkriterien entsprechen
+
+In der Vergangenheit, als Sie eine benutzerdefinierte Richtlinie erstellt haben, wurden die Dateien angezeigt, die den Suchkriterien entsprechen. Nun werden in den Ergebnissen auch die Verzeichnisse (Ordner und Dateifreigaben) angezeigt, die der Abfrage entsprechen. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-org-private-data.html#creating-custom-policies["Weitere Informationen zum Erstellen von Richtlinien"].
+
+
+
+=== „Data Sense“ kann jetzt bis zu 100,000 Dateien auf einmal verschieben
+
+Wenn Sie „Data Sense“ zum Verschieben von Dateien von einer gescannten Datenquelle in eine NFS-Freigabe verwenden möchten, wurde die maximale Anzahl von Dateien auf 100,000 Dateien erhöht. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-highlights.html#moving-source-files-to-an-nfs-share["Erfahren Sie, wie Sie Dateien mit Data Sense verschieben"].
+
+
+
+== 12. Juni 2022 (Version 1.13.1)
+
+
+
+=== Jetzt können Sie die Ergebnisse von der Seite Datenuntersuchung als JSON-Bericht herunterladen
+
+Nachdem Sie die Daten auf der Seite „Datenuntersuchung“ gefiltert haben, können Sie die Daten nun als Bericht in einer JSON-Datei speichern, die Sie in eine NFS-Freigabe exportieren können, und die Daten zusätzlich in eine .CSV-Datei auf Ihrem lokalen System speichern. Stellen Sie sicher, dass Data Sense über die richtigen Berechtigungen für den Exportzugriff verfügt. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-generating-compliance-reports.html#data-investigation-report["Lesen Sie, wie Berichte von der Seite „Datenuntersuchung“ erstellt werden"].
+
+
+
+=== Fähigkeit zum Deinstallieren von Data Sense von der Data Sense Benutzeroberfläche
+
+Sie können Data Sense deinstallieren, um die Software dauerhaft vom Host zu entfernen, und im Falle einer Cloud-Bereitstellung löschen Sie die virtuelle Maschine / Instanz, auf der Data Sense bereitgestellt wurde. Durch das Löschen der Instanz werden alle indizierten Informationen gelöscht, die von Data Sense gescannt wurden. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-uninstall-data-sense.html["Erfahren Sie, wie"].
+
+
+
+=== Audit-Protokollierung ist jetzt verfügbar, um die Historie der von Data Sense durchgeführten Aktionen zu verfolgen
+
+Das Prüfprotokoll verfolgt die Managementaktivitäten, die Data Sense auf Dateien aus allen Arbeitsumgebungen und Datenquellen durchgeführt hat, die von Data Sense gescannt werden. Die Aktivitäten können vom Benutzer generiert (eine Datei löschen, eine Richtlinie erstellen usw.) oder durch Richtlinien generiert werden (Dateien können automatisch Etiketten hinzugefügt, Dateien automatisch gelöscht usw.).
+
+https://docs.netapp.com/us-en/cloud-manager-data-sense/task-audit-data-sense-actions.html["Weitere Informationen zum Audit-Protokoll finden Sie hier"].
+
+
+
+=== Neuer Filter für die Anzahl der sensiblen Kennungen auf der Seite Datenuntersuchung
+
+Mit dem Filter „Anzahl der Kennungen“ können Sie Dateien mit einer bestimmten Anzahl sensibler Kennungen auflisten, einschließlich persönlicher Daten und sensibler personenbezogener Daten. Sie können einen Bereich wie 1-10 oder 501-1000 auswählen, um nur die Dateien anzuzeigen, die die Anzahl der sensiblen Kennungen enthalten.
+
+https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page["Sehen Sie sich die Liste aller Filter an, mit denen Sie Ihre Daten untersuchen können"].
+
+
+
+=== Jetzt können Sie vorhandene Richtlinien bearbeiten, die Sie erstellt haben
+
+Wenn Sie eine Änderung an einer benutzerdefinierten Richtlinie vornehmen müssen, die Sie in der Vergangenheit erstellt haben, können Sie jetzt die Richtlinie bearbeiten, anstatt eine neue Richtlinie zu erstellen. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-org-private-data.html#editing-policies["Lesen Sie, wie eine Richtlinie bearbeitet wird"].
+
+
+
+== 11. Mai 2022 (Version 1.12.1)
+
+
+
+=== Unterstützung für das Scannen von Daten in Google Drive-Konten hinzugefügt
+
+Jetzt können Sie Ihre Google Drive-Konten zu Data Sense hinzufügen, um die Dokumente und Dateien von diesen Google Drive-Konten zu scannen. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-google-drive.html["Lesen Sie, wie Sie Ihre Google Drive-Konten scannen"].
+
+Data Sense kann personenbezogene Daten (PII) innerhalb der folgenden Google-Dateitypen aus der Google Docs-Suite identifizieren -- Docs, Tabellen und Folien -- zusätzlich zu dem https://docs.netapp.com/us-en/cloud-manager-data-sense/reference-private-data-categories.html#types-of-files["Vorhandene Dateitypen"].
+
+
+
+=== Ansicht auf Verzeichnisebene zur Seite Datenuntersuchung hinzugefügt
+
+Neben dem Anzeigen und Filtern von Daten aus allen Dateien und Datenbanken können Sie jetzt auf der Seite „Datenuntersuchung“ Daten auf der Grundlage aller Daten in Ordnern und Freigaben anzeigen und filtern. Verzeichnisse werden für gescannte CIFS- und NFS-Freigaben sowie für OneDrive, SharePoint und Google Drive-Ordner indexiert. So können Sie nun Berechtigungen anzeigen und Ihre Daten auf der Verzeichnisebene verwalten. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page["Lesen Sie, wie Sie die Ansicht der Verzeichnisse Ihrer gescannten Daten auswählen"].
+
+
+
+=== Erweitern Sie Gruppen, um die Benutzer/Mitglieder anzuzeigen, die über Berechtigungen zum Zugriff auf eine Datei verfügen
+
+Im Rahmen der Data Sense-Berechtigungsfunktionen können Sie jetzt die Liste der Benutzer und Gruppen anzeigen, die Zugriff auf eine Datei haben. Jede Gruppe kann erweitert werden, um die Liste der Benutzer in der Gruppe anzuzeigen. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#viewing-permissions-for-files["Lesen Sie, wie Sie Benutzer und Gruppen anzeigen, die Lese- und/oder Schreibberechtigungen für Ihre Dateien haben"].
+
+
+
+=== Auf der Seite „Datenuntersuchung“ wurden zwei neue Filter hinzugefügt
+
+* Mit dem Filter „Directory type“ können Sie Ihre Daten so verfeinern, dass nur Ordner oder Freigaben angezeigt werden. Die Ergebnisse werden auf der neuen Registerkarte *Directories* angezeigt.
+* Mit dem Filter „Benutzer-/Gruppenberechtigungen“ können Sie die Dateien, Ordner und Freigaben auflisten, auf die ein bestimmter Benutzer oder eine Gruppe Lese- und/oder Schreibberechtigungen besitzt. Sie können mehrere Benutzer und/oder Gruppennamen auswählen oder einen Teilnamen eingeben. T
+
+
+https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page["Sehen Sie sich die Liste aller Filter an, mit denen Sie Ihre Daten untersuchen können"].
+
+
+
+== 5. April 2022 (Version 1.11.1)
+
+
+
+=== Vier neue Arten von australischen personenbezogenen Daten können durch Data Sense identifiziert werden
+
+Data Sense kann Dateien identifizieren und kategorisieren, die die Australian TFN (Tax File Number), Australian Driver's License Number, Australian Medicare Number und Australian Passport Number enthalten. link:reference-private-data-categories.html#types-of-personal-data["Sehen Sie alle Arten von personenbezogenen Daten an, die Data Sense in Ihren Daten identifizieren kann"].
+
+
+
+=== Der globale Active Directory-Server kann jetzt ein LDAP-Server sein
+
+Der globale Active Directory-Server, den Sie mit Data Sense integrieren, kann jetzt zusätzlich zu dem zuvor unterstützten DNS-Server ein LDAP-Server sein. link:task-add-active-directory-datasense.html["Weitere Informationen finden Sie hier"].
+
+
+
+== 15. März 2022 (Version 1.10.0)
+
+
+
+=== Neuer Filter, um die Dateien anzuzeigen, für die ein bestimmter Benutzer oder eine Gruppe Lese- oder Schreibberechtigungen besitzt
+
+Es wurde ein neuer Filter mit dem Namen „Benutzer-/Gruppenberechtigungen“ hinzugefügt, sodass Sie die Dateien auflisten können, auf die ein bestimmter Benutzer oder eine Gruppe Lese- und/oder Schreibberechtigungen besitzt. Sie können einen oder mehrere Benutzer- und/oder Gruppennamen auswählen oder einen Teilnamen eingeben. Diese Funktion ist für Volumes auf Cloud Volumes ONTAP, On-Premises-ONTAP, Azure NetApp Files, Amazon FSX für ONTAP und File Shares verfügbar.
+
+
+
+=== Data Sense kann die Berechtigungen für Dateien in SharePoint- und OneDrive-Konten bestimmen
+
+Data Sense kann die Berechtigungen für Dateien lesen, die jetzt in OneDrive-Konten und SharePoint-Konten gescannt werden. Diese Informationen werden im Untersuchungsfenster für Dateien und im Bereich Offene Berechtigungen im Governance Dashboard angezeigt.
+
+
+
+=== Zwei weitere Arten von personenbezogenen Daten können durch Data Sense identifiziert werden
+
+* French INSEE - der INSEE-Code ist ein numerischer Code, der vom französischen National Institute for Statistics and Economic Studies (INSEE) zur Identifizierung verschiedener Entitäten verwendet wird.
+* Passwörter: Diese Informationen werden mittels Näherungsüberprüfung identifiziert, indem Sie neben einem alphanumerischen String nach Permutationen des Wortes „Passwort“ suchen. Die Anzahl der gefundenen Elemente wird unter „Persönliche Ergebnisse“ im Compliance Dashboard aufgelistet. Mit dem Filter *Persönliche Daten > Passwort* können Sie im Untersuchungsfenster nach Dateien suchen, die Passwörter enthalten.
+
+
+
+
+=== Unterstützung für das Scannen von OneDrive- und SharePoint-Daten bei Bereitstellung in einem dunklen Standort
+
+Wenn Sie Cloud Data Sense auf einem Host in einer On-Premises-Website bereitgestellt haben, die keinen Internetzugang hat, können Sie jetzt lokale Daten von OneDrive-Konten oder SharePoint-Konten scannen. link:task-deploy-compliance-dark-site.html#sharepoint-and-onedrive-special-requirements["Sie müssen den Zugriff auf die folgenden Endpunkte zulassen."]
+
+
+
+=== Die Beta-Funktion zur Verwendung von Cloud Data Sense zum Scannen Ihrer Cloud Backup-Dateien wurde in dieser Version eingestellt
+
+
+
+== 9 Februar 2022
+
+
+
+=== Unterstützung für das Scannen von Microsoft SharePoint Online-Konten hinzugefügt
+
+Jetzt können Sie Ihre SharePoint Online-Konten zu Data Sense hinzufügen, um die Dokumente und Dateien von Ihren SharePoint-Sites zu scannen. link:task-scanning-sharepoint.html["Lesen Sie, wie Sie Ihre SharePoint-Konten scannen"].
+
+
+
+=== Data Sense kann Dateien von einer Datenquelle auf einen Zielspeicherort kopieren und diese Dateien synchronisieren
+
+Dies ist hilfreich für Situationen, in denen Sie Daten migrieren und Sie wollen alle letzten Änderungen, die an den Dateien gemacht werden zu fangen. Diese Aktion verwendet das https://docs.netapp.com/us-en/cloud-manager-sync/concept-cloud-sync.html["NetApp Cloud Sync"^] Funktion zum Kopieren und Synchronisieren von Daten von einer Quelle an ein Ziel
+
+link:task-managing-highlights.html#copying-and-synchronizing-source-files-to-a-target-system["So kopieren und synchronisieren Sie Dateien"].
+
+
+
+=== Neue Sprachunterstützung für DSAR-Berichte
+
+Deutsch und Spanisch werden nun bei der Suche nach Namen von Betroffenen unterstützt, um DSAR-Berichte (Data Subject Access Request) zu erstellen. Dieser Bericht dient als Unterstützung bei der Anforderung Ihres Unternehmens, die DSGVO oder ähnliche Datenschutzgesetze einzuhalten.
+
+
+
+=== Drei weitere Arten von personenbezogenen Daten können durch Data Sense identifiziert werden
+
+Data Sense kann nun französische Sozialversicherungsnummern, französische IDs und französische Führerscheine in Dateien finden. link:reference-private-data-categories.html#types-of-personal-data["Siehe die Liste aller personenbezogenen Datentypen, die Data Sense in Scans identifiziert"].
+
+
+
+=== Der Port der Sicherheitsgruppe wurde geändert, um die Kommunikation mit dem Connector Data Sense zu ermöglichen
+
+Die Sicherheitsgruppe für den Cloud Manager Connector verwendet Port 443 statt Port 80 für ein- und ausgehenden Datenverkehr zur zusätzlichen Sicherheit an und aus der Instanz Data Sense. Beide Ports bleiben zu diesem Zeitpunkt offen, also sollten Sie keine Probleme sehen, aber Sie sollten die Sicherheitsgruppe in einer älteren Version des Connectors aktualisieren, da Port 80 in einer zukünftigen Version veraltet ist.
+
+
+
+== Januar 2022
+
+
+
+=== Integration eines globalen Active Directory zur Identifizierung von Dateieigentümern und Berechtigungen
+
+Sie können jetzt ein globales Active Directory in Cloud Data Sense integrieren, um die Ergebnisse zu verbessern, die Data Sense-Berichte über Dateibesitzer und welche Benutzer und Gruppen Zugriff auf Ihre Dateien haben.
+
+Zusätzlich zu den von Ihnen eingegebenen Active Directory-Anmeldeinformationen, damit Data Sense CIFS-Volumes aus bestimmten Datenquellen scannen kann, bietet diese neue Integration zusätzliche Integration für andere Benutzer und Systeme. Data Sense wird in allen integrierten Active-Verzeichnissen für Benutzer- und Berechtigungsdetails angezeigt. link:task-add-active-directory-datasense.html["Erfahren Sie, wie Sie Ihr globales Active Directory einrichten"].
+
+
+
+=== Der Datensinn "Richtlinien" kann jetzt zum Löschen von Dateien verwendet werden
+
+Datensense kann Dateien automatisch löschen, die mit der Abfrage übereinstimmen, die Sie in einer Richtlinie definieren. link:task-managing-highlights.html#deleting-source-files-automatically-using-policies["Lesen Sie, wie Sie benutzerdefinierte Richtlinien erstellen"].
+
+
+
+== Bis 16. Dezember 2021
+
+
+
+=== Fähigkeit für Daten sinnvoll Daten an dunklen Standorten zu scannen
+
+Sowohl Cloud Manager (The Connector) und Cloud Data Sense kann in einer On-Premises-Website, die keinen Internetzugang hat eingesetzt werden. Ihre sicheren Standorte können jetzt mit Cloud Manager Ihre ONTAP-Cluster vor Ort managen, Daten zwischen Clustern replizieren und Daten mithilfe von Cloud Data Sense scannen.
+
+link:task-deploy-compliance-dark-site.html["Erfahren Sie, wie Sie Cloud Data Sense in einer Website ohne Internetzugang implementieren"^].
+
+
+
+== 28. November 2021
+
+
+
+=== Mit Data Sense können Volumes von einem ONTAP System geklont werden
+
+Sie können ein ONTAP Volume mittels Data Sense klonen, aber nur ausgewählte Dateien aus dem Quell-Volume in das neue geklonte Volume einbeziehen. Dies ist hilfreich für Situationen, in denen Sie Daten migrieren und bestimmte Dateien ausschließen möchten, oder wenn Sie eine Kopie eines Volumes zum Testen erstellen möchten.
+
+link:task-managing-highlights.html#cloning-volume-data-to-a-new-volume["So klonen Sie ein Volume"].
+
+
+
+=== Das GCP Marketplace Abonnement für Cloud Manager bietet jetzt Unterstützung für Cloud Data Sense
+
+Der https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP Marketplace-Abonnement für Cloud Manager"^] Umfasst jetzt Unterstützung für Cloud Data Sense. Ab sofort können Sie mit diesem PAYGO-Abonnement (Pay-as-you-go) Daten von auf Google Cloud Storage implementierten Cloud Volumes ONTAP Systemen scannen sowie eine BYOL-Lizenz von NetApp verwenden.
+
+
+
+=== Möglichkeit, den Status Ihrer lang laufenden Compliance-Aktionen anzuzeigen
+
+Wenn Sie eine Aktion aus dem Bereich „Untersuchungsergebnisse“ über viele Dateien ausführen, z. B. das Löschen von 50 Dateien, kann der Prozess einige Zeit in Anspruch nehmen. Jetzt können Sie den Status dieser asynchronen Aktionen überwachen, so dass Sie wissen, wann es auf alle Dateien angewendet wurde.
+
+link:task-view-compliance-actions.html["Erfahren Sie, wie Sie den Status Ihrer fortlaufenden Compliance-Aktionen anzeigen"].
+
+
+
+=== Zwei weitere Arten von personenbezogenen Daten können durch Data Sense identifiziert werden
+
+Data Sense kann nun die personenbezogenen Daten "British Passport" und "National Health Service (NHS) Number" in Dateien finden. link:reference-private-data-categories.html#types-of-personal-data["Siehe die Liste aller personenbezogenen Datentypen, die Data Sense in Scans findet"].
+
+
+
+=== Neuer Filter, um die Dateien anzuzeigen, die zu bestimmten Typen von Arbeitsumgebungen gehören
+
+Beim Filtern von Daten auf der Seite Datenuntersuchung wurde ein neuer Filter für „Arbeitumgebungstyp“ hinzugefügt. So lassen sich Ergebnisse nach Cloud Volumes ONTAP Systemen, FSX für ONTAP Systeme, ONTAP Systemen vor Ort und mehr filtern.
+
+
+
+== 7. November 2021
+
+
+
+=== Jetzt können Sie einzelne Volumes in Ihrer Arbeitsumgebung zuordnen oder klassifizieren
+
+Früher konnte man entweder alle Volumes abbilden oder alle Volumes in jeder Arbeitsumgebung zuordnen und klassifizieren. Nun können Sie einzelne Volumes zuordnen _oder_ mappen und klassifizieren. Diese Option ist für Cloud Volumes ONTAP Volumes, ANF Volumes, On-Prem ONTAP Volumes und FSX für ONTAP Volumes verfügbar.
+
+
+
+=== Data Sense kann Dateien von einer Datenquelle auf eine Ziel-NFS-Freigabe kopieren
+
+Sie können alle Quelldateien kopieren, die Data Sense auf eine Ziel-NFS-Freigabe scannt. Dies ist hilfreich, wenn Sie eine Kopie bestimmter Daten erstellen und an einen anderen NFS-Speicherort verschieben möchten. link:task-managing-highlights.html#copying-source-files-to-an-nfs-share["Weitere Informationen ."].
+
+
+
+=== Scannen von Datensicherungs-Volumes auf FSX für ONTAP Filesysteme
+
+Sie können jetzt Datensicherungs-Volumes auf FSX für ONTAP-Filesysteme scannen. link:task-scanning-fsx.html#scanning-data-protection-volumes["Weitere Informationen ."].
+
+
+
+=== Neuer Filter, um Dateien nach dem Datumsbereich anzuzeigen, in dem Data Sense sie zuerst entdeckt hat
+
+Mit einem neuen Filter auf der Untersuchungsseite namens „entdeckte Zeit“ können Sie Dateien nach dem Datumsbereich anzeigen, wenn Data Sense die Dateien zum ersten Mal entdeckt hat. Die erkannte Zeit wurde auch der Seite „Dateidetails“ und den Berichten hinzugefügt, die Sie im CSV-Format für eine Datei ausgeben.
+
+
+
+=== SOC 2 Typ 2-Zertifizierung
+
+Ein unabhängiger, zertifizierter Wirtschaftsprüfer hat Cloud Data Sense untersucht und bestätigt, dass er SOC 2 Typ 2-Berichte basierend auf den geltenden Trust Services-Kriterien erreicht hat.
+
+https://www.netapp.com/company/trust-center/compliance/soc-2/["SOC 2-Berichte von NetApp anzeigen"^].
+
+
+
+== Oktober 4 2021
+
+
+
+=== Unterstützung für Byol-Lizenzierung von NetApp
+
+Zusätzlich zur Lizenzierung von Data Sense über Ihre Cloud-Provider-Märkte können Sie jetzt eine BYOL-Lösung (Bring-Your-Own-License) von NetApp erwerben, die Sie in allen Arbeitsumgebungen und Datenquellen Ihres Cloud Manager Kontos verwenden können.
+
+link:task-licensing-datasense.html#use-a-cloud-data-sense-byol-license["Erfahren Sie mehr über die neue Cloud Data Sense BYOL-Lizenz"].
+
+
+
+=== Unterstützung für die Google Cloud Platform
+
+Cloud Data Sense kann jetzt Daten von Ihren auf GCP implementierten Cloud Volumes ONTAP Systemen scannen. Der Data Sense muss auf GCP implementiert werden, und der Connector muss in GCP oder On-Premises bereitgestellt werden. Für die Implementierung von Cloud Data Sense in GCP sind die aktuellen Berechtigungen erforderlich, um das GCP-Servicekonto für GCP nutzen zu können.
+
+
+
+=== Scan von CIFS Volumes auf FSX für ONTAP Filesysteme
+
+„Data Sense“ kann nun CIFS Volumes von FSX für ONTAP Systeme scannen. link:task-scanning-fsx.html["Scannen von Amazon FSX für ONTAP Volumes"].
+
+
+
+== September 2021
+
+
+
+=== Scannen von NFS-Volumes auf FSX für ONTAP-Filesysteme
+
+Zusätzliche Unterstützung für das Scannen von Daten auf NFS-Volumes auf Amazon FSX für ONTAP Systeme link:task-scanning-fsx.html["Erfahren Sie, wie Sie den Scanvorgang für Ihre FSX für ONTAP-Systeme konfigurieren"].
+
+
+
+=== Datensense "Status" Einträge haben sich in "Tags" Einträge geändert
+
+Die Möglichkeit, mit Data Sense "Status"-Informationen zu Ihren Dateien hinzuzufügen, hat die Terminologie in "Tags" geändert. Es handelt sich um Tags auf Dateiebene – nicht zu verwechseln mit Tagging auf Ressourcen, das auf Volumes, EC2 Instanzen, Virtual Machines usw. angewendet werden kann link:task-org-private-data.html#applying-tags-to-manage-your-scanned-files["Erfahren Sie mehr über Tags auf Dateiebene"].
+
+
+
+== August 2021
+
+
+
+=== Verwaltung von Dateieinstellungen für mehrere Dateien gleichzeitig
+
+In früheren Versionen von Cloud Data Sense können Sie die folgenden Aktionen für eine Datei gleichzeitig ausführen: Fügen Sie ein Status-Tag hinzu, weisen Sie einen Benutzer zu und fügen Sie ein AIP-Label hinzu. Sie können nun mehrere Dateien auf der Seite „Datenuntersuchung“ auswählen und jede dieser Aktionen auf mehreren Dateien durchführen.
+
+
+
+=== Das Governance-Dashboard zeigt die Daten nach dem Zeitpunkt der Erstellung oder dem Zeitpunkt des letzten Zugriffs an
+
+Wenn Sie das Diagramm „Alter der Daten“ im Governance-Dashboard anzeigen, können Sie die Daten nicht nur auf Grundlage des letzten Änderungszeitpunkt anzeigen, sondern auch nach dem Zeitpunkt, an dem der letzte Zugriff erfolgt ist (zum Zeitpunkt des Einlesens). Diese Informationen finden Sie auch im Daten-Mapping-Bericht.
+
+
+
+=== Möglichkeit, mehrere Hosts für zusätzliche Verarbeitungsleistung beim Scannen großer Konfigurationen zu verwenden
+
+Bei der Implementierung von Data Sense vor Ort können Sie Scanning-Software jetzt auf zusätzlichen lokalen Hosts installieren, wenn Sie Konfigurationen mit mehreren Petabyte an Daten scannen möchten. Diese zusätzlichen _Scanner-Knoten_ bieten beim Scannen sehr großer Konfigurationen eine höhere Verarbeitungsleistung.
+
+Informieren Sie sich darüber link:task-deploy-compliance-onprem.html#multi-host-installation-for-large-configurations["Implementieren Sie Data Sense Software auf mehreren Hosts"].
+
+
+
+== 7 Juli 2021
+
+
+
+=== Data Sense kann Dateien von einer Datenquelle zu einer Ziel-NFS-Freigabe verschieben
+
+Mit einer neuen Funktion können Sie link:task-managing-highlights.html#moving-source-files-to-an-nfs-share["Verschieben Sie alle Quelldateien, die Data Sense auf jeden NFS-Share scannt"]. So können Sie sensible oder sicherheitsbezogene Dateien in einen speziellen Bereich verschieben, sodass Sie weitere Analysen durchführen können.
+
+
+
+=== Möglichkeit zur schnellen Kategorisierung von Daten anstelle eines vollständigen Klassifizierungsscans
+
+Jetzt können Sie Daten schnell in Kategorien zuordnen, anstatt eine vollständige Klassifizierungsscan durchzuführen. So können Sie es link:task-generating-compliance-reports.html#data-mapping-report["Zeigen Sie den Datenzuordnungsbericht an"] Über das Governance Dashboard erhalten Sie einen Überblick über Ihre Daten, wenn bestimmte Datenquellen vorhanden sind, auf denen Sie keinen vollständigen Scan ausführen müssen.
+
+
+
+=== Möglichkeit, Dateien Cloud Manager-Benutzern zuzuweisen
+
+Das ist jetzt möglich link:task-org-private-data.html#assigning-users-to-manage-certain-files["Weisen Sie eine Datei einem bestimmten Cloud Manager-Benutzer zu"] Diese Person kann für alle Folgemaßnahmen verantwortlich sein, die in der Datei ausgeführt werden müssen. Diese Funktion kann mit der vorhandenen Funktion verwendet werden, um benutzerdefinierte Tags zu einer Datei hinzuzufügen.
+
+Mit einem neuen Filter auf der Untersuchungsseite können Sie auch problemlos alle Dateien anzeigen, die dieselbe Person im Feld „Assigned to“ haben.
+
+
+
+=== Möglichkeit zur Verwendung kleinerer Cloud Data Sense Instanz
+
+Einige Benutzer mit geringeren Scananforderungen müssen in der Lage sein, eine kleinere Cloud Data Sense Instanz zu verwenden. Das ist jetzt möglich. Beim Einsatz dieser kleineren Instanzen bestehen einige Einschränkungen link:concept-cloud-compliance.html#using-a-smaller-instance-type["Sehen Sie sich an, welche Einschränkungen zuerst gelten"].
+
+
+
+=== Langsame Scans können durchgeführt werden
+
+Datenscans haben keine nennenswerten Auswirkungen auf Ihre Storage-Systeme und Ihre Daten. Wenn Sie jedoch auch nur geringe Auswirkungen haben, können Sie Data Sense so konfigurieren, dass Sie jetzt „langsame“ Scans durchführen. link:task-reduce-scan-speed.html["Erfahren Sie, wie"].
+
+
+
+=== Data Sense verfolgt das letzte Mal, wenn eine Datei aufgerufen wurde
+
+Der Wert für die zuletzt aufgerufene Zeit wurde der Seite „Dateidetails“ und den Berichten hinzugefügt, die Sie im CSV-Format ausgeben, sodass Sie sehen können, wann Benutzer zuletzt auf die Datei zugegriffen haben.
