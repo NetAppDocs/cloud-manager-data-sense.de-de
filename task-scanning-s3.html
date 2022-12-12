@@ -979,7 +979,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 18:01:58 +0000">11/15/2022</time>
+    <time datetime="2022-12-12 20:23:33 +0000">12/12/2022</time>
     
   
 
@@ -1003,15 +1003,19 @@
 <p>Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>Stellen Sie sicher, dass Ihre Cloud-Umgebung die Anforderungen für Cloud Data Sense erfüllen kann, einschließlich der Vorbereitung einer IAM-Rolle und der Einrichtung der Konnektivität von Data Sense bis S3.  S3 prerequisites,Eine vollständige Liste finden Sie hier.</p>
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png" alt="Eins"></span> S3-Anforderungen in Ihrer Cloud-Umgebung einrichten</div>
+<p>Stellen Sie sicher, dass Ihre Cloud-Umgebung die Anforderungen für Cloud Data Sense erfüllen kann, einschließlich der Vorbereitung einer IAM-Rolle und der Einrichtung der Konnektivität von Data Sense bis S3. <a href="#überprüfen-der-s3-voraussetzungen">Eine vollständige Liste finden Sie hier</a>.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png" alt="Zwei"></span> Implementieren Sie die Cloud Data Sense Instanz</div>
 <p><a href="task-deploy-cloud-compliance.html" target="_blank" rel="noopener">"Sinnvolle Implementierung Von Cloud-Daten"</a> Falls noch keine Instanz implementiert wurde.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png" alt="Drittens"></span> Aktivieren Sie Data Sense in Ihrer S3-Arbeitsumgebung</div>
 <p>Wählen Sie die Amazon S3-Arbeitsumgebung aus, klicken Sie auf <strong>Aktivieren</strong> und wählen Sie eine IAM-Rolle aus, die die erforderlichen Berechtigungen enthält.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png" alt="Vier"></span> Wählen Sie die zu scannenden Buckets aus</div>
 <p>Wählen Sie die Buckets aus, die Sie scannen möchten, und Cloud Data Sense beginnt mit dem Scannen.</p>
 </div>
 </div>
@@ -1137,7 +1141,7 @@ Sie können keinen Proxy verwenden, um über das Internet nach S3 zu gelangen.
 </div>
 </li>
 <li>
-<p>Wenn Sie dazu aufgefordert werden, weisen Sie der Cloud Data Sense Instanz eine IAM-Rolle zu  S3 prerequisites,Die erforderlichen Berechtigungen.</p>
+<p>Wenn Sie dazu aufgefordert werden, weisen Sie der Cloud Data Sense Instanz eine IAM-Rolle zu <a href="#überprüfen-der-s3-voraussetzungen">Die erforderlichen Berechtigungen</a>.</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_s3_compliance_iam_role.gif" alt="Screenshot zur Eingabe der AWS IAM-Rolle für Cloud Data Sense"></span></p>
 </div>
@@ -1160,6 +1164,7 @@ Sie können auch Compliance-Scans für eine Arbeitsumgebung über die Konfigurat
 </table>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>BlueXP weist der Instanz die IAM-Rolle zu.</p>
 </div>
 </div>
@@ -1174,7 +1179,7 @@ Sie können auch Compliance-Scans für eine Arbeitsumgebung über die Konfigurat
 <p>Wenn BlueXP im AWS Konto ausgeführt wird, das über die S3-Buckets verfügt, die Sie scannen möchten, erkennt es diese Buckets und zeigt sie in einer Amazon S3-Arbeitsumgebung an.</p>
 </div>
 <div class="paragraph">
-<p>Cloud Data Sense kann es auch  buckets from additional AWS accounts,Scannen von S3-Buckets, die in unterschiedlichen AWS Konten vorhanden sind.</p>
+<p>Cloud Data Sense kann es auch <a href="#scannen-von-buckets-für-weitere-aws-konten">Scannen von S3-Buckets, die in unterschiedlichen AWS Konten vorhanden sind</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Schritte</div>
@@ -1223,6 +1228,7 @@ Sie können auch Compliance-Scans für eine Arbeitsumgebung über die Konfigurat
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>Cloud Data Sense beginnt mit dem Scannen der aktivierten S3 Buckets. Wenn Fehler auftreten, werden sie neben der erforderlichen Aktion zur Behebung des Fehlers in der Spalte Status angezeigt.</p>
 </div>
 </div>
@@ -1333,6 +1339,7 @@ Sie können auch Compliance-Scans für eine Arbeitsumgebung über die Konfigurat
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>Cloud Data Sense beginnt mit dem Scannen der neuen aktivierten S3 Buckets.</p>
 </div>
 </div>

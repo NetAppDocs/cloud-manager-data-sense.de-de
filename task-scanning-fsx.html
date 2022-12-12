@@ -979,7 +979,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 18:01:58 +0000">11/15/2022</time>
+    <time datetime="2022-12-12 20:23:33 +0000">12/12/2022</time>
     
   
 
@@ -1027,18 +1027,22 @@
 <p>Führen Sie die folgenden Schritte aus, oder scrollen Sie nach unten, um weitere Informationen zu erhalten.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png" alt="Eins"></span> Entdecken Sie die FSX für ONTAP-Dateisysteme, die Sie scannen möchten</div>
 <p>Bevor Sie FSX für ONTAP Volumes scannen können, <a href="https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/concept-fsx-aws.html" target="_blank" rel="noopener">"Sie benötigen eine FSX-Arbeitsumgebung mit konfigurierten Volumes"</a>.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png" alt="Zwei"></span> Implementieren Sie die Cloud Data Sense Instanz</div>
 <p><a href="task-deploy-cloud-compliance.html" target="_blank" rel="noopener">"Implementieren Sie Cloud Data Sense in BlueXP"</a> Falls noch keine Instanz implementiert wurde.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png" alt="Drittens"></span> Aktivieren Sie Cloud Data Sense und wählen Sie die zu scannenden Volumes aus</div>
 <p>Klicken Sie auf <strong>Data Sense</strong>, wählen Sie die Registerkarte <strong>Konfiguration</strong> und aktivieren Sie Compliance-Scans für Volumes in bestimmten Arbeitsumgebungen.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png" alt="Vier"></span> Zugriff auf Volumes sicherstellen</div>
 <p>Jetzt, da Cloud Data Sense aktiviert ist, stellen Sie sicher, dass er auf alle Volumes zugreifen kann.</p>
 </div>
-<div class="ulist">
+<div class="ulist quick-margin-list">
 <ul>
 <li>
 <p>Die Cloud Data Sense Instanz benötigt eine Netzwerkverbindung zu jedem FSX für ONTAP Subnetz.</p>
@@ -1065,6 +1069,7 @@
 </ul>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png" alt="Fünf"></span> Verwalten Sie die Volumes, die Sie scannen möchten</div>
 <p>Wählen oder deaktivieren Sie die Volumes, die Sie scannen möchten, und Cloud Data Sense startet oder beendet den Scanvorgang.</p>
 </div>
 </div>
@@ -1124,7 +1129,7 @@
 <li>
 <p>Um den Scan für jedes Volume anzupassen, klicken Sie auf <strong>oder wählen Sie für jedes Volume</strong> den Scantyp aus, und wählen Sie dann die Volumes aus, die Sie zuordnen und/oder klassifizieren möchten.</p>
 <div class="paragraph">
-<p>Siehe  and disabling compliance scans on volumes,Aktivieren und Deaktivieren von Compliance-Scans auf Volumes Entsprechende Details.</p>
+<p>Siehe <a href="#aktivieren-und-deaktivieren-von-compliance-scans-auf-volumes">Aktivieren und Deaktivieren von Compliance-Scans auf Volumes</a> Entsprechende Details.</p>
 </div>
 </li>
 </ul>
@@ -1136,6 +1141,7 @@
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>Cloud Data Sense beginnt mit dem Scannen der Volumes, die Sie in der Arbeitsumgebung ausgewählt haben. Die Ergebnisse werden im Compliance-Dashboard verfügbar sein, sobald Cloud Data Sense die ersten Scans beendet hat. Die Dauer, die von der Datenmenge abhängt, kann ein paar Minuten oder Stunden betragen.</p>
 </div>
 </div>
@@ -1296,6 +1302,7 @@ Neue Volumen, die der Arbeitsumgebung hinzugefügt wurden, werden automatisch nu
 <p><span class="image"><img src="./media/screenshot_cloud_compliance_dp_volumes.png" alt="Ein Screenshot mit der Schaltfläche Zugriff auf DP-Volumes aktivieren, die Sie zum Scannen von Datensicherungs-Volumes auswählen können."></span></p>
 </div>
 <div class="paragraph">
+<div class="title">Schritte</div>
 <p>Wenn Sie diese Datensicherungs-Volumes scannen möchten:</p>
 </div>
 <div class="olist arabic">
@@ -1320,11 +1327,12 @@ Neue Volumen, die der Arbeitsumgebung hinzugefügt wurden, werden automatisch nu
 </div>
 </li>
 <li>
-<p>Aktivieren Sie jedes zu scannenden DP-Volume  and disabling compliance scans on volumes,Auf die gleiche Weise haben Sie andere Volumes aktiviert.</p>
+<p>Aktivieren Sie jedes zu scannenden DP-Volume <a href="#aktivieren-und-deaktivieren-von-compliance-scans-auf-volumes">Auf die gleiche Weise haben Sie andere Volumes aktiviert</a>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>Sobald Cloud Data Sense aktiviert ist, erstellt Cloud Data Sense eine NFS-Freigabe von jedem DP-Volume, das zum Scannen aktiviert wurde. Die Exportrichtlinien für die Freigabe erlauben nur den Zugriff aus der Instanz Data Sense.</p>
 </div>
 <div class="paragraph">

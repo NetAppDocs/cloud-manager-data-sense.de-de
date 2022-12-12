@@ -979,7 +979,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 18:01:58 +0000">11/15/2022</time>
+    <time datetime="2022-12-12 20:23:33 +0000">12/12/2022</time>
     
   
 
@@ -1006,21 +1006,25 @@
 <p>Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png" alt="Eins"></span> Einen Konnektor erstellen</div>
 <p>Wenn Sie noch keinen Konnektor haben, erstellen Sie jetzt einen Konnektor. Siehe <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"Erstellen eines Konnektors in AWS"</a>, <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html" target="_blank" rel="noopener">"Erstellen eines Connectors in Azure"</a>, Oder <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html" target="_blank" rel="noopener">"Erstellen eines Konnektors in GCP"</a>.</p>
 </div>
 <div class="paragraph quick-margin-para">
 <p>Das können Sie auch <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html" target="_blank" rel="noopener">"Stellen Sie den Connector vor Ort bereit"</a> Auf einem Linux-Host in Ihrem Netzwerk oder in der Cloud.</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>Stellen Sie sicher, dass Ihre Umgebung die Voraussetzungen erfüllen kann. Dazu gehören Outbound-Internetzugang für die Instanz, Konnektivität zwischen Connector und Cloud Data Sense über Port 443 und mehr.  prerequisites,Eine vollständige Liste finden Sie hier.</p>
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png" alt="Zwei"></span> Voraussetzungen prüfen</div>
+<p>Stellen Sie sicher, dass Ihre Umgebung die Voraussetzungen erfüllen kann. Dazu gehören Outbound-Internetzugang für die Instanz, Konnektivität zwischen Connector und Cloud Data Sense über Port 443 und mehr. <a href="#voraussetzungen-prüfen">Eine vollständige Liste finden Sie hier</a>.</p>
 </div>
 <div class="paragraph quick-margin-para">
 <p>Die Standardkonfiguration benötigt 16 vCPUs für die Cloud Data Sense Instanz. Siehe <a href="concept-cloud-compliance.html#the-cloud-data-sense-instance" target="_blank" rel="noopener">"Weitere Details zum Instanztyp"</a>.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png" alt="Drittens"></span> Sinnvolle Implementierung Von Cloud-Daten</div>
 <p>Starten Sie den Installationsassistenten, um die Cloud Data Sense Instanz in der Cloud zu implementieren.</p>
 </div>
 <div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png" alt="Vier"></span> Abonnieren Sie den Cloud Data Sense Service</div>
 <p>Die ersten 1 TB an Daten, die Cloud Data Sense in BlueXP scannt, sind kostenlos. Um die Daten nach diesem Zeitpunkt weiterhin zu scannen, ist ein BlueXP Abonnement über Ihren Cloud-Provider Marketplace oder eine BYOL-Lizenz von NetApp erforderlich.</p>
 </div>
 </div>
@@ -1113,7 +1117,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">https://cloudmanager.cloud.netapp.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://api.bluexp.netapp.com</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kommunikation mit dem BlueXP Service, einschl. NetApp Accounts</p></td>
 </tr>
 <tr>
@@ -1150,7 +1154,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">https://cloudmanager.cloud.netapp.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://api.bluexp.netapp.com</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kommunikation mit dem BlueXP Service, einschl. NetApp Accounts</p></td>
 </tr>
 <tr>
@@ -1158,11 +1162,11 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kommunikation mit der BlueXP-Website zur zentralen Benutzerauthentifizierung.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">https://support.compliance.cloudmanager.cloud.netapp.com/ https://hub.docker.com https://auth.docker.io https://registry-1.docker.io https://index.docker.io/ https://dseasb33srnrn.cloudfront.net/ https://production.cloudflare.docker.com/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://support.compliance.api.bluexp.netapp.com/ https://hub.docker.com https://auth.docker.io https://registry-1.docker.io https://index.docker.io/ https://dseasb33srnrn.cloudfront.net/ https://production.cloudflare.docker.com/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bietet Zugriff auf Software-Images, Manifeste, Vorlagen und die Möglichkeit, Protokolle und Metriken zu senden.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">https://support.compliance.cloudmanager.cloud.netapp.com/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://support.compliance.api.bluexp.netapp.com/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ermöglicht NetApp das Streamen von Daten aus Audit-Datensätzen.</p></td>
 </tr>
 </tbody>
@@ -1270,9 +1274,11 @@
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>BlueXP implementiert die Cloud Data Sense Instanz bei Ihrem Cloud-Provider.</p>
 </div>
 <div class="paragraph">
+<div class="title">Nächste Schritte</div>
 <p>Auf der Seite Konfiguration können Sie die Datenquellen auswählen, die Sie scannen möchten.</p>
 </div>
 <div class="paragraph">
