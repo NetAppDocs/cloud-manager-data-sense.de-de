@@ -22,22 +22,28 @@ Führen Sie einige Schritte aus, um Ihren Cloud Volumes ONTAP und Ihre ONTAP Vol
 
 Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Ermitteln Sie die Datenquellen, die Sie scannen möchten
 [role="quick-margin-para"]
 Bevor Sie Volumes scannen können, müssen Sie die Systeme als Arbeitsumgebung in BlueXP hinzufügen:
 
+[role="quick-margin-list"]
 * Bei Cloud Volumes ONTAP-Systemen sollten diese Arbeitsumgebungen bereits in BlueXP zur Verfügung stehen
 * Für On-Premises-ONTAP-Systeme bietet die https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["BlueXP muss die ONTAP Cluster ermitteln"^]
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Implementieren Sie die Cloud Data Sense Instanz
 [role="quick-margin-para"]
 link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Aktivieren Sie Cloud Data Sense und wählen Sie die zu scannenden Volumes aus
 [role="quick-margin-para"]
 Klicken Sie auf *Data Sense*, wählen Sie die Registerkarte *Konfiguration* und aktivieren Sie Compliance-Scans für Volumes in bestimmten Arbeitsumgebungen.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Zugriff auf Volumes sicherstellen
 [role="quick-margin-para"]
 Jetzt, da Cloud Data Sense aktiviert ist, stellen Sie sicher, dass er auf alle Volumes zugreifen kann.
 
+[role="quick-margin-list"]
 * Die Cloud Data Sense Instanz benötigt eine Netzwerkverbindung zu jedem Cloud Volumes ONTAP-Subnetz oder On-Prem ONTAP-System.
 * Sicherheitsgruppen für Cloud Volumes ONTAP müssen eingehende Verbindungen aus der Datensense-Instanz zulassen.
 * Stellen Sie sicher, dass diese Ports für die Data Sense-Instanz offen sind:
@@ -53,6 +59,7 @@ Klicken Sie auf *Compliance* > *Konfiguration* > *CIFS-Anmeldeinformationen bear
 
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"] Verwalten Sie die Volumes, die Sie scannen möchten
 [role="quick-margin-para"]
 Wählen oder deaktivieren Sie die Volumes, die Sie scannen möchten, und Cloud Data Sense startet oder beendet den Scanvorgang.
 
@@ -92,13 +99,14 @@ image:screenshot_cloud_compliance_we_scan_config.png["Ein Screenshot der Registe
 ** Um alle Bände zu ordnen und zu klassifizieren, klicken Sie auf *Karte & alle Bände klassifizieren*.
 ** Um den Scan für jedes Volume anzupassen, klicken Sie auf *oder wählen Sie für jedes Volume* den Scantyp aus, und wählen Sie dann die Volumes aus, die Sie zuordnen und/oder klassifizieren möchten.
 +
-Siehe  and disabling compliance scans on volumes,Aktivieren und Deaktivieren von Compliance-Scans auf Volumes Entsprechende Details.
+Siehe <<Aktivieren und Deaktivieren von Compliance-Scans auf Volumes,Aktivieren und Deaktivieren von Compliance-Scans auf Volumes>> Entsprechende Details.
 
 
 
 . Klicken Sie im Bestätigungsdialogfeld auf *Genehmigen*, damit Data Sense Ihre Volumes scannen kann.
 
 
+.Ergebnis
 Cloud Data Sense beginnt mit dem Scannen der Volumes, die Sie in der Arbeitsumgebung ausgewählt haben. Die Ergebnisse werden im Compliance-Dashboard verfügbar sein, sobald Cloud Data Sense die ersten Scans beendet hat. Die Dauer, die von der Datenmenge abhängt, kann ein paar Minuten oder Stunden betragen.
 
 
@@ -196,6 +204,7 @@ Zunächst erkennt die Volume-Liste diese Volumes als _Type_ *DP* mit dem _Status
 
 image:screenshot_cloud_compliance_dp_volumes.png["Ein Screenshot mit der Schaltfläche Zugriff auf DP-Volumes aktivieren, die Sie zum Scannen von Datensicherungs-Volumes auswählen können."]
 
+.Schritte
 Wenn Sie diese Datensicherungs-Volumes scannen möchten:
 
 . Klicken Sie oben auf der Seite auf *Zugriff auf DP-Volumes aktivieren*.
@@ -208,9 +217,10 @@ image:screenshot_compliance_dp_cifs_volumes.png["Ein Screenshot der beiden Optio
 
 
 
-. Aktivieren Sie jedes zu scannenden DP-Volume  and disabling compliance scans on volumes,Auf die gleiche Weise haben Sie andere Volumes aktiviert.
+. Aktivieren Sie jedes zu scannenden DP-Volume <<Aktivieren und Deaktivieren von Compliance-Scans auf Volumes,Auf die gleiche Weise haben Sie andere Volumes aktiviert>>.
 
 
+.Ergebnis
 Sobald Cloud Data Sense aktiviert ist, erstellt Cloud Data Sense eine NFS-Freigabe von jedem DP-Volume, das zum Scannen aktiviert wurde. Die Exportrichtlinien für die Freigabe erlauben nur den Zugriff aus der Instanz Data Sense.
 
 *Hinweis:* Wenn Sie beim ersten Aktivieren des Zugriffs auf DP-Volumes keine CIFS-Datenschutzvolumes hatten und später noch etwas hinzufügen, erscheint oben auf der Konfigurationsseite die Schaltfläche *Zugriff auf CIFS DP aktivieren*. Klicken Sie auf diese Schaltfläche, und fügen Sie CIFS-Anmeldeinformationen hinzu, um den Zugriff auf diese CIFS-DP-Volumes zu ermöglichen.

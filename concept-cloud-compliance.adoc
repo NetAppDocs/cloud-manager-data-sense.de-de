@@ -129,7 +129,7 @@ Data Sense unterstützt NFS-Versionen 3.x, 4.0 und 4.1 sowie CIFS Versionen 1.x,
 +
 link:task-licensing-datasense.html["Lernen Sie, Cloud Data Sense zu lizenzieren"^].
 
-* Für die Installation von Cloud Data Sense in der Cloud ist die Implementierung einer Cloud-Instanz erforderlich, was beim Cloud-Provider zu Gebühren führt, wo sie implementiert wird. Siehe  Cloud Data Sense instance,Der für jeden Cloud-Provider implementierte Instanztyp. Wenn Sie Daten Sense in einem lokalen System installieren, entstehen Ihnen keine Kosten.
+* Für die Installation von Cloud Data Sense in der Cloud ist die Implementierung einer Cloud-Instanz erforderlich, was beim Cloud-Provider zu Gebühren führt, wo sie implementiert wird. Siehe <<Die Instanz Cloud Data Sense,Der für jeden Cloud-Provider implementierte Instanztyp>>. Wenn Sie Daten Sense in einem lokalen System installieren, entstehen Ihnen keine Kosten.
 * Für Cloud Data Sense ist die Implementierung eines BlueXP Connectors erforderlich. In vielen Fällen haben Sie bereits einen Connector, weil Sie andere Speicher und Dienste in BlueXP verwenden. Die Connector-Instanz verursacht Gebühren bei dem Cloud-Provider, wo sie implementiert wird. Siehe https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Für jeden Cloud-Provider implementierte Instanztyp"^]. Bei der Installation des Connectors in einem On-Premises-System entstehen keine Kosten.
 
 
@@ -185,7 +185,7 @@ Sie können Data Sense auf einem System mit weniger CPUs und weniger RAM bereits
 | Systemgröße | Spezifikationen | Einschränkungen 
 
 
-| Extra groß (Standard) | 16 CPUS, 64 GB RAM, 500 GB SSD | Keine 
+| Groß (Standard) | 16 CPUS, 64 GB RAM, 500 GB SSD | Keine 
 
 
 | Mittel | 8 CPUS, 32 GB RAM, 200 GB SSD | Langsamer Scan und kann nur bis zu 1 Million Dateien scannen. 

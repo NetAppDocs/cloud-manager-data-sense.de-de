@@ -16,7 +16,7 @@ summary: Cloud Data Sense bietet Berichte, anhand deren Sie den Status des Daten
 [role="lead"]
 Cloud Data Sense bietet Berichte, anhand deren Sie den Status des Datenschutzprogramms Ihres Unternehmens besser verstehen können.
 
-Standardmäßig zeigen die Cloud Data Sense Dashboards Compliance- und Governance-Daten für alle Arbeitsumgebungen, Datenbanken und Datenquellen an. Wenn Sie Berichte anzeigen möchten, die Daten nur für einige Arbeitsumgebungen enthalten,  the working environments for reports,Wählen Sie diese Arbeitsumgebungen aus.
+Standardmäßig zeigen die Cloud Data Sense Dashboards Compliance- und Governance-Daten für alle Arbeitsumgebungen, Datenbanken und Datenquellen an. Wenn Sie Berichte anzeigen möchten, die Daten nur für einige Arbeitsumgebungen enthalten, <<Auswählen der Arbeitsumgebungen für Berichte,Wählen Sie diese Arbeitsumgebungen aus>>.
 
 [NOTE]
 ====
@@ -31,7 +31,7 @@ Standardmäßig zeigen die Cloud Data Sense Dashboards Compliance- und Governanc
 
 Der Datenschutzrisiko-Assessment-Bericht bietet einen Überblick über den Datenschutzrisikostatus Ihres Unternehmens, wie dies durch Datenschutzvorschriften wie DSGVO und CCPA erforderlich ist. Der Bericht enthält die folgenden Informationen:
 
-Compliance-Status:: A  score,Schweregrad Und die Verteilung von Daten, ganz gleich, ob es sich um unempfindliche, personenbezogene oder sensible Daten handelt.
+Compliance-Status:: A <<Schweregrad,Schweregrad>> Und die Verteilung von Daten, ganz gleich, ob es sich um unempfindliche, personenbezogene oder sensible Daten handelt.
 Assessment-Übersicht:: Eine Aufschlüsselung der gefundenen Arten von personenbezogenen Daten sowie der Kategorien von Daten.
 Betroffene in dieser Beurteilung:: Die Anzahl der Personen, nach Ort, für die nationale Kennungen gefunden wurden.
 
@@ -50,6 +50,7 @@ image:screenshot_privacy_risk_assessment.gif["Ein Screenshot der Registerkarte C
 
 
 
+.Ergebnis
 Cloud Data Sense erstellt einen PDF-Bericht, den Sie nach Bedarf prüfen und an andere Gruppen senden können.
 
 
@@ -129,6 +130,7 @@ image:screenshot_pci_dss.gif["Ein Screenshot der Registerkarte Compliance in Blu
 
 
 
+.Ergebnis
 Cloud Data Sense erstellt einen PDF-Bericht, den Sie nach Bedarf prüfen und an andere Gruppen senden können.
 
 
@@ -167,6 +169,7 @@ image:screenshot_hipaa.gif["Ein Screenshot der Registerkarte Compliance in BlueX
 
 
 
+.Ergebnis
 Cloud Data Sense erstellt einen PDF-Bericht, den Sie nach Bedarf prüfen und an andere Gruppen senden können.
 
 
@@ -197,6 +200,7 @@ image:screenshot_compliance_data_mapping_report_button.png["Ein Screenshot des G
 
 
 
+.Ergebnis
 Cloud Data Sense erstellt einen PDF-Bericht, den Sie nach Bedarf prüfen und an andere Gruppen senden können.
 
 
@@ -224,6 +228,7 @@ Geben Sie bei Auswahl eines JSON-Berichts den Namen der NFS-Freigabe ein, auf di
 
 
 
+.Ergebnis
 Ein Dialogfeld zeigt eine Meldung an, dass die Berichte heruntergeladen werden.
 
 Sie können den Fortschritt der JSON-Berichterstellung in anzeigen link:task-view-compliance-actions.html["Statusbereich Aktionen"].

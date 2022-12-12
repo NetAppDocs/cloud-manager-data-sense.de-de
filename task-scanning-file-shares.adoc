@@ -22,15 +22,19 @@ Führen Sie einige Schritte durch, um die direkten Scans von NFS- oder CIFS-Date
 
 Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Prüfen Sie die Voraussetzungen für die Dateifreigabe
 [role="quick-margin-para"]
 Stellen Sie für CIFS-Freigaben (SMB) sicher, dass Sie über Anmeldeinformationen für den Zugriff auf Freigaben verfügen.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Implementieren Sie die Cloud Data Sense Instanz
 [role="quick-margin-para"]
 link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Erstellen Sie eine Gruppe, um die Dateifreigaben zu halten
 [role="quick-margin-para"]
 Die Gruppe ist ein Container für die Dateifreigaben, die Sie scannen möchten, und er wird als Name der Arbeitsumgebung für diese Dateifreigaben verwendet.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Fügen Sie die Dateifreigaben hinzu und wählen Sie die zu scannenden Freigaben aus
 [role="quick-margin-para"]
 Fügen Sie die Liste der zu scannenden Dateifreigaben hinzu und wählen Sie den Scantyp aus. Sie können bis zu 100 Dateifreigaben gleichzeitig hinzufügen.
 
@@ -140,6 +144,7 @@ Wenn im Dialogfeld Freigaben aufgeführt werden, die nicht hinzugefügt werden k
 |===
 
 
+.Ergebnis
 Cloud Data Sense beginnt mit dem Scannen der Dateien in den hinzugefügten Dateifreigaben und die Ergebnisse werden im Dashboard und an anderen Speicherorten angezeigt.
 
 

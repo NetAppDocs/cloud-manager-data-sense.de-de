@@ -22,15 +22,19 @@ Führen Sie einige Schritte durch, um den Scan des Datenbankschemas mit Cloud Da
 
 Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Datenbankvoraussetzungen prüfen
 [role="quick-margin-para"]
 Stellen Sie sicher, dass Ihre Datenbank unterstützt wird und dass Sie über die erforderlichen Informationen verfügen, um eine Verbindung zur Datenbank herzustellen.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Implementieren Sie die Cloud Data Sense Instanz
 [role="quick-margin-para"]
 link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Fügen Sie den Datenbankserver hinzu
 [role="quick-margin-para"]
 Fügen Sie den Datenbankserver hinzu, auf den Sie zugreifen möchten.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Wählen Sie die Schemas aus
 [role="quick-margin-para"]
 Wählen Sie die Schemata aus, die Sie scannen möchten.
 
@@ -132,4 +136,5 @@ image:screenshot_compliance_select_schemas.png["Ein Screenshot der Seite Scankon
 
 
 
+.Ergebnis
 Cloud Data Sense beginnt mit dem Scannen des von Ihnen aktivierten Datenbankschemas. Wenn Fehler auftreten, werden sie in der Spalte Status angezeigt, neben der erforderlichen Aktion, um den Fehler zu beheben.

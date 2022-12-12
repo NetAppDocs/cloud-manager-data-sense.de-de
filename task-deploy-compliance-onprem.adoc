@@ -18,7 +18,11 @@ Führen Sie einige Schritte durch, um Cloud Data Sense auf einem Linux-Host in I
 
 Die On-Premises-Installation kann eine gute Option sein, wenn Sie lieber lokale ONTAP-Systeme mit einer Data Sense Instanz scannen möchten, die sich auch vor Ort befindet - dies ist jedoch keine Voraussetzung. Die Software funktioniert unabhängig von der gewählten Installationsmethode genau auf die gleiche Weise.
 
-Für sehr große Konfigurationen, bei denen Sie mehrere Petabyte an Daten scannen, können Sie mehrere Hosts einschließen, um zusätzliche Verarbeitungsleistung zu bieten. Bei der Verwendung mehrerer Hostsysteme wird das primäre System als Manager-Node bezeichnet, und die zusätzlichen Systeme, die eine zusätzliche Prozessorleistung bereitstellen, heißen Scanner-Knoten.
+Die typische lokale Installation hat die folgenden Komponenten und Anschlüsse.
+
+image:diagram_deploy_onprem_overview.png["Ein Diagramm der erforderlichen BlueXP- und Netzwerkkomponenten sowie der zugehörigen Verbindungen."]
+
+Bei sehr großen Konfigurationen, bei denen Sie Petabyte an Daten scannen, können Sie mehrere Hosts einschließen, um zusätzliche Verarbeitungsleistung zu schaffen. Bei der Verwendung mehrerer Hostsysteme wird das primäre System als Manager-Node bezeichnet, und die zusätzlichen Systeme, die eine zusätzliche Prozessorleistung bieten, heißen Scanner-Knoten.
 
 Beachten Sie, dass Sie auch können link:task-deploy-compliance-dark-site.html["Implementieren Sie Data Sense auf einem lokalen Standort, der keinen Internetzugang hat"] Für vollständig sichere Standorte.
 
@@ -28,21 +32,25 @@ Beachten Sie, dass Sie auch können link:task-deploy-compliance-dark-site.html["
 
 Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Einen Konnektor erstellen
 [role="quick-margin-para"]
-Wenn Sie noch keinen Konnektor haben, erstellen Sie jetzt einen Konnektor. Siehe https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Erstellen eines Konnektors in AWS"^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Erstellen eines Connectors in Azure"^], Oder https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Erstellen eines Konnektors in GCP"^].
+Falls Sie noch keinen Connector haben, https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Stellen Sie den Connector vor Ort bereit"^] Auf einem Linux-Host in Ihrem Netzwerk oder in der Cloud.
 
 [role="quick-margin-para"]
-Das können Sie auch https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Stellen Sie den Connector vor Ort bereit"^] Auf einem Linux-Host in Ihrem Netzwerk oder in der Cloud.
+Sie können auch einen Connector mit Ihrem Cloud-Provider erstellen. Siehe https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Erstellen eines Konnektors in AWS"^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Erstellen eines Connectors in Azure"^], Oder https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Erstellen eines Konnektors in GCP"^].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Voraussetzungen prüfen
+[role="quick-margin-para"]
+Stellen Sie sicher, dass Ihre Umgebung die Voraussetzungen erfüllen kann. Dazu gehören Outbound-Internetzugang für die Instanz, Konnektivität zwischen Connector und Cloud Data Sense über Port 443 und mehr. <<Überprüfen Sie die Voraussetzungen für BlueXP und Data Sense,Eine vollständige Liste finden Sie hier>>.
 
 [role="quick-margin-para"]
-Stellen Sie sicher, dass Ihre Umgebung die Voraussetzungen erfüllen kann. Dazu gehören Outbound-Internetzugang für die Instanz, Konnektivität zwischen Connector und Cloud Data Sense über Port 443 und mehr.  BlueXP and Data Sense prerequisites,Eine vollständige Liste finden Sie hier.
+Außerdem benötigen Sie ein Linux-System, das die erfüllt <<Bereiten Sie das Linux-Hostsystem vor,Erfüllt>>.
 
-[role="quick-margin-para"]
-Außerdem benötigen Sie ein Linux-System, das die erfüllt  the Linux host system,Erfüllt.
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Laden Sie Cloud Data Sense herunter und implementieren Sie es
 [role="quick-margin-para"]
 Laden Sie die Cloud Data Sense Software von der NetApp Support Site herunter, und kopieren Sie die Installer-Datei auf den Linux-Host, den Sie verwenden möchten. Starten Sie dann den Installationsassistenten, und befolgen Sie die Anweisungen zur Bereitstellung der Data Sense-Instanz.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Abonnieren Sie den Cloud Data Sense Service
 [role="quick-margin-para"]
 Die ersten 1 TB an Daten, die Cloud Data Sense in BlueXP scannt, sind kostenlos. Um die Daten nach diesem Zeitpunkt weiterhin zu scannen, benötigen Sie ein Abonnement für Ihren Cloud-Provider Marketplace oder eine BYOL-Lizenz von NetApp.
 
@@ -50,15 +58,16 @@ Die ersten 1 TB an Daten, die Cloud Data Sense in BlueXP scannt, sind kostenlos.
 
 == Einen Konnektor erstellen
 
-Falls Sie noch keinen Connector haben, erstellen Sie bei Ihrem Cloud-Provider einen Connector. Siehe https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Erstellen eines Konnektors in AWS"^] Oder https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Erstellen eines Connectors in Azure"^], Oder https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Erstellen eines Konnektors in GCP"^]. In den meisten Fällen werden Sie wahrscheinlich einen Connector eingerichtet haben, bevor Sie versuchen, Cloud Data Sense zu aktivieren, weil die meisten https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#when-a-connector-is-required["Für BlueXP-Funktionen ist ein Connector erforderlich"], Aber es gibt Fälle, in denen Sie müssen, um eine Einrichtung jetzt.
+Bevor Sie Data Sense installieren und verwenden können, ist ein BlueXP Connector erforderlich. In den meisten Fällen haben Sie wahrscheinlich einen Connector eingerichtet, bevor Sie versuchen, Cloud Data Sense zu aktivieren, da die meisten https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#when-a-connector-is-required["Für BlueXP-Funktionen ist ein Connector erforderlich"], Aber es gibt Fälle, in denen Sie müssen, um eine Einrichtung jetzt.
+
+Informationen zum Erstellen einer Lösung in Ihrer Cloud-Provider-Umgebung finden Sie unter https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Erstellen eines Konnektors in AWS"^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Erstellen eines Connectors in Azure"^], Oder https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Erstellen eines Konnektors in GCP"^].
 
 Es gibt einige Szenarien, in denen Sie einen Connector verwenden müssen, der bei einem bestimmten Cloud-Provider implementiert wird:
 
 * Beim Scannen von Daten in Cloud Volumes ONTAP in AWS, Amazon FSX für ONTAP oder in AWS S3 Buckets wird in AWS ein Connector verwendet.
 * Beim Scannen von Daten in Cloud Volumes ONTAP in Azure oder in Azure NetApp Files verwenden Sie einen Konnektor in Azure.
 +
-** Bei Azure NetApp Files muss sie in demselben Bereich bereitgestellt werden wie die Volumes, die Sie scannen möchten.
-
+Bei Azure NetApp Files muss sie in demselben Bereich bereitgestellt werden wie die Volumes, die Sie scannen möchten.
 
 * Beim Scannen von Daten in Cloud Volumes ONTAP in GCP verwenden Sie einen Connector in GCP.
 
@@ -75,32 +84,55 @@ Bei der Installation von Data Sense benötigen Sie die IP-Adresse oder den Hostn
 
 == Bereiten Sie das Linux-Hostsystem vor
 
-Data Sense Software muss auf einem Host ausgeführt werden, der bestimmte Betriebssystemanforderungen, RAM-Anforderungen, Softwareanforderungen usw. erfüllt. Data Sense wird auf einem Host, der für andere Anwendungen freigegeben ist, nicht unterstützt - der Host muss ein dedizierter Host sein.
+Data Sense Software muss auf einem Host ausgeführt werden, der bestimmte Betriebssystemanforderungen, RAM-Anforderungen, Softwareanforderungen usw. erfüllt. Der Linux-Host kann sich in Ihrem Netzwerk oder in der Cloud befinden. Data Sense wird auf einem Host, der für andere Anwendungen freigegeben ist, nicht unterstützt - der Host muss ein dedizierter Host sein.
 
-* Betriebssystem: Red hat Enterprise Linux oder CentOS Versionen 8.0 bis 8.6
+* *Betriebssystem*: Red hat Enterprise Linux oder CentOS Versionen 8.0 bis 8.6
 +
 ** Version 7.8 oder 7.9 kann verwendet werden, aber die Linux-Kernel-Version muss 4.0 oder höher sein
-** Das Betriebssystem muss in der Lage sein, die Docker-Engine zu installieren (deaktivieren Sie z. B. den Dienst _firewalld_, falls erforderlich).
+** Das Betriebssystem muss in der Lage sein, die Docker-Engine zu installieren
 
 
-* Festplatte: SSD mit 500 gib verfügbar auf/, oder
+* *Disk*: SSD mit 500 gib erhältlich auf /, oder
 +
 ** 100 gib verfügbar auf /opt
 ** 400 gib verfügbar auf /var
 ** 5 gib auf /tmp
 
 
-* RAM: 64 GB (Swap-Speicher muss auf dem Host deaktiviert sein)
-* CPU: 16 Kerne
+* *RAM*: 64 GB (Swap-Speicher muss auf dem Host deaktiviert sein)
+* *CPU*: 16 Kerne
 +
 Beachten Sie, dass Sie Daten Sense auf einem System mit weniger CPUs und weniger RAM implementieren können, es gibt jedoch Einschränkungen bei der Verwendung dieser Systeme. Siehe link:concept-cloud-compliance.html#using-a-smaller-instance-type["Verwenden eines kleineren Instanztyps"] Entsprechende Details.
 
-* Ein Red Hat Enterprise Linux-System muss bei Red Hat Subscription Management registriert sein. Wenn es nicht registriert ist, kann das System während der Installation nicht auf Repositories zugreifen, um die erforderliche Software von Drittanbietern zu aktualisieren.
-* Die folgende Software muss auf dem Host installiert sein. Wenn sie nicht auf dem Host vorhanden ist, installiert das Installationsprogramm die Software für Sie:
+* *Red hat Subscription Management*: Ein Red hat Enterprise Linux System muss mit Red hat Subscription Management registriert werden. Wenn es nicht registriert ist, kann das System während der Installation nicht auf Repositories zugreifen, um die erforderliche Software von Drittanbietern zu aktualisieren.
+* *Zusätzliche Software*: Die folgende Software muss auf dem Host installiert sein. Wenn sie nicht auf dem Host vorhanden ist, installiert das Installationsprogramm die Software für Sie:
 +
 ** Docker Engine Version 19 oder höher. https://docs.docker.com/engine/install/["Installationsanweisungen anzeigen"^].
 ** Python 3 Version 3.6 oder höher. https://www.python.org/downloads/["Installationsanweisungen anzeigen"^].
 
+
+* *Firewalld Überlegungen*: Wenn Sie planen zu verwenden `firewalld`, Wir empfehlen, dass Sie es aktivieren, bevor Sie Data Sense installieren. Führen Sie die folgenden Befehle zum Konfigurieren aus `firewalld` Damit es mit Data Sense kompatibel ist:
++
+....
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=8080/tcp
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --reload
+....
++
+Wenn Sie planen, zusätzliche Data Sense Hosts zu verwenden, fügen Sie diese Regeln zu Ihrem Primärsystem zu diesem Zeitpunkt hinzu:
+
++
+....
+firewall-cmd --permanent --add-port=2377/tcp
+firewall-cmd --permanent --add-port=7496/udp
+firewall-cmd --permanent --add-port=7496/tcp
+firewall-cmd --permanent --add-port=4789/udp
+....
++
+Wenn Sie aktivieren `firewalld` Nach der Installation von Data Sense müssen Sie den Docker neu starten.
 
 
 
@@ -121,31 +153,23 @@ Outbound-Internetzugang über Cloud Data Sense aktivieren:: Für Cloud Data Sens
 | Endpunkte | Zweck 
 
 
-| \https://cloudmanager.cloud.netapp.com | Kommunikation mit dem BlueXP Service, einschl. NetApp Accounts 
+| \https://api.bluexp.netapp.com | Kommunikation mit dem BlueXP Service, einschl. NetApp Accounts 
 
 
 | \https://netapp-cloud-account.auth0.com \https://auth0.com | Kommunikation mit der BlueXP-Website zur zentralen Benutzerauthentifizierung. 
 
 
-| \https://support.compliance.cloudmanager.cloud.netapp.com/ \https://hub.docker.com \https://auth.docker.io \https://registry-1.docker.io \https://index.docker.io/ \https://dseasb33srnrn.cloudfront.net/ \https://production.cloudflare.docker.com/ | Bietet Zugriff auf Software-Images, Manifeste, Vorlagen und die Möglichkeit, Protokolle und Metriken zu senden. 
+| \https://support.compliance.api.bluexp.netapp.com/ \https://hub.docker.com \https://auth.docker.io \https://registry-1.docker.io \https://index.docker.io/ \https://dseasb33srnrn.cloudfront.net/ \https://production.cloudflare.docker.com/ | Bietet Zugriff auf Software-Images, Manifeste, Vorlagen und die Möglichkeit, Protokolle und Metriken zu senden. 
 
 
-| \https://support.compliance.cloudmanager.cloud.netapp.com/ | Ermöglicht NetApp das Streamen von Daten aus Audit-Datensätzen. 
+| \https://support.compliance.api.bluexp.netapp.com/ | Ermöglicht NetApp das Streamen von Daten aus Audit-Datensätzen. 
 
 
 | \https://github.com/docker \https://download.docker.com \http://mirror.centos.org \http://mirrorlist.centos.org \http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm | Enthält die für die Installation erforderlichen Pakete. 
 |===
 --
-Stellen Sie sicher, dass BlueXP über die erforderlichen Berechtigungen verfügt:: Stellen Sie sicher, dass BlueXP über die Berechtigungen zum Bereitstellen von Ressourcen verfügt und Sicherheitsgruppen für die Cloud Data Sense Instanz erstellt. Die neuesten BlueXP-Berechtigungen finden Sie in https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html["Die von NetApp bereitgestellten Richtlinien"^].
-Stellen Sie sicher, dass der BlueXP Connector auf Cloud Data Sense zugreifen kann:: Stellen Sie die Verbindung zwischen dem Connector und der Cloud Data Sense Instanz sicher. Die Sicherheitsgruppe für den Connector muss ein- und ausgehenden Datenverkehr über Port 443 zu und aus der Instanz Data Sense zulassen.
-+
---
-Diese Verbindung ermöglicht die Bereitstellung der Data Sense-Instanz und ermöglicht die Anzeige von Informationen auf den Registerkarten Compliance und Governance.
-
-Stellen Sie sicher, dass Port 8080 geöffnet ist, damit Sie den Installationsfortschritt in BlueXP sehen können.
-
---
-Sorgen Sie dafür, dass Cloud Data Sense ausgeführt wird:: Die Cloud Data Sense Instanz muss kontinuierlich ausgeführt werden, um Ihre Daten kontinuierlich zu scannen.
+Stellen Sie sicher, dass der BlueXP Connector über die erforderlichen Berechtigungen verfügt:: Stellen Sie sicher, dass der Connector über die Berechtigungen zum Bereitstellen von Ressourcen verfügt und Sicherheitsgruppen für die Cloud Data Sense Instanz erstellt. Die neuesten BlueXP-Berechtigungen finden Sie in https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html["Die von NetApp bereitgestellten Richtlinien"^].
+Sorgen Sie dafür, dass Cloud Data Sense ausgeführt wird:: Die Cloud Data Sense Maschine muss kontinuierlich ausgeführt werden, um Ihre Daten kontinuierlich zu scannen.
 Stellen Sie sicher, dass Webbrowser mit Cloud Data Sense verbunden ist:: Wenn Cloud Data Sense aktiviert ist, stellen Sie sicher, dass Benutzer von einem Host, der über eine Verbindung zur Data Sense Instanz verfügt, auf die BlueXP-Schnittstelle zugreifen.
 +
 --
@@ -156,17 +180,72 @@ Die Instanz Data Sense verwendet eine private IP-Adresse, um sicherzustellen, da
 
 
 
+== Vergewissern Sie sich, dass alle erforderlichen Ports aktiviert sind
+
+Sie müssen sicherstellen, dass alle erforderlichen Ports für die Kommunikation zwischen Connector, Data Sense, Active Directory und Ihren Datenquellen offen sind.
+
+[cols="25,25,50"]
+|===
+| Verbindungstyp | Ports | Beschreibung 
+
+
+| Connector <> Data Sense | 8080 (TCP), 443 (TCP) und 80 | Die Sicherheitsgruppe für den Connector muss ein- und ausgehenden Datenverkehr über Port 443 zu und aus der Instanz Data Sense zulassen. Stellen Sie sicher, dass Port 8080 geöffnet ist, damit Sie den Installationsfortschritt in BlueXP sehen können. 
+
+
+| Connector <> ONTAP-Cluster (NAS) | 443 (TCP)  a| 
+BlueXP erkennt ONTAP-Cluster mithilfe von HTTPS. Wenn Sie benutzerdefinierte Firewall-Richtlinien verwenden, müssen diese die folgenden Anforderungen erfüllen:
+
+* Der Connector-Host muss ausgehenden HTTPS-Zugriff über Port 443 ermöglichen. Wenn sich der Connector in der Cloud befindet, ist die gesamte ausgehende Kommunikation durch die vordefinierte Sicherheitsgruppe zulässig.
+* Der ONTAP Cluster muss eingehenden HTTPS-Zugriff über Port 443 zulassen. Die standardmäßige "mgmt"-Firewall-Richtlinie ermöglicht eingehenden HTTPS-Zugriff von allen IP-Adressen. Wenn Sie diese Standardrichtlinie geändert haben oder wenn Sie eine eigene Firewall-Richtlinie erstellt haben, müssen Sie das HTTPS-Protokoll mit dieser Richtlinie verknüpfen und den Zugriff über den Connector-Host aktivieren.
+
+
+
+
+| Datensense <> ONTAP-Cluster  a| 
+* Für NFS – 111 (TCP\UDP) und 2049 (TCP\UDP)
+* Für CIFS - 139 (TCP\UDP) und 445 (TCP\UDP)
+
+ a| 
+Für den Datensense ist eine Netzwerkverbindung zu jedem Cloud Volumes ONTAP-Subnetz oder On-Prem ONTAP-System erforderlich. Sicherheitsgruppen für Cloud Volumes ONTAP müssen eingehende Verbindungen aus der Datensense-Instanz zulassen.
+
+Stellen Sie sicher, dass diese Ports für die Data Sense-Instanz offen sind:
+
+* Für NFS - 111 und 2049
+* Für CIFS - 139 und 445
+
+
+NFS-Volume-Exportrichtlinien müssen den Zugriff aus der Data Sense Instanz zulassen.
+
+
+
+| Datensinn <> Active Directory | 389 (TCP & UDP), 636 (TCP), 3268 (TCP) UND 3269 (TCP)  a| 
+Sie müssen bereits ein Active Directory für die Benutzer in Ihrem Unternehmen eingerichtet haben. Darüber hinaus benötigt Data Sense Active Directory-Anmeldeinformationen zum Scannen von CIFS-Volumes.
+
+Sie müssen über die folgenden Informationen für das Active Directory verfügen:
+
+* DNS-Server-IP-Adresse oder mehrere IP-Adressen
+* Benutzername und Kennwort für den Server
+* Domain-Name (Active Directory-Name)
+* Ob Sie Secure LDAP (LDAPS) verwenden oder nicht
+* LDAP-Server-Port (normalerweise 389 für LDAP und 636 für sicheres LDAP)
+
+
+|===
+Wenn Sie mehrere Data Sense Hosts verwenden, um zusätzliche Verarbeitungsleistung für das Scannen Ihrer Datenquellen bereitzustellen, müssen Sie zusätzliche Ports/Protokolle aktivieren. link:task-deploy-compliance-onprem.html#add-scanner-nodes-to-an-existing-deployment["Siehe zusätzliche Anschlussanforderungen"].
+
+
+
 == Implementieren Sie Data Sense vor Ort
 
-Für typische Konfigurationen installieren Sie die Software auf einem einzigen Host-System.  installation for typical configurations,Siehe diese Schritte hier.
+Für typische Konfigurationen installieren Sie die Software auf einem einzigen Host-System. <<Installation mit einem Host für typische Konfigurationen,Siehe diese Schritte hier>>.
 
 image:diagram_deploy_onprem_single_host_internet.png["Ein Diagramm zeigt den Speicherort der Datenquellen, die Sie scannen können, wenn Sie eine einzelne Datensense-Instanz verwenden, die vor Ort mit Internetzugang bereitgestellt wird."]
 
-Bei sehr großen Konfigurationen, bei denen Sie Petabyte an Daten scannen, können Sie mehrere Hosts einschließen, um zusätzliche Verarbeitungsleistung zu schaffen.  installation for large configurations,Siehe diese Schritte hier.
+Bei sehr großen Konfigurationen, bei denen Sie Petabyte an Daten scannen, können Sie mehrere Hosts einschließen, um zusätzliche Verarbeitungsleistung zu schaffen. <<Installation mit mehreren Hosts für große Konfigurationen,Siehe diese Schritte hier>>.
 
 image:diagram_deploy_onprem_multi_host_internet.png["Ein Diagramm mit dem Speicherort der Datenquellen, die Sie scannen können, wenn Sie mehrere Datensinstanzen verwenden, die vor Ort mit Internetzugang bereitgestellt werden."]
 
-Siehe  the Linux host system,Vorbereiten des Linux-Hostsystems Und  BlueXP and Data Sense prerequisites,Voraussetzungen prüfen Eine vollständige Liste der Anforderungen vor der Implementierung von Cloud Data Sense erhalten.
+Siehe <<Bereiten Sie das Linux-Hostsystem vor,Vorbereiten des Linux-Hostsystems>> Und <<Überprüfen Sie die Voraussetzungen für BlueXP und Data Sense,Voraussetzungen prüfen>> Eine vollständige Liste der Anforderungen vor der Implementierung von Cloud Data Sense erhalten.
 
 Upgrades auf die Software Data Sense werden automatisiert, solange die Instanz über eine Internetverbindung verfügt.
 
@@ -179,12 +258,12 @@ NOTE: Cloud Data Sense kann derzeit S3-Buckets, Azure NetApp Files oder FSX für
 
 Führen Sie diese Schritte aus, wenn Sie Data Sense Software auf einem einzelnen lokalen Host installieren.
 
-.Was Sie und#8217;ll benötigen
-* Vergewissern Sie sich, dass Ihr Linux-System die erfüllt  the Linux host system,Host-Anforderungen erfüllt.
+.Was Sie benötigen
+* Vergewissern Sie sich, dass Ihr Linux-System die erfüllt <<Bereiten Sie das Linux-Hostsystem vor,Host-Anforderungen erfüllt>>.
 * (Optional) Überprüfen Sie, ob das System die beiden erforderlichen Softwarepakete installiert hat (Docker Engine und Python 3). Das Installationsprogramm installiert diese Software, wenn sie nicht bereits auf dem System installiert ist.
 * Stellen Sie sicher, dass Sie über Root-Rechte auf dem Linux-System verfügen.
-* Wenn Sie einen Proxy verwenden und TLS abfangen, müssen Sie den Pfad auf dem Data Sense Linux-System kennen, auf dem die TLS CA-Zertifikate gespeichert sind.
-* Vergewissern Sie sich, dass die erforderliche Offline-Umgebung erfüllt ist  BlueXP and Data Sense prerequisites,Berechtigungen und Konnektivität.
+* Wenn Sie einen Proxy verwenden und TLS abfangen, müssen Sie den Pfad auf dem Data Sense Linux-System kennen, auf dem die TLS CA-Zertifikate gespeichert werden.
+* Vergewissern Sie sich, dass die erforderliche Offline-Umgebung erfüllt ist <<Überprüfen Sie die Voraussetzungen für BlueXP und Data Sense,Berechtigungen und Konnektivität>>.
 
 
 .Schritte
@@ -248,10 +327,12 @@ Variablenwerte:
 
 
 
+.Ergebnis
 Das Cloud Data Sense Installationsprogramm installiert Pakete, installiert den Docker, registriert die Installation und installiert Data Sense. Die Installation dauert 10 bis 20 Minuten.
 
 Wenn zwischen dem Host-Rechner und der Connector-Instanz eine Verbindung über Port 8080 besteht, sehen Sie den Installationsfortschritt auf der Registerkarte Data Sense in BlueXP.
 
+.Nächste Schritte
 Auf der Seite Konfiguration können Sie die Datenquellen auswählen, die Sie scannen möchten.
 
 Das können Sie auch link:task-licensing-datasense.html["Lizenzierung für Cloud Data Sense einrichten"] Derzeit. Sie werden erst berechnet, wenn die Datenmenge mehr als 1 TB beträgt.
@@ -290,24 +371,23 @@ So installieren Sie zusätzliche Data Sense Scanner-Knoten:
 . Bereiten Sie die Linux-Hostsysteme vor, die als Scanner-Knoten fungieren sollen
 . Laden Sie die Software Data Sense auf diese Linux-Systeme herunter
 . Führen Sie einen Befehl auf dem Knoten Manager aus, um die Scanner-Knoten zu identifizieren
-. Befolgen Sie die Schritte, um die Software auf den Scanner-Knoten bereitzustellen (und optional eine „Scannergruppe“ für jeden Scanner-Knoten zu definieren).
+. Befolgen Sie die Schritte, um die Software auf den Scanner-Knoten bereitzustellen (und optional eine „Scannergruppe“ für bestimmte Scanner-Knoten zu definieren).
 . Wenn Sie eine Scannergruppe definiert haben, befinden Sie sich auf dem Knoten Manager:
 +
 .. Öffnen Sie die Datei „Working_Environment_to_Scanner_Group_config.yml“ und definieren Sie die Arbeitsumgebungen, die von jeder Scannergruppe gescannt werden sollen
-.. Führen Sie das folgende Skript aus, um diese Zuordnungsinformationen bei allen Scanner-Knoten zu registrieren: "Update_we_Scanner_Group_from_config_file.sh"
+.. Führen Sie das folgende Skript aus, um diese Zuordnungsinformationen bei allen Scanner-Knoten zu registrieren: `update_we_scanner_group_from_config_file.sh`
 
 
 
 
-.Was Sie und#8217;ll benötigen
-* Stellen Sie sicher, dass alle Linux-Systeme für Scanner-Knoten den erfüllen  the Linux host system,Host-Anforderungen erfüllt.
+.Was Sie benötigen
+* Stellen Sie sicher, dass alle Linux-Systeme für Scanner-Knoten den erfüllen <<Bereiten Sie das Linux-Hostsystem vor,Host-Anforderungen erfüllt>>.
 * (Optional) Überprüfen Sie, ob die Systeme über die beiden erforderlichen Softwarepakete verfügen (Docker Engine und Python 3). Das Installationsprogramm wird diese Software installieren, wenn sie sich nicht bereits auf den Systemen befindet.
 * Stellen Sie sicher, dass Sie auf den Linux-Systemen über Root-Rechte verfügen.
-* Vergewissern Sie sich, dass Ihre Umgebung den erforderlichen Anforderungen entspricht  BlueXP and Data Sense prerequisites,Berechtigungen und Konnektivität.
+* Vergewissern Sie sich, dass Ihre Umgebung den erforderlichen Anforderungen entspricht <<Überprüfen Sie die Voraussetzungen für BlueXP und Data Sense,Berechtigungen und Konnektivität>>.
 * Sie müssen über die IP-Adressen der Scanner-Knoten-Hosts verfügen, die Sie hinzufügen.
 * Sie müssen über die IP-Adresse des Data Sense Manager-Node-Hostsystems verfügen
-* Sie müssen über die IP-Adresse oder den Hostnamen des Connector-Systems, Ihre NetApp Account-ID, Connector Client-ID und Benutzer-Zugriffstoken verfügen. Weitere Informationen finden Sie unter „_Voraussetzungen Steps_ weiter unten“.
-* Sie müssen die ID_Arbeitsumgebung_ für jede Datenquelle in Ihrem Account kennen. Wenden Sie sich bei Anfragen an NetApp unter ng-contact-data-sense@netapp.com.
+* Sie müssen über die IP-Adresse oder den Hostnamen des Connector-Systems, Ihre NetApp Account-ID, Connector Client-ID und Benutzer-Zugriffstoken verfügen. Wenn Sie planen, Scannergruppen zu verwenden, müssen Sie die ID der Arbeitsumgebung für jede Datenquelle in Ihrem Konto kennen. Weitere Informationen finden Sie unter „_Voraussetzungen Steps_ weiter unten“.
 * Die folgenden Ports und Protokolle müssen auf allen Hosts aktiviert sein:
 +
 [cols="15,20,55"]
@@ -332,8 +412,26 @@ So installieren Sie zusätzliche Data Sense Scanner-Knoten:
 
 | 2049 | TCP, UDP | NFS-Server für die gemeinsame Nutzung von Dateien zwischen den Hosts (benötigt von jedem Scanner-Knoten zu Manager-Knoten) 
 |===
+* Wenn Sie verwenden `firewalld` Auf Ihren Data Sense-Maschinen empfehlen wir Ihnen, diese vor der Installation von Data Sense zu aktivieren. Führen Sie die folgenden Befehle zum Konfigurieren aus `firewalld` Damit es mit Data Sense kompatibel ist:
++
+....
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=8080/tcp
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --permanent --add-port=2377/tcp
+firewall-cmd --permanent --add-port=7496/udp
+firewall-cmd --permanent --add-port=7496/tcp
+firewall-cmd --permanent --add-port=4789/udp
+firewall-cmd --reload
+....
++
+Wenn Sie aktivieren `firewalld` Nach der Installation von Data Sense müssen Sie den Docker neu starten.
 
 
+
+.Erforderliche Schritte
 Führen Sie diese Schritte aus, um die NetApp Account ID, die Connector Client ID, den Connector Server-Namen und das Token für den Benutzerzugriff zu erhalten, die erforderlich sind, um Scanner-Nodes hinzuzufügen.
 
 . Klicken Sie in der Menüleiste von BlueXP auf *Konto > Konten verwalten*.
@@ -346,6 +444,10 @@ image:screenshot_account_id.png["Ein Screenshot der BlueXP Kontodetails."]
 image:screenshot_connector_client_id.png["Ein Screenshot der Konfigurationseinstellungen des BlueXP Connectors."]
 
 . Kopieren Sie die Konnektor_Client-ID_ und die _Servername_.
+. Wenn Sie Scannergruppen verwenden möchten, kopieren Sie auf der Registerkarte „Data Sense Configuration“ die ID der Arbeitsumgebung für jede Arbeitsumgebung, die Sie einer Scannergruppe hinzufügen möchten.
++
+image:screenshot_work_env_id.png["Ein Screenshot der Arbeitsumgebung-ID von der Seite Data Sense Configuration."]
+
 . Wechseln Sie zum https://services.cloud.netapp.com/developer-hub["API Documentation Developer Hub"^] Und klicken Sie auf *Erfahren Sie, wie Sie sich authentifizieren*.
 +
 image:screenshot_client_access_token.png["Ein Screenshot der Seite API-Dokumentation mit einem Link zu Authentifizierungsanweisungen."]
@@ -387,7 +489,7 @@ Wenn die Installation auf allen Scanner-Knoten abgeschlossen ist und sie mit dem
 
 . Wenn Sie Scannerknoten zu einer Scannergruppe hinzugefügt haben, kehren Sie zum Manager-Knoten zurück und führen Sie die folgenden beiden Aufgaben aus:
 +
-.. Öffnen Sie die Datei „/opt/netapp/Datacense/Working_Environment_to_Scanner_Group_config.yml“, und geben Sie die Zuordnung ein, für die Scannergruppen bestimmte Arbeitsumgebungen scannen. Sie benötigen die _Arbeitsumgebung-ID_ für jede Datenquelle von NetApp (E-Mail ng-contact-data-sense@netapp.com). Die folgenden Einträge fügen z. B. 2 Arbeitsumgebungen in 2 Scannergruppen hinzu:
+.. Öffnen Sie die Datei „/opt/netapp/Datacense/Working_Environment_to_Scanner_Group_config.yml“, und geben Sie die Zuordnung ein, für die Scannergruppen bestimmte Arbeitsumgebungen scannen. Sie benötigen die _Working Environment ID_ für jede Datenquelle. Die folgenden Einträge fügen z. B. 2 Arbeitsumgebungen in 2 Scannergruppen hinzu:
 +
 ....
 scanner group:
@@ -407,9 +509,11 @@ Jede Arbeitsumgebung, die nicht zur Liste hinzugefügt wird, wird von der Gruppe
 
 
 
+.Ergebnis
 Data Sense ist mit den Manager- und Scanner-Knoten eingerichtet, um alle Datenquellen zu scannen.
 
-Auf der Konfigurationsseite können Sie die Datenquellen auswählen, die Sie scannen möchten - wenn Sie das noch nicht getan haben. Wenn Sie Scannergruppen erstellt haben, wird jede Datenquelle von den Scanner-Knoten in der jeweiligen Gruppe gescannt.
+.Nächste Schritte
+Auf der Konfigurationsseite können Sie die Datenquellen auswählen, die Sie scannen möchten - wenn Sie das noch nicht getan haben. Wenn Sie Scannergruppen erstellt haben, wird jede Datenquelle von den Scanner-Knoten in der jeweiligen Gruppe gescannt. Der Name der Scannergruppe für jede Arbeitsumgebung wird auf der Konfigurationsseite angezeigt.
 
 Das können Sie auch link:task-licensing-datasense.html["Lizenzierung für Cloud Data Sense einrichten"] Derzeit. Sie werden erst berechnet, wenn die Datenmenge mehr als 1 TB beträgt.
 
@@ -421,11 +525,11 @@ Für sehr große Konfigurationen, bei denen Sie mehrere Petabyte an Daten scanne
 
 Führen Sie diese Schritte aus, wenn Sie Data Sense Software auf mehreren lokalen Hosts installieren.
 
-.Was Sie und#8217;ll benötigen
-* Stellen Sie sicher, dass alle Linux-Systeme für den Manager- und Scanner-Knoten den entsprechen  the Linux host system,Host-Anforderungen erfüllt.
+.Was Sie benötigen
+* Stellen Sie sicher, dass alle Linux-Systeme für den Manager- und Scanner-Knoten den entsprechen <<Bereiten Sie das Linux-Hostsystem vor,Host-Anforderungen erfüllt>>.
 * (Optional) Überprüfen Sie, ob die Systeme über die beiden erforderlichen Softwarepakete verfügen (Docker Engine und Python 3). Das Installationsprogramm wird diese Software installieren, wenn sie sich nicht bereits auf den Systemen befindet.
 * Stellen Sie sicher, dass Sie auf den Linux-Systemen über Root-Rechte verfügen.
-* Vergewissern Sie sich, dass Ihre Umgebung den erforderlichen Anforderungen entspricht  BlueXP and Data Sense prerequisites,Berechtigungen und Konnektivität.
+* Vergewissern Sie sich, dass Ihre Umgebung den erforderlichen Anforderungen entspricht <<Überprüfen Sie die Voraussetzungen für BlueXP und Data Sense,Berechtigungen und Konnektivität>>.
 * Sie müssen über die IP-Adressen der zu verwendenden Scanner-Knoten-Hosts verfügen.
 * Die folgenden Ports und Protokolle müssen auf allen Hosts aktiviert sein:
 +
@@ -454,7 +558,7 @@ Führen Sie diese Schritte aus, wenn Sie Data Sense Software auf mehreren lokale
 
 
 .Schritte
-. Befolgen Sie die Schritte 1 bis 7 vom  installation for typical configurations,Installation über einen Host Auf dem Knoten Manager.
+. Befolgen Sie die Schritte 1 bis 7 vom <<Installation mit einem Host für typische Konfigurationen,Installation über einen Host>> Auf dem Knoten Manager.
 . Wie in Schritt 8 gezeigt, können Sie bei Aufforderung durch das Installationsprogramm die erforderlichen Werte in eine Reihe von Eingabeaufforderungen eingeben oder die erforderlichen Parameter als Befehlszeilenargumente für das Installationsprogramm bereitstellen.
 +
 Zusätzlich zu den Variablen, die für eine Installation mit einem Host verfügbar sind, wird eine neue Option *-n <Node_ip>* verwendet, um die IP-Adressen der Scannerknoten anzugeben. Mehrere Scanner-Knoten-IPs werden durch Komma getrennt.
@@ -479,8 +583,10 @@ Wenn die Installation auf allen Scanner-Knoten abgeschlossen ist und sie mit dem
 
 
 
+.Ergebnis
 Das Installationsprogramm von Cloud Data Sense beendet die Installation von Paketen, Docker und registriert die Installation. Die Installation dauert 10 bis 20 Minuten.
 
+.Nächste Schritte
 Auf der Seite Konfiguration können Sie die Datenquellen auswählen, die Sie scannen möchten.
 
 Das können Sie auch link:task-licensing-datasense.html["Lizenzierung für Cloud Data Sense einrichten"] Derzeit. Sie werden erst berechnet, wenn die Datenmenge mehr als 1 TB beträgt.

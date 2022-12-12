@@ -23,9 +23,9 @@ Standardmäßig werden im Cloud Data Sense Dashboard Compliance-Daten für alle 
 
 image:screenshot_compliance_dashboard.png["Screenshot aus dem Cloud Data Sense Dashboard"]
 
-Wenn Sie Daten nur für einige der Arbeitsumgebungen sehen möchten,  Dashboard data for specific working environments,Wählen Sie diese Arbeitsumgebungen aus.
+Wenn Sie Daten nur für einige der Arbeitsumgebungen sehen möchten, <<Anzeigen von Dashboard-Daten für bestimmte Arbeitsumgebungen,Wählen Sie diese Arbeitsumgebungen aus>>.
 
-Sie können die Ergebnisse auch auf der Seite Datenuntersuchung filtern und einen Bericht der Ergebnisse als CSV-Datei herunterladen. Siehe  data in the Data Investigation page,Filtern von Daten auf der Seite „Datenuntersuchung“ Entsprechende Details.
+Sie können die Ergebnisse auch auf der Seite Datenuntersuchung filtern und einen Bericht der Ergebnisse als CSV-Datei herunterladen. Siehe <<Filtern von Daten auf der Seite „Datenuntersuchung“,Filtern von Daten auf der Seite „Datenuntersuchung“>> Entsprechende Details.
 
 
 

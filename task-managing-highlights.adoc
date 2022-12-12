@@ -137,6 +137,7 @@ Ein Dialogfeld mit dem Status des Klonvorgangs wird angezeigt.
 
 
 
+.Ergebnis
 Das neue geklonte Volume wird in demselben Aggregat erstellt wie das Quell-Volume.
 
 Sie können den Status des Klonvorgangs in anzeigen link:task-view-compliance-actions.html["Statusbereich Aktionen"].
@@ -189,6 +190,7 @@ Sie werden aufgefordert, die Synchronisierungsbeziehung zu definieren. Das Quell
 . Sie müssen das Zielsystem auswählen und dann den zu verwendenden Daten-Broker (oder erstellen) auswählen. Prüfen Sie die Cloud Sync-Anforderungen, die mit dem beginnen link:https://docs.netapp.com/us-en/cloud-manager-sync/task-quick-start.html.html["Kurzanleitung"^].
 
 
+.Ergebnis
 Die Dateien werden in das Zielsystem kopiert und auf der Grundlage des von Ihnen definierten Zeitplans synchronisiert. Wenn Sie eine einmalige Synchronisierung auswählen, werden die Dateien nur einmal kopiert und synchronisiert. Wenn Sie eine regelmäßige Synchronisierung auswählen, werden die Dateien auf Grundlage des Zeitplans synchronisiert. Beachten Sie, dass wenn das Quellsystem neue Dateien hinzufügt, die mit der Abfrage übereinstimmen, die Sie mit Filtern erstellt haben, diese _neuen_-Dateien in das Ziel kopiert und in Zukunft synchronisiert werden.
 
 Beachten Sie, dass einige der üblichen Cloud Sync-Vorgänge beim Aufruf von Data Sense deaktiviert sind:
@@ -315,6 +317,7 @@ image:screenshot_compliance_delete_files_using_policies.png["Ein Screenshot, der
 
 
 
+.Ergebnis
 Die neue Richtlinie wird auf der Registerkarte Richtlinien angezeigt. Dateien, die der Richtlinie entsprechen, werden einmal pro Tag gelöscht, wenn die Richtlinie ausgeführt wird.
 
 Sie können die Liste der Dateien anzeigen, die im gelöscht wurden link:task-view-compliance-actions.html["Statusbereich Aktionen"].

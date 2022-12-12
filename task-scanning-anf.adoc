@@ -22,18 +22,23 @@ In wenigen Schritten zum Einstieg in Cloud Data Sense for Azure NetApp Files.
 
 Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Entdecken Sie die Azure NetApp Files-Systeme, die Sie scannen möchten
 [role="quick-margin-para"]
 Vor dem Scannen von Azure NetApp Files-Volumes https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-quick-start.html["BlueXP muss eingerichtet sein, um die Konfiguration zu ermitteln"^].
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Implementieren Sie die Cloud Data Sense Instanz
 [role="quick-margin-para"]
 link:task-deploy-cloud-compliance.html["Implementieren Sie Cloud Data Sense in BlueXP"^] Falls noch keine Instanz implementiert wurde.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Aktivieren Sie Cloud Data Sense und wählen Sie die zu scannenden Volumes aus
 [role="quick-margin-para"]
 Klicken Sie auf *Compliance*, wählen Sie die Registerkarte *Konfiguration* und aktivieren Sie Compliance-Scans für Volumes in bestimmten Arbeitsumgebungen.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Zugriff auf Volumes sicherstellen
 [role="quick-margin-para"]
 Jetzt, da Cloud Data Sense aktiviert ist, stellen Sie sicher, dass er auf alle Volumes zugreifen kann.
 
+[role="quick-margin-list"]
 * Die Cloud Data Sense Instanz benötigt eine Netzwerkverbindung zu jedem Azure NetApp Files Subnetz.
 * Stellen Sie sicher, dass diese Ports für die Data Sense-Instanz offen sind:
 +
@@ -48,6 +53,7 @@ Klicken Sie auf *Compliance* > *Konfiguration* > *CIFS-Anmeldeinformationen bear
 
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"] Verwalten Sie die Volumes, die Sie scannen möchten
 [role="quick-margin-para"]
 Wählen oder deaktivieren Sie die Volumes, die Sie scannen möchten, und Cloud Data Sense startet oder beendet den Scanvorgang.
 
@@ -87,13 +93,14 @@ image:screenshot_cloud_compliance_anf_scan_config.png["Ein Screenshot der Regist
 ** Um alle Bände zu ordnen und zu klassifizieren, klicken Sie auf *Karte & alle Bände klassifizieren*.
 ** Um den Scan für jedes Volume anzupassen, klicken Sie auf *oder wählen Sie für jedes Volume* den Scantyp aus, und wählen Sie dann die Volumes aus, die Sie zuordnen und/oder klassifizieren möchten.
 +
-Siehe  and disabling compliance scans on volumes,Aktivieren und Deaktivieren von Compliance-Scans auf Volumes Entsprechende Details.
+Siehe <<Aktivieren und Deaktivieren von Compliance-Scans auf Volumes,Aktivieren und Deaktivieren von Compliance-Scans auf Volumes>> Entsprechende Details.
 
 
 
 . Klicken Sie im Bestätigungsdialogfeld auf *Genehmigen*, damit Data Sense Ihre Volumes scannen kann.
 
 
+.Ergebnis
 Cloud Data Sense beginnt mit dem Scannen der Volumes, die Sie in der Arbeitsumgebung ausgewählt haben. Die Ergebnisse werden im Compliance-Dashboard verfügbar sein, sobald Cloud Data Sense die ersten Scans beendet hat. Die Dauer, die von der Datenmenge abhängt, kann ein paar Minuten oder Stunden betragen.
 
 

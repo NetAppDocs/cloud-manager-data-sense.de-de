@@ -93,6 +93,7 @@ image:screenshot_compliance_aip_labels_int.png["Ein Screenshot mit AIP-Etiketten
 
 
 
+.Ergebnis
 Sie können AIP-Beschriftungen im Ergebnisbereich der Untersuchungsseite anzeigen und zuweisen. Außerdem können Sie Dateien mithilfe von Richtlinien AIP-Etiketten zuweisen.
 
 
@@ -352,7 +353,7 @@ Richtlinien sind wie eine Favoritenliste mit benutzerdefinierten Filtern, die Su
 
 Richtlinien bieten folgende Funktionen:
 
-*  of predefined Policies,Vordefinierte Richtlinien Von NetApp basierend auf Benutzeranfragen
+* <<Liste der vordefinierten Richtlinien,Vordefinierte Richtlinien>> Von NetApp basierend auf Benutzeranfragen
 * Möglichkeit, eigene benutzerdefinierte Richtlinien zu erstellen
 * Starten Sie die Untersuchungsseite mit den Ergebnissen Ihrer Richtlinien mit nur einem Klick
 * Senden Sie E-Mail-Benachrichtigungen an BlueXP-Benutzer, wenn bestimmte kritische Richtlinien Ergebnisse zurückgeben, damit Sie Benachrichtigungen zum Schutz Ihrer Daten erhalten können
@@ -402,6 +403,7 @@ image:screenshot_compliance_save_highlight.png["Ein Screenshot, der zeigt, wie d
 
 
 
+.Ergebnis
 Die neue Richtlinie wird auf der Registerkarte Richtlinien angezeigt.
 
 
@@ -426,6 +428,7 @@ image:screenshot_compliance_add_email_alert_2.png["Ein Screenshot, in dem gezeig
 . Klicken Sie auf *Save Policy* und das Intervall, in dem die E-Mail gesendet wird, wird in der Policy description angezeigt.
 
 
+.Ergebnis
 Die erste E-Mail wird jetzt gesendet, wenn Ergebnisse aus der Richtlinie vorliegen - aber nur, wenn Dateien die Kriterien der Richtlinie erfüllen. Es werden keine personenbezogenen Daten in die Benachrichtigungs-E-Mails gesendet. Die E-Mail zeigt an, dass es Dateien gibt, die den Kriterien der Richtlinie entsprechen, und sie enthält einen Link zu den Ergebnissen der Richtlinie.
 
 
@@ -454,6 +457,7 @@ image:screenshot_compliance_edit_policy_query.png["Ein Screenshot zeigt, wie die
 
 
 
+.Ergebnis
 Die Richtlinie wird sofort geändert. Alle Aktionen, die für diese Richtlinie zum Senden einer E-Mail, Hinzufügen von AIP-Etiketten oder Löschen von Dateien definiert sind, werden im nächsten internen ausgeführt.
 
 

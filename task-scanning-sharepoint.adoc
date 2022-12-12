@@ -22,15 +22,19 @@ Führen Sie einige Schritte durch, um mit Cloud Data Sense Dateien in Ihren Shar
 
 Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] SharePoint-Voraussetzungen prüfen
 [role="quick-margin-para"]
 Stellen Sie sicher, dass Sie über die Administratoranmeldeinformationen verfügen, um sich beim SharePoint-Konto anzumelden, und dass Sie über die URLs für die SharePoint-Sites verfügen, die Sie scannen möchten.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Implementieren Sie die Cloud Data Sense Instanz
 [role="quick-margin-para"]
 link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Melden Sie sich beim SharePoint-Konto an
 [role="quick-margin-para"]
 Melden Sie sich mit den Anmeldedaten des Admin-Benutzers beim SharePoint-Konto an, auf das Sie zugreifen möchten, damit es als neue Datenquelle/Arbeitsumgebung hinzugefügt wird.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Fügen Sie die URLs der SharePoint-Website zum Scannen hinzu
 [role="quick-margin-para"]
 Fügen Sie die Liste der SharePoint-Website-URLs hinzu, die Sie im SharePoint-Konto scannen möchten, und wählen Sie den Scantyp aus. Sie können bis zu 100 URLs gleichzeitig hinzufügen.
 
@@ -152,6 +156,7 @@ Wenn im Dialogfeld keine Sites aufgeführt sind, die nicht hinzugefügt werden k
 |===
 
 
+.Ergebnis
 Cloud Data Sense beginnt mit dem Scannen der Dateien in den hinzugefügten SharePoint-Sites und die Ergebnisse werden im Dashboard und an anderen Speicherorten angezeigt.
 
 

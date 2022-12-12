@@ -22,15 +22,19 @@ Führen Sie einige Schritte aus, um mit Cloud Data Sense Dateien in OneDrive Ord
 
 Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Alle Voraussetzungen für OneDrive prüfen
 [role="quick-margin-para"]
 Stellen Sie sicher, dass Sie über die Administratoranmeldeinformationen verfügen, um sich beim OneDrive-Konto anzumelden.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Implementieren Sie die Cloud Data Sense Instanz
 [role="quick-margin-para"]
 link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Fügen Sie das OneDrive Konto hinzu
 [role="quick-margin-para"]
 Melden Sie sich bei Verwendung der Admin-Benutzeranmeldeinformationen beim OneDrive-Konto an, auf das Sie zugreifen möchten, damit es als neue Arbeitsumgebung hinzugefügt wird.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Fügen Sie die Benutzer hinzu und wählen Sie den Scantyp aus
 [role="quick-margin-para"]
 Fügen Sie die Liste der Benutzer aus dem OneDrive-Konto hinzu, das Sie scannen möchten, und wählen Sie den Scantyp aus. Sie können bis zu 100 Benutzer gleichzeitig hinzufügen.
 
@@ -121,6 +125,7 @@ Wenn im Dialogfeld Benutzer aufgeführt werden, die nicht hinzugefügt werden ko
 |===
 
 
+.Ergebnis
 Cloud Data Sense beginnt mit dem Scannen der Dateien für die Benutzer, die Sie hinzugefügt haben, und die Ergebnisse werden im Dashboard und an anderen Orten angezeigt.
 
 

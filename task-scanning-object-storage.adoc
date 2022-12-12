@@ -22,18 +22,22 @@ Führen Sie einige Schritte durch, um Daten direkt im Objekt-Storage mit Cloud D
 
 Führen Sie diese Schritte schnell durch, oder scrollen Sie nach unten zu den verbleibenden Abschnitten, um ausführliche Informationen zu erhalten.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Prüfen Sie die Voraussetzungen für den Objekt-Storage
 [role="quick-margin-para"]
 Es muss die Endpunkt-URL vorhanden sein, um eine Verbindung mit dem Objekt-Storage-Service herzustellen.
 
 [role="quick-margin-para"]
 Sie benötigen den Zugriffsschlüssel und den geheimen Schlüssel vom Objekt-Storage-Provider, damit Cloud Data Sense auf die Buckets zugreifen kann.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Implementieren Sie die Cloud Data Sense Instanz
 [role="quick-margin-para"]
 link:task-deploy-cloud-compliance.html["Sinnvolle Implementierung Von Cloud-Daten"^] Falls noch keine Instanz implementiert wurde.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Fügen Sie den Objekt-Storage-Service hinzu
 [role="quick-margin-para"]
 Fügen Sie den Objekt-Storage-Service Cloud Data Sense hinzu.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Wählen Sie die zu scannenden Buckets aus
 [role="quick-margin-para"]
 Wählen Sie die Buckets aus, die Sie scannen möchten, und Cloud Data Sense beginnt mit dem Scannen.
 
@@ -83,6 +87,7 @@ image:screenshot_compliance_add_object_storage.png["Ein Screenshot des Dialogfel
 
 
 
+.Ergebnis
 Der neue Objekt-Speicherdienst wird der Liste der Arbeitsumgebungen hinzugefügt.
 
 
@@ -116,4 +121,5 @@ image:screenshot_compliance_object_storage_select_buckets.png["Ein Screenshot, i
 |===
 
 
+.Ergebnis
 Cloud Data Sense beginnt mit dem Scannen der aktivierten Buckets. Wenn Fehler auftreten, werden sie neben der erforderlichen Aktion zur Behebung des Fehlers in der Spalte Status angezeigt.

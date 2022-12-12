@@ -36,6 +36,7 @@ Wie Sie sehen, wurden in zwei Volumes und in einem S3-Bucket zwei eindeutige Kun
 
 Beachten Sie, dass Sie Ihre eigenen Datenbanken scannen, in welcher Sprache Ihre Daten gespeichert sind, zur Identifizierung von Daten in zukünftigen Daten-Sense-Scans verwendet werden.
 
+.Schritte
 Dieser muss unbedingt vorhanden sein link:task-scanning-databases.html#adding-the-database-server["Hat mindestens einen Datenbankserver hinzugefügt"^] Zu Data Sense, bevor Sie Daten-Fusion-Quellen hinzufügen können.
 
 . Klicken Sie auf der Konfigurationsseite in der Datenbank, in der sich die Quelldaten befinden, auf *Daten-Fusion verwalten*.
@@ -65,6 +66,7 @@ image:screenshot_compliance_data_fusion_list.png["Ein Screenshot aller Datenquel
 
 
 
+.Ergebnisse
 Nach dem nächsten Scan werden diese neuen Informationen im Compliance Dashboard im Abschnitt „Persönliche Ergebnisse“ und auf der Untersuchungsseite im Filter „Persönliche Daten“ angezeigt. Jede von Ihnen hinzugefügte Quellspalte wird beispielsweise im Format „Tabelle.Spalte“ in der Filterliste angezeigt `Customers.CustomerID`.
 
 image:screenshot_add_data_fusion_result.png["Ein Screenshot, der ein Beispiel für Data Fusion zeigt, führt in das Fenster Untersuchungsergebnisse."]
@@ -167,6 +169,7 @@ Geben Sie den folgenden Befehl ein, um zu sehen, wo Ihre internen Produktnamen i
 [user Datasense]$ sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s activate -f internal_product_names.txt
 ----
  log v1.0 | 2022-08-24 08:16:25,332 | INFO | ds_logger | upload_custom_keywords | 126 | 1 | None | upload_custom_keywords_126 | All legal keywords were successfully inserted
+.Ergebnisse
 Nach dem nächsten Scan werden diese neuen Informationen im Compliance Dashboard im Abschnitt „Persönliche Ergebnisse“ und auf der Untersuchungsseite im Filter „Persönliche Daten“ angezeigt.
 
 image:screenshot_add_keywords_result.png["Ein Screenshot, der ein Beispiel für ein benutzerdefiniertes Schlüsselwort zeigt, führt zum Untersuchungsbereich."]
@@ -202,7 +205,7 @@ Nach dem Hinzufügen des Regex startet Data Sense das Scannen aller Datenquellen
 
 === Befehlssyntax zum Hinzufügen des Regex
 
-Sie müssen auf das Data Sense System zugreifen, um die Datei hinzuzufügen, die die benutzerdefinierten Schlüsselwortmuster enthält, und um den Befehl zu initiieren, um die benutzerdefinierten Schlüsselwörter hinzuzufügen.  the command line,Erfahren Sie, wie Sie auf die Befehlszeile zugreifen Unabhängig davon, ob sich Daten für Ihre lokale Umgebung eignen oder in der Cloud implementiert haben.
+Sie müssen auf das Data Sense System zugreifen, um die Datei hinzuzufügen, die die benutzerdefinierten Schlüsselwortmuster enthält, und um den Befehl zu initiieren, um die benutzerdefinierten Schlüsselwörter hinzuzufügen. <<Zugriff auf die Befehlszeile,Erfahren Sie, wie Sie auf die Befehlszeile zugreifen>> Unabhängig davon, ob sich Daten für Ihre lokale Umgebung eignen oder in der Cloud implementiert haben.
 
 Die Befehlssyntax zum Hinzufügen eines benutzerdefinierten Regex ist:
 
@@ -235,6 +238,7 @@ Geben Sie die folgenden Befehle ein, um zu sehen, wo Ihre internen Produkt-IDs i
 [+] Adding Custom Regex to Data Sense
 log v1.0 | 2022-08-23 13:19:01,476 | INFO | ds_logger | custom_regex | 154 | 1 | None | custom_regex_154 | A pattern named 'Internal Product ID' was added successfully to Data Sense
 ....
+.Ergebnisse
 Nach dem nächsten Scan werden diese neuen Informationen im Compliance Dashboard im Abschnitt „Persönliche Ergebnisse“ und auf der Untersuchungsseite im Filter „Persönliche Daten“ angezeigt.
 
 image:screenshot_add_regex_result.png["Ein Screenshot, der ein Beispiel für ein benutzerdefiniertes Regex zeigt, führt im Bereich Untersuchungsergebnisse."]
