@@ -150,9 +150,6 @@ Die Datentransferkosten hängen von Ihrer Einrichtung ab. Wenn sich die Instanz 
 
 Wenn Sie Data Sense in der Cloud implementieren, stellt BlueXP die Instanz im selben Subnetz wie der Connector bereit. https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["Erfahren Sie mehr über Steckverbinder."^]
 
-
-NOTE: Falls der Connector lokal installiert wird, implementiert er die Cloud Data Sense Instanz in derselben VPC oder vnet wie das erste Cloud Volumes ONTAP-System in der Anfrage. Sie können auch Data Sense lokal installieren.
-
 image:diagram_cloud_compliance_instance.png["Ein Diagramm mit einer BlueXP-Instanz und einer Cloud Data Sense Instanz, die in Ihrem Cloud-Provider ausgeführt wird."]
 
 Beachten Sie Folgendes über die Standardinstanz:

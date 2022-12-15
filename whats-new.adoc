@@ -28,12 +28,12 @@ Die folgenden Erweiterungen wurden für die On-Prem Data Sense Installation hinz
 
 * Einige zusätzliche Voraussetzungen werden jetzt geprüft, bevor die Installation auf einem lokalen Host gestartet wird. Dadurch kann sichergestellt werden, dass Ihr Hostsystem zu 100 % bereit ist, wenn Daten Sense Software installiert wird:
 +
-** Testen Sie ausreichend Speicherplatz auf /var/lib/docker, /tmp und /opt
+** Testen Sie ausreichend Speicherplatz auf `/var/lib/docker`, `/tmp`, und `/opt`
 ** Testen Sie die entsprechenden Berechtigungen für alle erforderlichen Ordner
 
 
 * Auf der Seite Konfiguration zeigt jetzt der Abschnitt Arbeitsumgebungen die ID _Arbeitsumgebung_ und den Namen _Scannergruppe_ an. Wenn Sie mehrere Data Sense Hosts verwenden möchten, um zusätzliche Verarbeitungsleistung für das Scannen Ihrer Datenquellen bereitzustellen, müssen Sie die ID der Arbeitsumgebung kennen.
-* Auf der Konfigurationsseite werden in einem neuen Abschnitt die von Ihnen festgelegten Scanner-Gruppen und die Scanner-Nodes in jeder Gruppe angezeigt.
+* Außerdem zeigt ein neuer Abschnitt auf der Konfigurationsseite die Scannergruppen, die Sie eingerichtet haben, und die Scannerknoten, die sich in jeder Gruppe befinden.
 
 
 https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-compliance-onprem.html["Erfahren Sie mehr über die Installation von Data Sense auf einem einzelnen Host-Server und auf mehreren Hosts"].
