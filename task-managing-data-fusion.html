@@ -979,7 +979,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-12 20:23:33 +0000">12/12/2022</time>
+    <time datetime="2023-01-09 14:18:49 +0000">01/09/2023</time>
     
   
 
@@ -1300,9 +1300,10 @@ Zum Beispiel, um die in der Datei *internal_Product_Names.txt definierten Schlü
 </div>
 <div class="literalblock">
 <div class="content">
-<pre> sudo bash tools/datascience/custom_regex/custom_regex.sh -s activate -n "&lt;pattern_name&gt;" -r "&lt;regular_expression&gt;"
+<pre> sudo bash tools/datascience/custom_regex/custom_regex.sh -s activate -n "&lt;pattern_name&gt;" -r "&lt;regular_expression&gt;" -p "&lt;proximity_words&gt;"
 * &lt;pattern_Name&gt; = Dies ist der Name, der in der Datensense-Benutzeroberfläche angezeigt wird. Stellen Sie sicher, dass der Name identifiziert, was der Regex entworfen wurde, um zu finden. Der Name muss mindestens einen Buchstaben enthalten und darf bis zu 70 Zeichen lang sein.
-* &lt;Regular_Expression&gt; = Dies kann jeder legale reguläre Ausdruck sein.</pre>
+* &lt;Regular_Expression&gt; = Dies kann jeder legale reguläre Ausdruck sein.
+* &lt;proximity_words&gt; = Wörter, die innerhalb von 300 Zeichen des Musters liegen, nach dem Sie suchen (entweder vor oder nach dem gefundenen Muster), um die Genauigkeit der Ergebnisse zu verfeinern. Jedes Wort wird durch ein Komma (,) getrennt.</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1314,14 +1315,14 @@ Zum Beispiel, um die in der Datei *internal_Product_Names.txt definierten Schlü
 <div class="literalblock">
 <div class="content">
 <pre> log v1.0 | 2022-08-17 07:24:19,585 | ERROR | ds_logger | custom_regex | 119 | 1 | None | custom_regex_119 | The regex has high risk to identify false positives. Please narrow the regular expression and try again. To add it anyway, use the force flag (-f) at the end
-Sie können die Option *-f* am Ende der Befehlszeile verwenden, wenn Sie den Regex nachdrücklich zu Data Sense hinzufügen möchten - auch wenn wir der Meinung sind, dass er zu breit ist.</pre>
+Sie können die Option *-f* am Ende der Befehlszeile verwenden, wenn Sie den Regex nachdrücklich zu Data Sense hinzufügen möchten - auch wenn wir der Meinung sind, dass er zu breit ist. Alternativ können Sie mit der Option "-p" versuchen, die Suchergebnisse zu verfeinern.</pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="beispiel-2">Beispiel</h3>
 <div class="paragraph">
-<p>Die Produkt-ID ist eine 12-stellige Nummer, die mit 201 beginnt; der reguläre Ausdruck ist also <strong>\b201\d{9}\b</strong>. Und Sie möchten den Text in der Data Sense-Benutzeroberfläche nutzen, um dieses Muster als <strong>interne Produkt-ID</strong> zu identifizieren.</p>
+<p>Die Produkt-ID ist eine 12-stellige Nummer, die mit 201 beginnt, z. B. „201123456789“. Der reguläre Ausdruck lautet also <strong>\b201\d{9}\b</strong>. Und Sie möchten, dass der Text in der Data Sense-Benutzeroberfläche dieses Muster als <strong>interne Produkt-ID</strong> identifiziert. Und wir fügen die Proximity-Wörter „Produkt-id“ und „Bezeichner“ hinzu.</p>
 </div>
 <div class="paragraph">
 <p>Geben Sie die folgenden Befehle ein, um zu sehen, wo Ihre internen Produkt-IDs in Ihren Dateien erwähnt werden.</p>
@@ -1329,8 +1330,11 @@ Sie können die Option *-f* am Ende der Befehlszeile verwenden, wenn Sie den Reg
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">[user ~]$ cd /opt/netapp/Datasense/
-[user Datasense]$ sudo bash tools/datascience/custom_regex/custom_regex.sh -s activate -n "Internal Product ID" -r "\b201\d{9}\b"</code></pre>
+[user Datasense]$ sudo bash tools/datascience/custom_regex/custom_regex.sh -s activate -n "Internal Product ID" -r "\b201\d{9}\b" -p "product id,identifier"</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Die Ausgabe dieses Befehls lautet:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1387,7 +1391,7 @@ So entfernen Sie beispielsweise die *interne Produkt-ID* Regex:</pre>
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2023 NetApp, Inc.</a>
             </li>
             <li class="n-footer__copyright-link">
               <a href="https://www.netapp.com/company/legal/terms-of-use/">Allgemeine Geschäftsbedingungen</a>
