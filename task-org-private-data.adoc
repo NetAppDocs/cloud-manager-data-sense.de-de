@@ -20,7 +20,7 @@ Cloud Data Sense bietet zahlreiche Möglichkeiten für das Management und die Or
 * Sie können Tags zu Dateien hinzufügen, die Sie als Organisation oder für eine Art von Follow-up markieren möchten.
 * Sie können einen BlueXP-Benutzer einer bestimmten Datei oder mehreren Dateien zuweisen, sodass diese Person für das Management der Datei verantwortlich ist.
 * Mit der "Policy"-Funktion können Sie Ihre eigenen individuellen Suchanfragen erstellen, so dass Sie die Ergebnisse einfach durch Klicken auf eine Schaltfläche sehen können.
-* Sie können Benachrichtigungen per E-Mail an BlueXP-Benutzer senden, wenn bestimmte kritische Richtlinien Ergebnisse liefern.
+* Sie können E-Mail-Benachrichtigungen an BlueXP-Benutzer oder andere E-Mail-Adressen senden, wenn bestimmte kritische Richtlinien Ergebnisse liefern.
 
 
 
@@ -62,7 +62,7 @@ Cloud Data Sense unterstützt AIP-Etiketten in den folgenden Dateitypen: .DOC, .
 [NOTE]
 ====
 * Sie können zurzeit keine Etiketten in Dateien ändern, die größer als 30 MB sind. Für OneDrive, SharePoint und Google Drive Konten die maximale Dateigröße beträgt 4 MB.
-* Wenn eine Datei ein Label hat, das in AIP nicht mehr existiert, wird sie von Cloud Data Sense als Datei ohne Etikett betrachtet.
+* Wenn eine Datei einen Namen hat, der in AIP nicht mehr vorhanden ist, wird Cloud Data Sense als Datei ohne Etikett betrachtet.
 * Wenn Sie Data Sense in einer Regierungsregion oder an einem lokalen Standort bereitgestellt haben, der keinen Internetzugang hat (auch als dunkle Site bezeichnet), ist die AIP-Label-Funktion nicht verfügbar.
 
 
@@ -393,7 +393,7 @@ image:screenshot_compliance_save_as_highlight.png["Ein Screenshot zeigt, wie ein
 +
 .. Geben Sie einen eindeutigen Namen und eine eindeutige Beschreibung ein.
 .. Aktivieren Sie optional das Kontrollkästchen, um Dateien automatisch zu löschen, die mit den Richtlinieparametern übereinstimmen. Weitere Informationen zu link:task-managing-highlights.html#deleting-source-files-automatically-using-policies["Quelldateien mit einer Richtlinie löschen"].
-.. Aktivieren Sie optional das Kontrollkästchen, wenn Benachrichtigungen an BlueXP-Benutzer gesendet werden sollen, und wählen Sie das Intervall aus, in dem die E-Mail gesendet wird. Weitere Informationen zu link:task-org-private-data.html#sending-email-alerts-when-non-compliant-data-is-found["Senden von E-Mail-Warnmeldungen anhand von Richtlinienergebnissen"].
+.. Aktivieren Sie optional das Kontrollkästchen, wenn Sie Benachrichtigungen-E-Mails an BlueXP-Benutzer in Ihrem Konto senden möchten, und wählen Sie das Intervall aus, in dem die E-Mail gesendet wird. Weitere Informationen zu link:task-org-private-data.html#sending-email-alerts-when-non-compliant-data-is-found["Senden von E-Mail-Warnmeldungen anhand von Richtlinienergebnissen"].
 .. Aktivieren Sie optional das Kontrollkästchen, um Dateien, die den Richtlinieparametern entsprechen, automatisch AIP-Etiketten zuzuweisen, und wählen Sie die Beschriftung aus. (Nur wenn Sie bereits AIP-Etiketten integriert haben. Weitere Informationen zu link:task-org-private-data.html#categorizing-your-data-using-aip-labels["AIP-Etiketten"].)
 .. Klicken Sie Auf *Create Policy*.
 +
@@ -410,7 +410,7 @@ Die neue Richtlinie wird auf der Registerkarte Richtlinien angezeigt.
 
 === Senden von E-Mail-Warnungen, wenn nicht konforme Daten gefunden werden
 
-Cloud Data Sense kann E-Mail-Benachrichtigungen an BlueXP-Benutzer senden, wenn bestimmte kritische Richtlinien Ergebnisse liefern, damit Sie Benachrichtigungen zum Schutz Ihrer Daten erhalten können. Sie können die E-Mail-Benachrichtigungen täglich, wöchentlich oder monatlich versenden.
+Cloud Data Sense kann E-Mail-Benachrichtigungen an BlueXP-Benutzer in Ihrem Konto senden, wenn bestimmte kritische Richtlinien Ergebnisse liefern, damit Sie Benachrichtigungen zum Schutz Ihrer Daten erhalten können. Sie können die E-Mail-Benachrichtigungen täglich, wöchentlich oder monatlich versenden.
 
 Sie können diese Einstellung beim Erstellen der Richtlinie oder beim Bearbeiten einer Richtlinie konfigurieren.
 
@@ -421,9 +421,13 @@ Befolgen Sie diese Schritte, um E-Mail-Updates zu einer bestehenden Richtlinie h
 +
 image:screenshot_compliance_add_email_alert_1.png["Ein Screenshot zeigt, wie eine vorhandene Richtlinie bearbeitet wird."]
 
-. Aktivieren Sie auf der Seite „Edit Policy“ das Kontrollkästchen, wenn Sie Benachrichtigungs-E-Mails an BlueXP-Benutzer senden möchten, und wählen Sie das Intervall aus, in dem die E-Mail gesendet wird (z. B. jede *Woche*).
+. Auf der Seite Richtlinie bearbeiten:
++
+.. Aktivieren Sie das Kontrollkästchen „E-Mail all the users in this Account“, wenn Sie Benachrichtigungen-E-Mails an Benutzer in Ihrem BlueXP-Konto senden möchten, und wählen Sie das Intervall aus, in dem die E-Mail gesendet wird (z. B. *every Day*).
 +
 image:screenshot_compliance_add_email_alert_2.png["Ein Screenshot, in dem gezeigt wird, wie die E-Mail-Kriterien für die Richtlinie ausgewählt werden."]
+
+
 
 . Klicken Sie auf *Save Policy* und das Intervall, in dem die E-Mail gesendet wird, wird in der Policy description angezeigt.
 
@@ -479,7 +483,7 @@ Cloud Data Sense bietet die folgenden systemdefinierten Richtlinien:
 | Name | Beschreibung | Logik 
 
 
-| S3 öffentlich zugängliche private Daten | S3 Objekte mit persönlichen oder sensiblen persönlichen Daten, mit offenem öffentlichen Lesezugriff. | S3 Public ENTHÄLT persönliche ODER sensible persönliche Informationen 
+| S3 öffentlich - offengelegte private Daten | S3 Objekte mit persönlichen oder sensiblen persönlichen Daten, mit offenem öffentlichen Lesezugriff. | S3 Public ENTHÄLT persönliche ODER sensible persönliche Informationen 
 
 
 | PCI DSS – veraltete Daten über 30 Tage | Dateien mit Kreditkarteninformationen, zuletzt geändert vor mehr als 30 Tagen. | Enthält Kreditkarte UND zuletzt geändert über 30 Tage 
@@ -488,23 +492,23 @@ Cloud Data Sense bietet die folgenden systemdefinierten Richtlinien:
 | HIPAA – veraltete Daten über 30 Tage | Dateien mit Gesundheitsinformationen, zuletzt geändert vor mehr als 30 Tagen. | Enthält Gesundheitsdaten (wie in HIPAA-Berichten definiert) UND die letzte Änderung über 30 Tage 
 
 
-| Private Daten – veraltet über 7 Jahre | Dateien mit persönlichen oder sensiblen persönlichen Daten, zuletzt geändert vor über 7 Jahren. | Dateien mit persönlichen oder sensiblen persönlichen Daten, zuletzt geändert vor über 7 Jahren 
+| Private Daten - veraltet über 7 Jahre | Dateien mit persönlichen oder sensiblen persönlichen Daten, zuletzt geändert vor über 7 Jahren. | Dateien mit persönlichen oder sensiblen persönlichen Daten, zuletzt geändert vor über 7 Jahren 
 
 
-| DSGVO – europäische Bürger | Dateien mit mehr als 5 Kennungen von EU-Bürgern oder DB-Tabellen, die Kennungen von EU-Bürgern enthalten. | Dateien, die mehr als 5 Kennungen von (einem) EU-Bürgern oder DB-Tabellen enthalten, die Zeilen mit mehr als 15 % der Spalten mit den EU-Kennungen eines Landes enthalten. (Eine der nationalen Kennungen der europäischen Länder. Beinhaltet keine Brasilien, Kalifornien, USA SSN, Israel, Südafrika) 
+| DSGVO: Die europäischen Bürger | Dateien mit mehr als 5 Kennungen von EU-Bürgern oder DB-Tabellen, die Kennungen von EU-Bürgern enthalten | Dateien mit mehr als 5 Kennungen von (einem) EU-Bürgern oder DB-Tabellen, die Zeilen mit mehr als 15 % der Spalten mit den EU-Kennungen eines Landes enthalten. (Eine der nationalen Kennungen der europäischen Länder. Beinhaltet keine Brasilien, Kalifornien, USA SSN, Israel, Südafrika) 
 
 
-| CCPA – Einwohner Kaliforniens | Dateien, die über 10 California Driver's License Identifier oder DB-Tabellen mit dieser Kennung enthalten. | Dateien, die über 10 California Driver’s License Identifier ODER DB-Tabellen enthalten, die California Driver’s License enthalten 
+| CCPA – Einwohner Kaliforniens | Dateien, die über 10 California Driver's License Identifier oder DB-Tabellen mit dieser Kennung enthalten. | Dateien mit mehr als 10 California Driver's License Identifier ODER DB-Tabellen mit California Driver's License 
 
 
-| Namen der Betroffenen – hohes Risiko | Dateien mit mehr als 50 Namen des Betroffenen. | Dateien mit mehr als 50 Namen des Betroffenen 
+| Namen der Betroffenen - hohes Risiko | Dateien mit mehr als 50 Namen des Betroffenen. | Dateien mit mehr als 50 Namen des Betroffenen 
 
 
 | E-Mail-Adressen – hohes Risiko | Dateien mit über 50 E-Mail-Adressen oder DB-Spalten mit über 50 % ihrer Zeilen, die E-Mail-Adressen enthalten | Dateien mit über 50 E-Mail-Adressen oder DB-Spalten mit über 50 % ihrer Zeilen, die E-Mail-Adressen enthalten 
 
 
-| Personenbezogene Daten – hohes Risiko | Dateien mit mehr als 20 Identifikatoren für persönliche Daten oder Datenbankspalten mit über 50 % ihrer Zeilen, die Identifikatoren für persönliche Daten enthalten. | Dateien mit über 20 persönlichen oder DB-Spalten mit über 50% ihrer Zeilen, die persönliche enthalten 
+| Personenbezogene Daten - hohes Risiko | Dateien mit mehr als 20 Identifikatoren für persönliche Daten oder Datenbankspalten mit über 50 % ihrer Zeilen, die Identifikatoren für persönliche Daten enthalten. | Dateien mit über 20 persönlichen oder DB-Spalten mit über 50% ihrer Zeilen, die persönliche enthalten 
 
 
-| Sensible personenbezogene Daten – hohes Risiko | Dateien mit über 20 vertraulichen personenbezogenen Daten-IDs oder DB-Spalten mit über 50 % ihrer Zeilen, die vertrauliche personenbezogene Daten enthalten. | Dateien mit über 20 sensiblen persönlichen oder DB-Spalten mit über 50% ihrer Zeilen, die sensible persönliche Daten enthalten 
+| Sensible personenbezogene Daten - hohes Risiko | Dateien mit über 20 vertraulichen personenbezogenen Daten-IDs oder DB-Spalten mit über 50 % ihrer Zeilen, die vertrauliche personenbezogene Daten enthalten. | Dateien mit über 20 sensiblen persönlichen oder DB-Spalten mit über 50% ihrer Zeilen, die sensible persönliche Daten enthalten 
 |===

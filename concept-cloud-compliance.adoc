@@ -34,7 +34,7 @@ Data Sense bietet verschiedene Tools, die Sie bei Ihren Compliance-Bemühungen u
 * Vielzahl sensibler personenbezogener Daten gemäß den Datenschutzvorschriften des DSGVO, CCPA, PCI und HIPAA ermitteln.
 * Reagieren Sie auf Data Subject Access Requests (DSAR) basierend auf Name oder E-Mail-Adresse.
 * Identifizieren Sie, ob eindeutige Kennungen aus Ihren Datenbanken in Dateien in anderen Repositorys gefunden werden - stellen Sie im Grunde Ihre eigene Liste von „persönlichen Daten“ her, die in Daten-Sense-Scans identifiziert werden.
-* Benachrichtigen Sie BlueXP-Benutzer per E-Mail, wenn Dateien bestimmte PII enthalten (Sie definieren diese Kriterien mit link:task-org-private-data.html#controlling-your-data-using-policies["Richtlinien"^]) So können Sie über einen Aktionsplan entscheiden.
+* Bestimmte Benutzer per E-Mail benachrichtigen, wenn Dateien bestimmte PII enthalten (Sie definieren diese Kriterien mit link:task-org-private-data.html#controlling-your-data-using-policies["Richtlinien"^]) So können Sie über einen Aktionsplan entscheiden.
 
 
 
@@ -59,7 +59,7 @@ Data Sense bietet Tools, die Sie bei den Storage-Gesamtbetriebskosten (TCO) unte
 
 * Erhöhte Storage-Effizienz durch Identifizierung doppelter oder nicht geschäftlicher Daten Mit diesen Informationen können Sie entscheiden, ob Sie bestimmte Dateien verschieben oder löschen möchten.
 * Löschen Sie Dateien, die unsicher oder zu riskant erscheinen, um in Ihrem Speichersystem zu belassen, oder die Sie als Duplikat identifiziert haben. Mit _Policies_ können Dateien, die bestimmten Kriterien entsprechen, automatisch gelöscht werden.
-* Sparen Sie Storage-Kosten, indem Sie inaktive Daten ermitteln, die auf kostengünstigeren Objektspeicher verschoben werden können. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html["Weitere Informationen zu Tiering"^].
+* Sparen Sie Storage-Kosten, indem Sie inaktive Daten ermitteln, die auf kostengünstigeren Objektspeicher verschoben werden können. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html["Weitere Informationen zum Tiering von Cloud Volumes ONTAP Systemen"^]. https://docs.netapp.com/us-en/cloud-manager-tiering/concept-cloud-tiering.html["Weitere Informationen zum Tiering von lokalen ONTAP Systemen"^].
 
 
 

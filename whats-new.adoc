@@ -18,6 +18,23 @@ Was ist neu im Bereich Cloud Data Sense.
 
 
 
+== 9. Januar 2023 (Version 1.19)
+
+
+
+=== Auf der Seite „Datenuntersuchung“ stehen drei neue Filter zur Verfügung
+
+Es stehen neue Filter zur Verfügung, um die Ergebnisse zu verfeinern, die auf der Seite „Datenuntersuchung“ angezeigt werden:
+
+* Der Filter „Anzahl der Benutzer mit Zugriff“ zeigt an, welche Dateien und Ordner für eine bestimmte Anzahl von Benutzern geöffnet sind. Sie können einen Zahlenbereich auswählen, um die Ergebnisse zu verfeinern, z. B. um zu sehen, auf welche Dateien 51-100 Benutzer zugreifen können.
+* Mit den Filtern „erstellte Zeit“, „entdeckte Zeit“, „Zuletzt geändert“ und „Letzter Zugriff“ können Sie jetzt einen benutzerdefinierten Datumsbereich erstellen, anstatt nur einen vordefinierten Zeitraum von Tagen auszuwählen. Sie können beispielsweise nach Dateien mit einer "Erstellungszeit" "älter als 6 Monate" oder mit einem "Letzter geändert" Datum innerhalb der "letzten 10 Tage" suchen.
+* Mit dem Filter „Dateipfad“ können Sie nun Pfade festlegen, die Sie aus den gefilterten Abfrageergebnissen ausschließen möchten. Wenn Sie Pfade eingeben, um bestimmte Daten einzuschließen und auszuschließen, findet Data Sense zuerst alle Dateien in den enthaltenen Pfaden, dann werden Dateien aus ausgeschlossenen Pfaden entfernt und die Ergebnisse angezeigt.
+
+
+https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page["Sehen Sie sich die Liste aller Filter an, mit denen Sie Ihre Daten untersuchen können"].
+
+
+
 == 11. Dezember 2022 (Version 1.18)
 
 
@@ -111,9 +128,9 @@ Wenn Sie eine Suche auf der Untersuchungsseite durchführen, können Sie unter �
 Data Sense kann Dateien identifizieren und kategorisieren, die die folgenden Datentypen enthalten:
 
 * Kontonummer Der Neuseeländischen Bank
-* Neuseeland Führerschein Nummer
+* Führerschein für Neuseeland
 * Neuseeland-IRD-Nummer (Steuernummer)
-* Neuseeland NHI (National Health Index) Nummer 
+* Neuseeland NHI (National Health Index) Nummer
 * Neuseeländische Passnummer
 
 
@@ -163,7 +180,7 @@ In der Vergangenheit können Sie die Arten von offenen Berechtigungen anzeigen, 
 
 === Sie können das Scannen eines Repository anhalten, um vorübergehend das Scannen bestimmter Inhalte zu beenden
 
-Das Anhalten des Scans bedeutet, dass Data Sense keine zukünftigen Scans auf Ergänzungen oder Änderungen an einem Volumen oder Eimer durchführen wird, aber dass alle aktuellen Ergebnisse noch im System verfügbar sein. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#pausing-and-resuming-scanning-for-a-repository["Erfahren Sie, wie Sie den Scanvorgang anhalten und fortsetzen"].
+Wenn Sie das Scannen anhalten, führt Data Sense keinen zukünftigen Scan auf beliebigen Ergänzungen oder Änderungen an einem Volume oder Bucket durch, aber alle aktuellen Ergebnisse sind weiterhin im System verfügbar. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#pausing-and-resuming-scanning-for-a-repository["Erfahren Sie, wie Sie den Scanvorgang anhalten und fortsetzen"].
 
 
 

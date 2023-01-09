@@ -86,7 +86,7 @@ Wenn Sie noch keinen BlueXP Connector an Ihrem lokalen Offline-Standort installi
 
 Data Sense Software muss auf einem Host ausgeführt werden, der bestimmte Betriebssystemanforderungen, RAM-Anforderungen, Softwareanforderungen usw. erfüllt. Data Sense wird auf einem Host, der für andere Anwendungen freigegeben ist, nicht unterstützt - der Host muss ein dedizierter Host sein.
 
-* *Betriebssystem*: Red hat Enterprise Linux oder CentOS Versionen 8.0 bis 8.6
+* *Betriebssystem*: Red hat Enterprise Linux oder CentOS Versionen 8.0 bis 8.7
 +
 ** Version 7.8 oder 7.9 kann verwendet werden, aber die Linux-Kernel-Version muss 4.0 oder höher sein
 ** Das Betriebssystem muss in der Lage sein, die Docker Engine zu installieren

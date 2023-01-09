@@ -209,9 +209,10 @@ Sie müssen auf das Data Sense System zugreifen, um die Datei hinzuzufügen, die
 
 Die Befehlssyntax zum Hinzufügen eines benutzerdefinierten Regex ist:
 
- sudo bash tools/datascience/custom_regex/custom_regex.sh -s activate -n "<pattern_name>" -r "<regular_expression>"
+ sudo bash tools/datascience/custom_regex/custom_regex.sh -s activate -n "<pattern_name>" -r "<regular_expression>" -p "<proximity_words>"
 * <pattern_Name> = Dies ist der Name, der in der Datensense-Benutzeroberfläche angezeigt wird. Stellen Sie sicher, dass der Name identifiziert, was der Regex entworfen wurde, um zu finden. Der Name muss mindestens einen Buchstaben enthalten und darf bis zu 70 Zeichen lang sein.
 * <Regular_Expression> = Dies kann jeder legale reguläre Ausdruck sein.
+* <proximity_words> = Wörter, die innerhalb von 300 Zeichen des Musters liegen, nach dem Sie suchen (entweder vor oder nach dem gefundenen Muster), um die Genauigkeit der Ergebnisse zu verfeinern. Jedes Wort wird durch ein Komma (,) getrennt.
 
 
 Sie führen den Befehl über den Pfad */opt/netapp/Datacense/* aus.
@@ -219,21 +220,23 @@ Sie führen den Befehl über den Pfad */opt/netapp/Datacense/* aus.
 Beachten Sie, dass wir jeden neuen Regex testen, um zu überprüfen, ob er zu breit ist und es würde zu viele Spiele zurückkehren. Wenn das der Fall ist, wird die folgende Protokollmeldung angezeigt:
 
  log v1.0 | 2022-08-17 07:24:19,585 | ERROR | ds_logger | custom_regex | 119 | 1 | None | custom_regex_119 | The regex has high risk to identify false positives. Please narrow the regular expression and try again. To add it anyway, use the force flag (-f) at the end
-Sie können die Option *-f* am Ende der Befehlszeile verwenden, wenn Sie den Regex nachdrücklich zu Data Sense hinzufügen möchten - auch wenn wir der Meinung sind, dass er zu breit ist.
+Sie können die Option *-f* am Ende der Befehlszeile verwenden, wenn Sie den Regex nachdrücklich zu Data Sense hinzufügen möchten - auch wenn wir der Meinung sind, dass er zu breit ist. Alternativ können Sie mit der Option "-p" versuchen, die Suchergebnisse zu verfeinern.
 
 
 
 === Beispiel
 
-Die Produkt-ID ist eine 12-stellige Nummer, die mit 201 beginnt; der reguläre Ausdruck ist also *\b201\d{9}\b*. Und Sie möchten den Text in der Data Sense-Benutzeroberfläche nutzen, um dieses Muster als *interne Produkt-ID* zu identifizieren.
+Die Produkt-ID ist eine 12-stellige Nummer, die mit 201 beginnt, z. B. „201123456789“. Der reguläre Ausdruck lautet also *\b201\d{9}\b*. Und Sie möchten, dass der Text in der Data Sense-Benutzeroberfläche dieses Muster als *interne Produkt-ID* identifiziert. Und wir fügen die Proximity-Wörter „Produkt-id“ und „Bezeichner“ hinzu.
 
 Geben Sie die folgenden Befehle ein, um zu sehen, wo Ihre internen Produkt-IDs in Ihren Dateien erwähnt werden.
 
 [source, cli]
 ----
 [user ~]$ cd /opt/netapp/Datasense/
-[user Datasense]$ sudo bash tools/datascience/custom_regex/custom_regex.sh -s activate -n "Internal Product ID" -r "\b201\d{9}\b"
+[user Datasense]$ sudo bash tools/datascience/custom_regex/custom_regex.sh -s activate -n "Internal Product ID" -r "\b201\d{9}\b" -p "product id,identifier"
 ----
+Die Ausgabe dieses Befehls lautet:
+
 ....
 [+] Adding Custom Regex to Data Sense
 log v1.0 | 2022-08-23 13:19:01,476 | INFO | ds_logger | custom_regex | 154 | 1 | None | custom_regex_154 | A pattern named 'Internal Product ID' was added successfully to Data Sense

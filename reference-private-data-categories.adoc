@@ -160,13 +160,13 @@ Beachten Sie, dass Sie der Liste der persönlichen Daten, die in Ihren Dateien g
 | Konto Einer Neuseeländischen Bank | Ja. 
 
 
-| Neuseeländische Führerschein | Ja. 
+| Führerschein in Neuseeland | Ja. 
 
 
 | Neuseeland-IRD-Nummer (Steuernummer) | Ja. 
 
 
-| Neuseeland NHI (National Health Index) Nummer  | Ja. 
+| Neuseeland NHI (National Health Index) Nummer | Ja. 
 
 
 | Neuseeländische Passnummer | Ja. 
@@ -304,7 +304,7 @@ Die folgenden Metadaten werden ebenfalls kategorisiert und in den gleichen unter
 * Daten Spüren Breadcrumbs
 * Design-Dateien
 * E-Mail-Anwendungsdaten
-* Verschlüsselt
+* Verschlüsselt (Dateien mit hohem Entropie-Wert)
 * Ausführbare Dateien
 * Daten Aus Finanzapplikationen
 * Daten Der Integritätsanwendungen
@@ -314,6 +314,7 @@ Die folgenden Metadaten werden ebenfalls kategorisiert und in den gleichen unter
 * Diverse Präsentationen
 * Verschiedene Tabellenkalkulationen
 * Verschiedenes „Unbekannt“
+* Passwortgeschützte Dateien
 * Strukturierte Daten
 * Videos
 * Zero-Byte-Dateien
@@ -338,7 +339,7 @@ NetApp kann keine Garantie für 100 % der Genauigkeit persönlicher Daten und se
 Auf der Grundlage unserer Tests zeigt die folgende Tabelle die Genauigkeit der Informationen, die Data Sense findet. Wir brechen es durch _Precision_ und _Recall_ ab:
 
 Präzision:: Die Wahrscheinlichkeit, dass das, was Data Sense findet, korrekt identifiziert wurde. Beispielsweise bedeutet eine Datengenauigkeit von 90% für personenbezogene Daten, dass 9 von 10 Dateien, die als personenbezogene Daten identifiziert werden, tatsächlich personenbezogene Daten enthalten. 1 von 10 Dateien wäre falsch positiv.
-Rückruf:: Die Wahrscheinlichkeit, dass Daten sinnvoll zu finden, was sie sollten. Beispielsweise bedeutet eine Rückrufquote von 70 % für personenbezogene Daten, dass Data Sense 7 von 10 Dateien identifizieren kann, die tatsächlich personenbezogene Daten in Ihrem Unternehmen enthalten. Data Sense würde 30% der Daten vermissen und es wird nicht im Dashboard erscheinen.
+Rückruf:: Die Wahrscheinlichkeit, dass Daten sinnvoll zu finden, was sie sollten. Beispielsweise bedeutet eine Rückrufquote von 70 % für personenbezogene Daten, dass Data Sense 7 von 10 Dateien identifizieren kann, die tatsächlich personenbezogene Daten in Ihrem Unternehmen enthalten. „Data Sense“ würde 30 % der Daten vermissen und werden nicht im Dashboard angezeigt.
 
 
 Wir verbessern die Genauigkeit unserer Ergebnisse ständig. Diese Verbesserungen werden in zukünftigen Data Sense Versionen automatisch verfügbar sein.

@@ -88,7 +88,7 @@ Data Sense Software muss auf einem Host ausgeführt werden, der bestimmte Betrie
 
 Sorgen Sie dafür, dass Cloud Data Sense ausgeführt wird. Die Cloud Data Sense Maschine muss kontinuierlich ausgeführt werden, um Ihre Daten kontinuierlich zu scannen.
 
-* *Betriebssystem*: Red hat Enterprise Linux oder CentOS Versionen 8.0 bis 8.6
+* *Betriebssystem*: Red hat Enterprise Linux oder CentOS Versionen 8.0 bis 8.7
 +
 ** Version 7.8 oder 7.9 kann verwendet werden, aber die Linux-Kernel-Version muss 4.0 oder höher sein
 ** Das Betriebssystem muss in der Lage sein, die Docker-Engine zu installieren
@@ -107,7 +107,7 @@ Sorgen Sie dafür, dass Cloud Data Sense ausgeführt wird. Die Cloud Data Sense 
 Beachten Sie, dass Sie Daten Sense auf einem System mit weniger CPUs und weniger RAM implementieren können, es gibt jedoch Einschränkungen bei der Verwendung dieser Systeme. Siehe link:concept-cloud-compliance.html#using-a-smaller-instance-type["Verwenden eines kleineren Instanztyps"] Entsprechende Details.
 
 * *Red hat Subscription Management*: Ein Red hat Enterprise Linux System muss mit Red hat Subscription Management registriert werden. Wenn es nicht registriert ist, kann das System während der Installation nicht auf Repositories zugreifen, um die erforderliche Software von Drittanbietern zu aktualisieren.
-* *Zusätzliche Software*: Die folgende Software muss auf dem Host installiert sein. Wenn sie nicht auf dem Host vorhanden ist, installiert das Installationsprogramm die Software für Sie:
+* *Zusätzliche Software*: Sie müssen die folgende Software auf dem Host installieren, bevor Sie Data Sense installieren:
 +
 ** Docker Engine Version 19 oder höher. https://docs.docker.com/engine/install/["Installationsanweisungen anzeigen"^].
 ** Python 3 Version 3.6 oder höher. https://www.python.org/downloads/["Installationsanweisungen anzeigen"^].
@@ -248,7 +248,7 @@ Führen Sie diese Schritte aus, wenn Sie Data Sense Software auf einem einzelnen
 
 .Was Sie benötigen
 * Vergewissern Sie sich, dass Ihr Linux-System die erfüllt <<Bereiten Sie das Linux-Hostsystem vor,Host-Anforderungen erfüllt>>.
-* (Optional) Überprüfen Sie, ob das System die beiden erforderlichen Softwarepakete installiert hat (Docker Engine und Python 3). Das Installationsprogramm installiert diese Software, wenn sie nicht bereits auf dem System installiert ist.
+* Vergewissern Sie sich, dass auf dem System die beiden erforderlichen Softwarepakete installiert sind (Docker Engine und Python 3).
 * Stellen Sie sicher, dass Sie über Root-Rechte auf dem Linux-System verfügen.
 * Wenn Sie einen Proxy verwenden und TLS abfangen, müssen Sie den Pfad auf dem Data Sense Linux-System kennen, auf dem die TLS CA-Zertifikate gespeichert werden.
 * Vergewissern Sie sich, dass die erforderliche Offline-Umgebung erfüllt ist <<Outbound-Internetzugang über Cloud Data Sense aktivieren,Berechtigungen und Konnektivität>>.
@@ -370,7 +370,7 @@ So installieren Sie zusätzliche Data Sense Scanner-Knoten:
 
 .Was Sie benötigen
 * Stellen Sie sicher, dass alle Linux-Systeme für Scanner-Knoten den erfüllen <<Bereiten Sie das Linux-Hostsystem vor,Host-Anforderungen erfüllt>>.
-* (Optional) Überprüfen Sie, ob die Systeme über die beiden erforderlichen Softwarepakete verfügen (Docker Engine und Python 3). Das Installationsprogramm wird diese Software installieren, wenn sie sich nicht bereits auf den Systemen befindet.
+* Überprüfen Sie, ob die Systeme über die beiden erforderlichen Softwarepakete installiert sind (Docker Engine und Python 3).
 * Stellen Sie sicher, dass Sie auf den Linux-Systemen über Root-Rechte verfügen.
 * Vergewissern Sie sich, dass Ihre Umgebung den erforderlichen Anforderungen entspricht <<Outbound-Internetzugang über Cloud Data Sense aktivieren,Berechtigungen und Konnektivität>>.
 * Sie müssen über die IP-Adressen der Scanner-Knoten-Hosts verfügen, die Sie hinzufügen.
@@ -480,13 +480,15 @@ Wenn die Installation auf allen Scanner-Knoten abgeschlossen ist und sie mit dem
 .. Öffnen Sie die Datei „/opt/netapp/Datacense/Working_Environment_to_Scanner_Group_config.yml“, und geben Sie die Zuordnung ein, für die Scannergruppen bestimmte Arbeitsumgebungen scannen. Sie benötigen die _Working Environment ID_ für jede Datenquelle. Die folgenden Einträge fügen beispielsweise 2 Arbeitsumgebungen zur Scanner-Gruppe „europa“ und 2 zur Scannergruppe „united_States“ hinzu:
 +
 ....
-scanner group:
+scanner_groups:
  europe:
-   - "working_environment_id1"
-   - "working_environment_id2"
+   working_environments:
+     - "working_environment_id1"
+     - "working_environment_id2"
  united_states:
-   - "working_environment_id3"
-   - "working_environment_id4"
+   working_environments:
+     - "working_environment_id3"
+     - "working_environment_id4"
 ....
 +
 Jede Arbeitsumgebung, die nicht zur Liste hinzugefügt wird, wird von der Gruppe „Standard“ gescannt. Sie müssen mindestens einen Manager- oder Scannerknoten in der Gruppe „Standard“ haben.
@@ -523,7 +525,7 @@ Führen Sie diese Schritte aus, wenn Sie Data Sense Software auf mehreren lokale
 
 .Was Sie benötigen
 * Stellen Sie sicher, dass alle Linux-Systeme für den Manager- und Scanner-Knoten den entsprechen <<Bereiten Sie das Linux-Hostsystem vor,Host-Anforderungen erfüllt>>.
-* (Optional) Überprüfen Sie, ob die Systeme über die beiden erforderlichen Softwarepakete verfügen (Docker Engine und Python 3). Das Installationsprogramm wird diese Software installieren, wenn sie sich nicht bereits auf den Systemen befindet.
+* Überprüfen Sie, ob die Systeme über die beiden erforderlichen Softwarepakete installiert sind (Docker Engine und Python 3).
 * Stellen Sie sicher, dass Sie auf den Linux-Systemen über Root-Rechte verfügen.
 * Vergewissern Sie sich, dass Ihre Umgebung den erforderlichen Anforderungen entspricht <<Outbound-Internetzugang über Cloud Data Sense aktivieren,Berechtigungen und Konnektivität>>.
 * Sie müssen über die IP-Adressen der zu verwendenden Scanner-Knoten-Hosts verfügen.
